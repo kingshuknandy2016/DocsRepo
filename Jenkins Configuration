@@ -105,4 +105,17 @@ Publish TestNG XML Report:**/**/testng-results.xml
 Issues:
 Go to Manage Jenkins > Script Console > enter value > System.setProperty("hudson.model.DirectoryBrowserSupport.CSP", "default-src * 'unsafe-inline' 'unsafe-eval';script-src 'self' 'unsafe-inline' 'unsafe-eval'"); > Click Run 2 times... it will work
 
+Katalon Integration:
+===========================
+Link:
+https://dzone.com/articles/how-to-setup-the-integration-with-jenkins-and-other
 
+Windows Batch Command:
+cd C:\Users\king\.jenkins\workspace\Proj1
+git pull proj1_url
+cd C:\Users\king\Downloads\Katalon_Studio_Windows_64-6.2.0
+katalon -noSplash  -runMode=console -projectPath="C:\Users\king\.jenkins\workspace\Proj1\abc_name.prj" -retry=0 -testSuitePath="Test Suites/%TestSuite_name%" -executionProfile="%Execution_Profile%" -browserType="%Browser%" -reportFolder="Reports\Details" -reportFileName="report" -apiKey=******************
+echo Success
+
+IN Stall Test Result Analyzer to View the Junit Report:
+https://wiki.jenkins.io/display/JENKINS/Test+Results+Analyzer+Plugin
