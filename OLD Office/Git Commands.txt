@@ -1,0 +1,75 @@
+﻿Git bash installations :-
+
+git --versions 
+
+THEN TO SET UR DETAILS :- 
+##git config --global user.name "username"
+##git config --global user.email "email"
+##git config --list =It will list out the user related details .
+
+##git help <verb>
+##git <help> --help 
+--------------------------------------------------------------------------------------
+
+##1.scenarios working from scratch,starting  from a local directory :-
+
+1.choose a directory or folder from the cmd prompt as local repository
+ a.cd to that particular folder and execute 
+  ##git init
+##git branch <branchname>
+##git checkout <branchname> = To choose a new branch 
+
+2.to remove a file  a rm -rf <filename>
+3.In the same folder create a .gitignore file to include all the files which u dont wanaa deal with.
+4.##git add -A to add all the files in the staging area  
+5##git reset <filename> = to remove a file from staging arear .
+6.##git reset= To remove everything .
+7.##git commit -m "message"
+g.##git pull —rebase
+10.##git push -u origin <branchname>
+8.##git status
+9.##git log
+---------------------------------------------------------------------------------------------------------------
+
+##2.Scenario where we started working on a remote project directory located on github.
+
+once u have git bash.. choose one folder where u would like to keep scripts
+
+example D:/Shubham/Fabric/Cucumber
+
+Right click here and open git bash, in this path git bash wud open
+
+ then u need to try couple of commands to get the project
+ git clone https://github.com/Comcast/WatchableQA.git
+ 
+git status :- to see the updates 
+clone -b develop https://github.com/Comcast/pegasus-ios.git
+git checkout develop :-:-To get the develop banch 
+git add "FileName"
+git commit -a -m "Release version changes”
+git push
+git pull —rebase
+
+------------------------------------------------------------------------------------------------------------------------
+ Git merege commands :-
+##git checkout master
+##git pull origin master
+##git branch --merged
+##git merger <branchname>
+##git push origin master
+---------------------------------------------------------------------------------------------------------------------------
+
+git deleting a branch :-
+
+##git branch --mergered 
+##git branch -d <branchname>
+##git branch -a 
+##git push origin --deletes <branchname>
+------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+

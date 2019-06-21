@@ -1,0 +1,6 @@
+Selenum:
+Types of wait,
+How to handle window alert
+Find element and Find Elements
+
+Action Class
