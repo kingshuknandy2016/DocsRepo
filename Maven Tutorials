@@ -1,0 +1,16 @@
+MAVEN : Built Management Tool
+==============================================
+VALIDATE  --> Validate the Project is correct and all necessary information is avaliable
+COMPILE   --> Compile the Source Code of the Project
+TEST      --> Test the Compiled Source Code with a Unit Testing Framework
+PACKAGE   --> Take the compiled code and package it in its distributable format[JAR or WAR]
+VERIFY    --> Run any Check on Results of Integration tests to ensure the Quality Criteria are met.
+INSTALL   --> Install the package into the local repository,for use as dependency in other projects locally.
+DEPLOY    --> Copy the Final Project to the Remote Repository for sharing with other developers and projects.
+
+Maven Built Phases:
+========================
+@ This lifecycle phases are executed sequentially to complete the default lifecycle
+@ We want to specify the maven PACKAGE command, this command will execute each default lifecycle phase in order 
+  including VALIDATE, COMPILE,TEST before executing PACKAGE
+@ We only need to call the last built phase to be executed.
