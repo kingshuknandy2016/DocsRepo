@@ -119,3 +119,14 @@ echo Success
 
 IN Stall Test Result Analyzer to View the Junit Report:
 https://wiki.jenkins.io/display/JENKINS/Test+Results+Analyzer+Plugin
+
+
+Built Triggers Poll SCM:
+==========================
+Chron syntax: *****
+1st * :Minute(0-59)
+2nd * :Hour(0-23)
+3rd * :Day of Month(1-31)
+4th * :Month(1-12)
+5th * :Day of Week(0-6)(Sunday = 0)
+
