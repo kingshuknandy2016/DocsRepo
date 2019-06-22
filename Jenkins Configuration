@@ -123,10 +123,18 @@ https://wiki.jenkins.io/display/JENKINS/Test+Results+Analyzer+Plugin
 
 Built Triggers Poll SCM:
 ==========================
-Chron syntax: *****
+Chron syntax: * * * * *
 1st * :Minute(0-59)
 2nd * :Hour(0-23)
 3rd * :Day of Month(1-31)
 4th * :Month(1-12)
 5th * :Day of Week(0-6)(Sunday = 0)
 
+To specify Multiple values for 1 Feild:
+*      For all values
+M-N    A range of values
+A,B,Z  Enumerates multiple values
+
+Examples:
+0 0 * * *     Every Day at Midnight
+0 2-4 * * *   2 AM ,3 AM , 4 AM Every Day
