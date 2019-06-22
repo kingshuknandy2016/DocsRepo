@@ -138,3 +138,10 @@ A,B,Z  Enumerates multiple values
 Examples:
 0 0 * * *     Every Day at Midnight
 0 2-4 * * *   2 AM ,3 AM , 4 AM Every Day
+
+Code Quality and Code Coverage Metrix Report:
+==============================================
+Plugins : CheckStyle,PMD,FindBugs
+https://wiki.jenkins.io/display/JENKINS/Checkstyle+Plugin
+https://wiki.jenkins.io/display/JENKINS/PMD+Plugin
+https://wiki.jenkins.io/display/JENKINS/FindBugs+Plugin
