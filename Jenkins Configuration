@@ -145,3 +145,9 @@ Plugins : CheckStyle,PMD,FindBugs
 https://wiki.jenkins.io/display/JENKINS/Checkstyle+Plugin
 https://wiki.jenkins.io/display/JENKINS/PMD+Plugin
 https://wiki.jenkins.io/display/JENKINS/FindBugs+Plugin
+
+Jenkins Pipeline:
+===================
+1] Declarative
+2] Scripted Pipeline
+
