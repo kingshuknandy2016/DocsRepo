@@ -1,0 +1,20 @@
+Steps:
+A]Download Terraform from https://www.terraform.io/downloads.html
+ Extract it, set path
+ 
+B]terraform init
+
+C]Basic AWS Spinning instance:   demo.tf 
+provider "aws" {
+  access_key = "*********"
+  secret_key = "**********"
+  region  = "us-east-2"
+}
+
+resource "aws_instance" "basic_ec2" {
+  ami           = "ami-02f706d959cedf892"
+  instance_type = "t2.micro"
+}
+
+D]terraform apply
+
