@@ -99,4 +99,46 @@ Normal Format:
 		
 		-------------------------------------------
 
+----------- How to check if device is connected to internet in appium?  -----------
+Approach 1 (This will check if connection is there or not) - 
+	use below command in command prompt
+	->  adb shell dumpsys connectivity | grep NetworkInfo
+	This will give you output something like this
+	-> NetworkInfo: type: WIFI[], state: CONNECTED/CONNECTED
+
+Approach 2 (This will check if internet os there or not)
+
+	public static boolean isNetworkAvailable(Context c) {
+	    NetworkInfo netInfo = null;
+	    try {
+		ConnectivityManager cm = (ConnectivityManager) c
+			.getSystemService(Context.CONNECTIVITY_SERVICE);
+		netInfo = cm.getActiveNetworkInfo();
+	    } catch (SecurityException e) {
+		e.printStackTrace();
+	    }
+	    return netInfo != null && netInfo.isConnectedOrConnecting();
+	}
+	public static boolean hasInternetAccess(Context context) {
+	    if (isNetworkAvailable(context)) {
+		try {
+		    HttpURLConnection urlc = (HttpURLConnection) 
+			(new URL("http://clients3.google.com/generate_204")
+			.openConnection());
+		    urlc.setRequestProperty("User-Agent", "Android");
+		    urlc.setRequestProperty("Connection", "close");
+		    urlc.setConnectTimeout(1500); 
+		    urlc.connect();
+		    return (urlc.getResponseCode() == 204 &&
+				urlc.getContentLength() == 0);
+		} catch (IOException e) {
+		    Log.e(TAG, "Error checking internet connection", e);
+		}
+	    } else {
+		Log.d(TAG, "No network available!");
+	    }
+	    return false;
+	}
+
+
 
