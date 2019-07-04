@@ -18,3 +18,5 @@ resource "aws_instance" "basic_ec2" {
 
 D]terraform apply
 
+==============================Advanced==========================
+
