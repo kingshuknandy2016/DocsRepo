@@ -1,0 +1,121 @@
+Privileges===================
+sudo command – run command as root
+sudo -s – open a root shell
+sudo -s -u user – open a shell as user
+sudo -k – forget sudo passwords
+gksudo command – visual sudo dialog (GNOME)
+kdesudo command – visual sudo dialog (KDE)
+sudo visudo – edit /etc/sudoers
+gksudo nautilus – root fle manager (GNOME)
+kdesudo konqueror – root fle manager (KDE)
+passwd – change your password
+
+Network============================
+ifconfig – show network iSystem Services¹
+start service – start job service (Upstart)
+stop service – stop job service (Upstart)
+status service – check if service is running
+(Upstart)
+/etc/init.d/service start – start service
+(SysV)
+/etc/init.d/service stop – stop service (SysV)
+/etc/init.d/service status – check service
+(SysV)
+/etc/init.d/service restart – restart service
+(SysV)
+runlevel – get current runlevel
+
+Package Management¹========================
+apt-get update – refresh available updates
+apt-get upgrade – upgrade all packages
+apt-get dist-upgrade – upgrade with package
+replacements; upgrade Ubuntu version
+apt-get install pkg – install pkg
+apt-get purge pkg – uninstall pkg
+apt-get autoremove – remove obsolete packages
+apt-get -f install – try to fx broken packages
+dpkg --configure -a – try to fx broken
+
+packages===================================
+dpkg -i pkg.deb – install fle pkg.deb
+(fle) /etc/apt/sources.list – APT repository
+listnformation
+iwconfig – show wireless information
+sudo iwlist scan – scan for wireless networks
+sudo /etc/init.d/networking restart – reset
+network for manual confgurations
+(fle) /etc/network/interfaces – manual
+confguration
+ifup interface – bring interface online
+ifdown interface – disable interface
+
+System Services¹================================
+start service – start job service (Upstart)
+stop service – stop job service (Upstart)
+status service – check if service is running
+(Upstart)
+/etc/init.d/service start – start service
+(SysV)
+/etc/init.d/service stop – stop service (SysV)
+/etc/init.d/service status – check service
+(SysV)
+/etc/init.d/service restart – restart service
+(SysV)
+runlevel – get current runlevel
+
+Package Management¹====================================
+apt-get update – refresh available updates
+apt-get upgrade – upgrade all packages
+apt-get dist-upgrade – upgrade with package
+replacements; upgrade Ubuntu version
+apt-get install pkg – install pkg
+apt-get purge pkg – uninstall pkg
+apt-get autoremove – remove obsolete packages
+apt-get -f install – try to fx broken packages
+dpkg --configure -a – try to fx broken
+packages
+dpkg -i pkg.deb – install fle pkg.deb
+(fle) /etc/apt/sources.list – APT repository
+list
+
+Special Packages==============================
+ubuntu-desktop – standard Ubuntu environment
+kubuntu-desktop – KDE desktop
+xubuntu-desktop – XFCE desktop
+ubuntu-minimal – core Ubuntu utilities
+ubuntu-standard – standard Ubuntu utilities
+ubuntu-restricted-extras – non-free, but useful
+kubuntu-restricted-extras – KDE of the above
+xubuntu-restricted-extras – XFCE of the above
+build-essential – packages used to compile programs
+linux-image-generic – latest generic kernel
+image
+linux-headers-generic – latest build headers
+
+Firewall¹==============================================
+ufw enable – turn on the frewall
+ufw disable – turn of the frewall
+ufw default allow – allow all connections by
+default
+ufw default deny – drop all connections by
+default
+ufw status – current status and rules
+ufw allow port – allow trafic on port
+ufw deny port – block port
+ufw deny from ip – block ip adress
+
+Application Names===========================================
+nautilus – fle manager (GNOME)
+dolphin – fle manager (KDE)
+konqueror – web browser (KDE)
+kate – text editor (KDE)
+gedit – text editor (GNOME)
+
+System===============================================
+Recovery - Type the phrase “REISUB” while
+holding down Alt and SysRq (PrintScrn) with
+about 1 second between each letter. Your system
+will reboot.
+lsb_release -a – get Ubuntu version
+uname -r – get kernel version
+uname -a – get all kernel information
