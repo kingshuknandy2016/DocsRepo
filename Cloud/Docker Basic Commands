@@ -1,0 +1,7 @@
+basic checking: 
+docker run hello-world
+
+Playing with Busybox:
+=====================
+
+docker pull busybox     //pull command fetches the busybox image from the Docker registry and saves it to our system
