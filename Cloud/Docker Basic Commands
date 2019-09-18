@@ -6,27 +6,33 @@ docker run hello-world
 Playing with Busybox:
 =====================
 
-docker pull busybox     //pull command fetches the busybox image from the Docker registry and saves it to our system
-docker images          //You can use the docker images command to see a list of all images on your system
+$ docker pull busybox     //pull command fetches the busybox image from the Docker registry and saves it to our system
+$ docker images          //You can use the docker images command to see a list of all images on your system
 
-docker run --help
+$ docker run --help
 
-docker run busybox
+$ docker run busybox
 When you call run, the Docker client finds the image (busybox in this case), loads up the container and then runs a command 
 in that container. When we run docker run busybox, we didn't provide a command, so the container booted up, 
 ran an empty command and then exited.
 
-docker ps
+$ docker ps
 The docker ps command shows you all containers that are currently running.
 
-docker ps -a  //all containers that was running earlier and now exited
+$ docker ps -a  //all containers that was running earlier and now exited
 
-docker run -it busybox  //running the conatiner in interactive mode
+$ docker run -it busybox  //running the conatiner in interactive mode
 
 Clean containers once you are done with it
-A]docker rm 305297d7a235 ff0a5c3750b9  //On deletion, you should see the IDs echoed back to you.
-B] docker rm $(docker ps -a -q -f status=exited) //If you have a bunch of containers to delete in one go, copy-pasting IDs can be tedious. 
-                                           In that case, you can simply run -
+$docker rm 305297d7a235 ff0a5c3750b9  //On deletion, you should see the IDs echoed back to you.
+$ docker rm $(docker ps -a -q -f status=exited) //If you have a bunch of containers to delete in one go, copy-pasting IDs can be tedious. 
+                                         
+ In that case, you can simply,  
+$ docker run --help
+ 
+Delete images that you no longer need by running,
+$ docker rmi
+ 
                                            
                                            
 
