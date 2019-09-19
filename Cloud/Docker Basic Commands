@@ -70,6 +70,7 @@ docker run -d -P --name static-site prakhar1989/static-site
 -d     : will detach our terminal                   //Even if we close your terminal and the container will keep running.
 -P     :will publish all exposed ports to random ports
 --name : corresponds to a name we want to give
+docker port static-site                           //Now we can see the ports by running the docker port [CONTAINER] command
 docker run -p 8888:80 prakhar1989/static-site       //specify a custom port to which the client will forward connections to the container.
 
 Stop a Detached Container:
