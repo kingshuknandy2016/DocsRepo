@@ -61,6 +61,7 @@ docker pull busybox
 
 Run:  [First Pull then Run]
 ============================
+docker run --help                                //To get complete set of options
 docker run hello-world
 docker run busybox echo "hello from busybox"
 docker run -it busybox sh                        //run command with the -it flags attaches us to an interactive tty in the container
