@@ -121,7 +121,13 @@ docker login           //Then enter username and password of Docker repository
 docker build -t  kingshuknandy/jenkins_centos .
 
 
+******************************************************************
+Advanced:
 
+Run Tomcat Server:
+===================
+docker run -it -p 8888:8080 tomcat:8.0  //To run on port 8888
+docker run -it -d -p 8888:8080 tomcat:8.0  //To run in detach mode
 
   
 
