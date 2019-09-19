@@ -57,7 +57,7 @@ User images are images created and shared by users like you and me. They build o
 Inorder to keep the image running at the background d(Detached mode)
 docker run -d busybox:latest
 
-***************************************************************************************************************8
+***************************************************************************************************************
 Docker Commands:
 
 Basic:
@@ -73,14 +73,20 @@ Run:  [First Pull then Run]
 docker run --help                                //To get complete set of options
 docker run hello-world
 docker run busybox echo "hello from busybox"
+docker run -d busybox:1.24 sleep 1000             //Will run in Detach mode
 docker run -it busybox sh                        //run command with the -it flags attaches us to an interactive tty in the container
 docker run --rm busybox                          //the --rm flag automatically removes the container when it exits
+docker run --name helloworld  busybox:1.24
 docker run -d -P --name static-site prakhar1989/static-site
 -d     : will detach our terminal                   //Even if we close your terminal and the container will keep running.
 -P     :will publish all exposed ports to random ports
 --name : corresponds to a name we want to give
 docker port static-site                           //Now we can see the ports by running the docker port [CONTAINER] command
 docker run -p 8888:80 prakhar1989/static-site       //specify a custom port to which the client will forward connections to the container.
+
+Inspect Container Details:
+==============================
+ docker inspect 74b900ad405b86d702fad020a4a759533a622acba90881277037775db5cceb6d
 
 Stop a Detached Container:
 ==========================
@@ -107,6 +113,12 @@ Display Containers:
 ======================
 docker ps          //Running Containers
 docker ps -a       //All containers running earlier as well as the present
+
+
+Builting an Image From Docker File:
+=====================================
+docker login           //Then enter username and password of Docker repository
+docker build -t  kingshuknandy/jenkins_centos .
 
 
 
