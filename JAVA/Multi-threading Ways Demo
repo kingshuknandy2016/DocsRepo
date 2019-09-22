@@ -1,0 +1,56 @@
+package com.basics;
+
+public class ThreadingDemo1 {
+
+	public static void main(String[] args) {
+		new Thread(new A("Thread 1", 200)).start();
+		new Thread(new A("Thread 2", 200)).start();
+	}
+}
+
+class A implements Runnable {
+	private String name;
+	private int val;
+
+	public A(String name, int val) {
+		this.name = name;
+		this.val = val;
+	}
+
+	@Override
+	public void run() {
+		System.out.println("NAME:" + name);
+		for (int i = 0; i < val; i++) {
+			System.out.println(name + " : " + i);
+		}
+	}
+}
+======================================================================
+package com.basics;
+
+public class ThreadingDemo2 {
+
+	public static void main(String[] args) {
+		new B("Thread 1", 200).start();
+		new B("Thread 2", 200).start();
+	}
+}
+
+class B extends Thread {
+	private String name;
+	private int val;
+
+	public B(String name, int val) {
+		this.name = name;
+		this.val = val;
+	}
+
+	@Override
+	public void run() {
+		System.out.println("NAME:" + name);
+		for (int i = 0; i < val; i++) {
+			System.out.println(name + " : " + i);
+		}
+	}
+
+}
