@@ -13,3 +13,7 @@ python manage.py runserver
 Create another folder:
 python manage.py startapp articles
 
+Whenever we add any model we need to add migrations:
+python manage.py makemigrations
+python manage.py migrate
+
