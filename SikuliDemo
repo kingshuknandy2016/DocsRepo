@@ -1,0 +1,29 @@
+        <dependency>
+            <groupId>com.sikulix</groupId>
+            <artifactId>sikulixapi</artifactId>
+            <version>1.1.2</version>
+        </dependency>
+        
+        ================================
+        public class SikuliDemo1 {
+    public static  String SearchXpath="//input[@title='Search']";
+
+    public static void main(String[] args) throws FindFailed, InterruptedException {
+        System.setProperty("webdriver.chrome.driver",System.getProperty("user.dir")+"\\lib\\windows\\chromedriverUpdated.exe");
+        WebDriver driver;
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("window-size=1920,1080", "--no-sandbox");
+        driver = new ChromeDriver(options);
+        driver.get("https://www.google.com/");
+        /*WebElement searchBar = driver.findElement(By.xpath(SearchXpath));
+        searchBar.sendKeys("Terminator");*/
+
+        String filePath=System.getProperty("user.dir")+"\\TestData\\LocatorImages\\";
+        //Pattern googleSearch=new Pattern(filePath+"GoogleSearch.png");
+        Pattern signInBtn=new Pattern(filePath+"signIn.png");
+
+        Screen screen=new Screen();
+        screen.click(signInBtn);
+        Thread.sleep(5000);
+    }
+}
