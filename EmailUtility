@@ -1,0 +1,591 @@
+private Store store;
+    private Folder emailFolder;
+    public  String messageFolderName="INBOX";
+    public int folderAccessMode=Folder.READ_ONLY;
+    public int noOfMailsToCheck;
+    private static HashMap<String,Object> types = new HashMap<>();
+    private int i=1;
+    private String pattern = "EEE MMM dd HH:mm:ss Z yyyy";
+    public MailReader(String user,String password,int noOfMailsToCheck) {
+        this.noOfMailsToCheck = noOfMailsToCheck;
+        String msg="";
+        try {
+            //create properties field
+            String host = "imap.gmail.com";
+            Properties properties = new Properties();
+            properties.put("mail.imap.host", host);
+            properties.put("mail.imap.port", "993");
+            properties.put("mail.imap.starttls.enable", "true");
+            Session emailSession = Session.getDefaultInstance(properties);
+
+            //create the imap store object and connect with the imap server
+            store = emailSession.getStore("imaps");
+            store.connect(host, user, password);
+            msg=new TableUtils()
+                    .createRow("Description","Successfully connected to the IMAP email store.")
+                    .createTable();
+            nodeTest.log(LogStatus.PASS,msg);
+            System.out.println("Successfully connected to the IMAP email store.");
+            Assert.assertTrue(true,"Successfully connected to the IMAP email store.");
+        }catch (Exception e){
+            msg=new TableUtils()
+                    .createRow("Description","Exception occurred while connecting to the IMAP email store."+"\n"+e)
+                    .createTable();
+            nodeTest.log(LogStatus.FAIL,msg);
+            System.out.println("Exception occurred while connecting to the IMAP email store.\n"+e);
+            Assert.assertTrue(false,"Exception occurred while connecting to the IMAP email store."+"\n"+e);
+        }
+
+    }
+
+    /**
+     * @description Get all mails of inbox
+     * @param messageFolderName
+     * @param folderAccessMode
+     * @return message1
+     * @throws MessagingException
+     */
+    private Message[] getAllMails(String messageFolderName,int folderAccessMode) throws MessagingException {
+        emailFolder = store.getFolder(messageFolderName);
+        emailFolder.open(folderAccessMode);
+        Message[] message1 = emailFolder.getMessages();
+        if(message1.length<noOfMailsToCheck){
+            noOfMailsToCheck=message1.length;
+        }
+        return message1;
+    }
+
+    /**
+     * @description  This method short arrayList of message by date in descending order
+     * @param messagesArray
+     * @return messagesArray
+     */
+    public ArrayList<Message> sortMessageByRecievedDate(ArrayList<Message> messagesArray ){
+
+        Collections.sort(messagesArray, new Comparator<Message>() {
+            @Override
+            public int compare(Message m1, Message m2) {
+                try {
+                    return m2.getReceivedDate().compareTo(m1.getReceivedDate());
+                } catch (MessagingException e) {
+                    System.out.println("Exception occured while comaparing the message by Date");
+                    System.out.println(e.getMessage());
+                    return 0;
+                }
+            }
+        });
+        return messagesArray;
+    }
+
+    /**
+     * @description This method used to get mails by given subject.
+     * @param subject
+     * @return messagesArray
+     * @throws MessagingException
+     */
+    public ArrayList<Message> getMailsBySubject(String subject) throws MessagingException {
+        Message[] message1= getAllMails(messageFolderName,folderAccessMode);
+        ArrayList<Message> messagesArray = new ArrayList<>();
+        Message message;
+        for (int i = message1.length - 1; i >= message1.length -noOfMailsToCheck; i--) {
+            message = message1[i];
+            if (message.getSubject().trim().toLowerCase().contains(subject.toLowerCase()) ) {
+                messagesArray.add(message);
+                 }
+            }
+        return messagesArray;
+        }
+
+    /**
+     * @description This mail used to get last mail.
+     * @return message
+     * @throws MessagingException
+     */
+    public Message getLastMail() throws MessagingException {
+        Message[] message1= getAllMails(messageFolderName,folderAccessMode);
+        Message message= message1[message1.length - 1];
+        return message;
+    }
+
+    /**
+     * @description This method used to get mails by current date.
+     * @return messagesArray
+     * @throws MessagingException
+     * @throws ParseException
+     */
+    public ArrayList<Message> getMailsByCurrentDate() throws MessagingException, ParseException {
+        Message[] message1= getAllMails(messageFolderName,folderAccessMode);
+        ArrayList<Message> messagesArray = new ArrayList<>();
+        String currentDate = CommonUtils.getCurrentDate("dd/MM/yyyy");
+        String sentDate;
+        for (int i = message1.length - 1; i >= message1.length -noOfMailsToCheck; i--) {
+            Message message = message1[i];
+            sentDate = CommonUtils.dateFormatter(pattern,"dd/MM/yyyy",(message.getReceivedDate()).toString());
+            if (sentDate.equals(currentDate)) {
+                messagesArray.add(message);
+            }
+        }
+        return messagesArray;
+    }
+
+    /**
+     * @description This method used to get mails by given date.
+     * @param date
+     * @return messagesArray
+     * @throws MessagingException
+     * @throws ParseException
+     */
+    public ArrayList<Message> getMailsOfGivebDate(Date date) throws MessagingException, ParseException {
+
+        Message[] message1= getAllMails(messageFolderName,folderAccessMode);
+        ArrayList<Message> messagesArray = new ArrayList<>();
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+        String givenDate = sdf.format(date);
+        String sentDate;
+        for (int i = message1.length - 1; i >= message1.length -noOfMailsToCheck; i--) {
+            Message message = message1[i];
+            sentDate = CommonUtils.dateFormatter(pattern,"dd/MM/yyyy",(message.getReceivedDate()).toString());
+            if (sentDate.equals(givenDate)) {
+                messagesArray.add(message);
+            }
+        }
+        return messagesArray;
+    }
+
+    /**
+     * @description This method used to get mails which has attachment.
+     * @return messagesArray
+     * @throws MessagingException
+     * @throws IOException
+     */
+    public ArrayList<Message> getMailsWithAttachment() throws MessagingException, IOException {
+
+        Message[] message1= getAllMails(messageFolderName,folderAccessMode);
+        ArrayList<Message> messagesArray = new ArrayList<>();
+        for (int i = message1.length - 1; i >= message1.length -noOfMailsToCheck; i--) {
+            Message message = message1[i];
+            if(isAttachmentPresent(message)){
+                messagesArray.add(message);
+            }
+        }
+        return messagesArray;
+    }
+
+    /**
+     * @description This method used to get mails by subject and date.
+     * @param subject
+     * @param date
+     * @return messagesArray
+     * @throws MessagingException
+     * @throws ParseException
+     */
+    public ArrayList<Message> getMailsBySubjectAndGivenDate(String subject,Date date) throws MessagingException, ParseException {
+        Message[] message1= getAllMails(messageFolderName,folderAccessMode);
+        ArrayList<Message> messagesArray = new ArrayList<>();
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+        String givenDate = sdf.format(date);
+        String sentDate;
+        for (int i = message1.length - 1; i >= message1.length -noOfMailsToCheck; i--) {
+            Message message = message1[i];
+            sentDate = CommonUtils.dateFormatter(pattern,"dd/MM/yyyy",(message.getReceivedDate()).toString());
+            if (message.getSubject().toLowerCase().contains(subject.toLowerCase()) && sentDate.equals(givenDate)) {
+                messagesArray.add(message);
+            }
+        }
+        return messagesArray;
+    }
+
+    /**
+     * @description This method used to get mails by subject and current date.
+     * @param subject
+     * @return messagesArray
+     * @throws MessagingException
+     * @throws ParseException
+     */
+    public ArrayList<Message> getMailsBySubjectAndCurrentDate(String subject) throws MessagingException, ParseException {
+        Message[] message1= getAllMails(messageFolderName,folderAccessMode);
+        ArrayList<Message> messagesArray = new ArrayList<>();
+        String currentDate = CommonUtils.getCurrentDate("dd/MM/yyyy");
+        String sentDate;
+        for (int i = message1.length - 1; i >= message1.length -noOfMailsToCheck; i--) {
+            Message message = message1[i];
+            sentDate = CommonUtils.dateFormatter(pattern,"dd/MM/yyyy",(message.getReceivedDate()).toString());
+            if (message.getSubject().toLowerCase().contains(subject.toLowerCase()) && sentDate.equals(currentDate)) {
+                messagesArray.add(message);
+            }
+        }
+        return messagesArray;
+    }
+
+    /**
+     * @description This method used to get mails by subject and attachment.
+     * @param subject
+     * @return messagesArray
+     * @throws MessagingException
+     * @throws ParseException
+     * @throws IOException
+     */
+    public ArrayList<Message> getMailsWithSubjectAndAttachment(String subject) throws MessagingException, ParseException, IOException {
+        Message[] message1= getAllMails(messageFolderName,folderAccessMode);
+        ArrayList<Message> messagesArray = new ArrayList<>();
+        for (int i = message1.length - 1; i >= message1.length -noOfMailsToCheck; i--) {
+            Message message = message1[i];
+
+            if (message.getSubject().toLowerCase().contains(subject.toLowerCase()) && isAttachmentPresent(message) ) {
+                messagesArray.add(message);
+            }
+        }
+        return messagesArray;
+    }
+
+
+    /**
+     * @description This method used to get mails by current date and attachment.
+     * @return messagesArray
+     * @throws MessagingException
+     * @throws ParseException
+     * @throws IOException
+     */
+    public ArrayList<Message> getMailsWithCurrentDateAndAttachment() throws MessagingException, ParseException, IOException {
+        Message[] message1= getAllMails(messageFolderName,folderAccessMode);
+        ArrayList<Message> messagesArray = new ArrayList<>();
+        String currentDate = CommonUtils.getCurrentDate("dd/MM/yyyy");
+        String sentDate;
+        for (int i = message1.length - 1; i >= message1.length -noOfMailsToCheck; i--) {
+            Message message = message1[i];
+            sentDate = CommonUtils.dateFormatter(pattern,"dd/MM/yyyy",(message.getReceivedDate()).toString());
+            if (sentDate.equals(currentDate) && isAttachmentPresent(message)) {
+                messagesArray.add(message);
+            }
+        }
+        return messagesArray;
+    }
+
+    /**
+     * @description This method used to get mails by given date and attachment.
+     * @param date
+     * @return messagesArray
+     * @throws MessagingException
+     * @throws ParseException
+     * @throws IOException
+     */
+    public ArrayList<Message> getMailsWithGivenDateAndAttachment(Date date) throws MessagingException, ParseException, IOException {
+        Message[] message1= getAllMails(messageFolderName,folderAccessMode);
+        ArrayList<Message> messagesArray = new ArrayList<>();
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+        String givenDate = sdf.format(date);
+        String sentDate;
+        for (int i = message1.length - 1; i >= message1.length -noOfMailsToCheck; i--) {
+            Message message = message1[i];
+            sentDate = CommonUtils.dateFormatter(pattern,"dd/MM/yyyy",(message.getReceivedDate()).toString());
+            if (sentDate.equals(givenDate) && isAttachmentPresent(message)) {
+                messagesArray.add(message);
+            }
+        }
+        return messagesArray;
+    }
+
+    /**
+     * @description This method used to get mails by subject,given date and attachment.
+     * @param subject
+     * @param date
+     * @return messagesArray
+     * @throws MessagingException
+     * @throws ParseException
+     * @throws IOException
+     */
+    public ArrayList<Message> getMailsWithSubjectGivenDateAndAttachment(String subject, Date date) throws MessagingException, ParseException, IOException {
+        Message[] message1= getAllMails(messageFolderName,folderAccessMode);
+        ArrayList<Message> messagesArray = new ArrayList<>();
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+        String givenDate = sdf.format(date);
+        String sentDate;
+        for (int i = message1.length - 1; i >= message1.length -noOfMailsToCheck; i--) {
+            Message message = message1[i];
+            sentDate = CommonUtils.dateFormatter(pattern,"dd/MM/yyyy",(message.getReceivedDate()).toString());
+            if ((message.getSubject().toLowerCase()).contains(subject.toLowerCase()) && sentDate.equals(givenDate) && isAttachmentPresent(message)) {
+                messagesArray.add(message);
+            }
+        }
+        return messagesArray;
+    }
+
+    /**
+     * @description This method used to get mails by subject,current date and attachment.
+     * @param subject
+     * @return messagesArray
+     * @throws MessagingException
+     * @throws ParseException
+     * @throws IOException
+     */
+    public ArrayList<Message> getMailsWithSubjectCurentDateAndAttachment(String subject) throws MessagingException, ParseException, IOException {
+        Message[] message1= getAllMails(messageFolderName,folderAccessMode);
+        ArrayList<Message> messagesArray = new ArrayList<>();
+        //String currentDate = CommonUtils.getCurrentDate("dd/MM/yyyy");
+         // String sentDate;
+        Message message;
+        Date yourDate;
+        DateTime messageDateInIst;
+        DateTime currentDateInIst;
+        Date messageZeroTime;
+        Date currentZeroTime;
+
+        for (int i = message1.length - 1; i >= message1.length-noOfMailsToCheck; i--) {
+            message = message1[i];
+            yourDate=message.getReceivedDate();
+            messageDateInIst=CommonUtils.getDateInGivenTimeZone(yourDate,"IST");
+            currentDateInIst=CommonUtils.getDateInGivenTimeZone(new Date(),"IST");
+            messageZeroTime=CommonUtils.getZeroTimeDate(messageDateInIst.toDate());
+            currentZeroTime=CommonUtils.getZeroTimeDate(currentDateInIst.toDate());
+
+            //System.out.println(i+"]"+message.getReceivedDate()+" - "+message.getSubject()+" - "+messageZeroTime);
+            //sentDate = CommonUtils.dateFormatter(pattern,"dd/MM/yyyy",(message.getReceivedDate()).toString());
+            if (message.getSubject().toLowerCase().contains(subject.toLowerCase()) && messageZeroTime.equals(currentZeroTime) && isAttachmentPresent(message)) {
+                messagesArray.add(message);
+                break;
+            }
+        }
+
+        return messagesArray;
+    }
+
+
+    /**
+     * @description This method used to get attachment size of given message.
+     * @param message
+     * @return size
+     * @throws MessagingException
+     * @throws IOException
+     */
+    public int getAttachmentSize(Message message) throws MessagingException, IOException {
+        int size =0;
+        Multipart multiPart = (Multipart) message.getContent();
+        MimeBodyPart part;
+        for (int partCount = 0; partCount < multiPart.getCount(); partCount++) {
+            part = (MimeBodyPart) multiPart.getBodyPart(partCount);
+            if (Part.ATTACHMENT.equalsIgnoreCase(part.getDisposition()))
+            {
+            Object o = part.getContent();
+                if(o instanceof InputStream) {
+                    ByteArrayOutputStream output = new ByteArrayOutputStream();
+                    BASE64DecoderStream test = (BASE64DecoderStream) part.getContent();
+                    byte[] bytes = new byte[1024];
+                    int count;
+                    while ((count = test.read(bytes)) > 0) {
+                            output.write(bytes, 0, count);
+                    }
+                    size = output.size() / 1024;
+                }
+                break;
+            }
+        }
+        return size;
+    }
+
+    public InputStream getAttachmentInputStream(Message message) throws MessagingException, IOException {
+        InputStream is = null;
+        Multipart multiPart = (Multipart) message.getContent();
+        MimeBodyPart part;
+        for (int partCount = 0; partCount < multiPart.getCount(); partCount++) {
+            part = (MimeBodyPart) multiPart.getBodyPart(partCount);
+            if (Part.ATTACHMENT.equalsIgnoreCase(part.getDisposition()))
+            {
+                Object o = part.getContent();
+                if(o instanceof InputStream) {
+                    is = (InputStream)o;
+                }
+                break;
+            }
+        }
+        return is;
+    }
+
+
+    public void downloadAttachment(InputStream encrypteddata, File f) throws IOException {
+        FileOutputStream output = new FileOutputStream(f);
+        byte[] bytes = new byte[4096];
+        int count;
+        while ((count = encrypteddata.read(bytes)) != -1) {
+            output.write(bytes, 0, count);
+        }
+        output.flush();
+        output.close();
+    }
+
+    /**
+     * @description This method return attachment name of given message
+     * @param message
+     * @return fileName
+     * @throws MessagingException
+     * @throws IOException
+     */
+    public String getAttachmentName(Message message) throws MessagingException, IOException {
+        String fileName = "";
+        String messageContent;
+        Multipart multiPart = (Multipart) message.getContent();
+        int numberOfParts = multiPart.getCount();
+        for (int partCount = 0; partCount < numberOfParts; partCount++) {
+            MimeBodyPart part = (MimeBodyPart) multiPart.getBodyPart(partCount);
+            if (Part.ATTACHMENT.equalsIgnoreCase(part.getDisposition()))
+            {
+                // this part is attachment
+                fileName = part.getFileName();
+                //
+                //System.out.println("Message part "+partCount+" contains an attachment with file name: "+fileName);
+
+            } else {
+                // this part may be the message content
+                messageContent = part.getContent().toString();
+                //System.out.println("Message part "+partCount+" does not contains attachment.");
+                //System.out.println("MessageContent: "+messageContent);
+            }
+        }
+        return fileName;
+    }
+
+    /**
+     * @description This method used to get mimetypes of a message.
+     * @param p
+     * @return types
+     * @throws MessagingException
+     * @throws IOException
+     */
+    public static HashMap<String,Object> getMessageMimeTypes(Part p) throws MessagingException, IOException {
+        if (p instanceof Message){
+            if (p.isMimeType("text/plain")) {
+                types.put("text/plain",p.getContent());
+            }else if (p.isMimeType("multipart/*")) {
+                System.out.println("This is a Multipart");
+                Multipart mp = (Multipart) p.getContent();
+                int partCount = mp.getCount();
+                for (int i = 0; i < partCount; i++){
+                    MimeBodyPart part = (MimeBodyPart) mp.getBodyPart(i);
+                    if (Part.ATTACHMENT.equalsIgnoreCase(part.getDisposition())){
+                        types.put("attachment",part.getContent());
+                        getMessageMimeTypes(mp.getBodyPart(i));
+                    }else if(Part.INLINE.equalsIgnoreCase(part.getDisposition())){
+                        types.put("inline",p.getContent());
+                        getMessageMimeTypes(mp.getBodyPart(i));
+                    }else {
+                        getMessageMimeTypes(mp.getBodyPart(i));
+                    }
+                }
+            }else if (p.isMimeType("message/rfc822")) {
+                types.put("message/rfc822",p.getContent());
+                getMessageMimeTypes((Part) p.getContent());
+            }else if (p.isMimeType("image/jpeg")) {
+                types.put("image/jpeg",p.getContent());
+            }
+            else if (p.isMimeType("image/")) {
+                types.put("image/",p.getContent());
+            }else if(p.isMimeType("text/html")){
+                types.put("text/html",p.getContent());
+            }
+        }else {
+            Object o = p.getContent();
+            if (p.isMimeType("text/html")) {
+                types.put("text/html",p.getContent());
+
+            } else if (o instanceof InputStream) {
+                types.put("InputStream",p.getContent());
+
+            } else if (p.isMimeType("text/plain")) {
+                types.put("text/plain",p.getContent());
+
+            } else {
+                System.out.println("This is an unknown type");
+                System.out.println("---------------------------");
+                System.out.println(o.toString());
+            }
+        }
+        return types;
+    }
+
+
+    /**
+     * @decription Method verifies if the mail contain attachment with desired name
+     * @param message
+     * @param fileName
+     * @return
+     * @throws MessagingException
+     * @throws IOException
+     */
+    public boolean isDesiredAttachmentPresent(Message message, String fileName) throws MessagingException, IOException {
+        boolean flag=false;
+        if(message.isMimeType("multipart/*")){
+            Multipart multipart= (Multipart)message.getContent();
+            MimeBodyPart mimeBodyPart;
+            for(int i=0;i<multipart.getCount();i++){
+                 mimeBodyPart = (MimeBodyPart)multipart.getBodyPart(i);
+                 if(Part.ATTACHMENT.equalsIgnoreCase(mimeBodyPart.getDisposition()) && fileName.equalsIgnoreCase(mimeBodyPart.getFileName())){
+                     flag=true;
+                     break;
+                    }
+                 }
+             }
+        return flag;
+    }
+
+    /**
+     * @description This message verifies message has attachment
+     * @param p
+     * @return flag
+     * @throws MessagingException
+     * @throws IOException
+     */
+    public boolean isAttachmentPresent(Part p) throws MessagingException, IOException {
+        boolean flag=false;
+        if(p instanceof Message){
+            if(p.isMimeType("multipart/*")){
+                Multipart multipart= (Multipart)p.getContent();
+                MimeBodyPart part;
+                for(int i=0;i<multipart.getCount();i++){
+                    part = (MimeBodyPart)multipart.getBodyPart(i);
+                    if(Part.ATTACHMENT.equalsIgnoreCase(part.getDisposition())){
+                        flag=true;
+                        break;
+                    }
+                }
+            }
+        }
+        return flag;
+    }
+
+    /**
+     * @description This method closes the imap store and mail folder.
+     * @throws MessagingException
+     */
+    public void tearDown() throws MessagingException {
+        emailFolder.close(false);
+        store.close();
+        System.out.println("Successfully closed email folder and  IMAP store.");
+    }
+
+    public static String fetchOtp(HashMap<String,Object> types) {
+        Object o = null;
+        String otp=null;
+        if(types.containsKey("text/plain")){
+            o = types.get("text/plain");
+            String text= String.valueOf(o);
+            StringBuilder sp=  new StringBuilder((text.split("Verify your Email")[0]));
+            otp = new StringBuilder(sp.reverse().substring(4,10)).reverse().toString().trim();
+
+        }else if( !types.containsKey("text/plan") && types.containsKey("text/html") ){
+            System.out.println("inside html");
+            o = types.get("text/html");
+            String text= String.valueOf(o);
+            otp=(text.split("<b>OTP</b>: ")[1]).split("\\s")[0];
+           /* Document html = Jsoup.parse(text);
+            String otpText = html.getElementsMatchingOwnText(": ").get(0).text();
+            otp = String.valueOf(new StringBuilder(new StringBuilder(otpText).reverse().substring(0,6)).reverse());*/
+        }
+        return otp;
+    }
+
+
+    public static void main(String[] args) throws ParseException, MessagingException, IOException {
+        MailReader mailReader = new MailReader("automation-staging@investo2o.com","cielurhdqjtveqig",50);
+        ArrayList<Message> messages= mailReader.getMailsByCurrentDate();
+        Part message = messages.get(0);
+        System.out.println(fetchOtp(getMessageMimeTypes(message)));
+    }
