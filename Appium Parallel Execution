@@ -10,3 +10,21 @@ npm install -l appium-doctor
 To inspect in Android: appium-doctor --android
 To inspect in IOS: appium-doctor --android
 
+
+Setup:
+Step 1:
+Download Selenium Standalone Jar
+And Start it as a hub
+
+* java -jar selenium-server-standalone-<version>.jar -role hub
+Default will start in port 4444
+To view the status: http://localhost:4444/grid/console
+
+Step 2:
+Start the nodes
+
+
+
+References:
+https://github.com/SeleniumHQ/selenium/wiki/Grid2
+https://appiumpro.com/editions/54
