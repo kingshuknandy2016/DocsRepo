@@ -1,0 +1,12 @@
+.Selenium-Grid allows you run your tests on different machines against different browsers in parallel. 
+
+Starting up the Grid - 
+
+
+1.Install Node
+2.Install Appium
+npm install -l appium
+npm install -l appium-doctor
+To inspect in Android: appium-doctor --android
+To inspect in IOS: appium-doctor --android
+
