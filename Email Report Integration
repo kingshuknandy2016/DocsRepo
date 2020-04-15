@@ -1,0 +1,336 @@
+=======================Class===========================
+public class HTMLReporter extends TestListenerAdapter implements IReporter {
+	private static PrintWriter f_out;
+	private static String outputDir;
+	String mailHeader="";
+
+	public void generateReport(List<XmlSuite> arg0, List<ISuite> suites, String outdir) {
+		try {
+			outputDir = System.getProperty("user.dir");
+		} catch (Exception ex) {
+			ex.printStackTrace();
+		}
+
+		try {
+			f_out = createWriter(outputDir);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		initializeMailHeader(suites);
+		startHtmlPage(f_out);
+
+		generateTestExecutionStatus(suites);
+
+		f_out.flush();
+		f_out.close();
+
+	}
+
+	private void generateTestExecutionStatus(List<ISuite> suites) {
+
+		int totalPassedMethods = 0;
+		int totalFailedMethods = 0;
+		int totalSkippedMethods = 0;
+
+		int suite_totalPassedMethods = 0;
+		int suite_totalFailedMethods = 0;
+		int suite_totalSkippedMethods = 0;
+		String testDetailRows = new String();
+		long totalTime = 0;
+		String executionTime="";
+		//String browserName="";
+		//String language ="";
+		String module="";
+		String group="";
+		String environment="";
+
+		String suiteName = "";
+		
+		ITestContext overview = null;
+
+		for (ISuite suite : suites) {
+			//suiteName = suite.getName();
+			///browserName = suite.getParameter("browser");
+			///language = suite.getParameter("language");
+			suiteName=System.getProperty("suiteName");
+			module=System.getProperty("moduleName");
+			group=System.getProperty("executedGroups");
+			environment=System.getProperty("executionEnv");
+
+
+			mailHeader = suite.getParameter("type");
+
+			for (ISuiteResult eachResult : suite.getResults().values()) {
+				ITestContext ctx = eachResult.getTestContext();
+				Date start = ctx.getStartDate();
+				Date end = ctx.getEndDate();
+				long ms = end.getTime() - start.getTime();
+				totalTime += ms;
+			}
+
+			executionTime = String.format("%02d:%02d:%02d", TimeUnit.MILLISECONDS.toHours(totalTime),
+					TimeUnit.MILLISECONDS.toMinutes(totalTime) - TimeUnit.HOURS.toMinutes(TimeUnit.MILLISECONDS.toHours(totalTime)),
+					TimeUnit.MILLISECONDS.toSeconds(totalTime) - TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(totalTime)));
+
+
+			Map<String, ISuiteResult> tests = suite.getResults();
+
+			for (ISuiteResult r : tests.values()) {
+				overview = r.getTestContext();
+
+				// Get Details of passed test cases. Note : Passed test case details are not required in Email body
+//				IResultMap testsPassed= overview.getPassedTests();
+//				Set<ITestResult> resultPassed = testsPassed.getAllResults();
+//				Iterator<ITestResult> iteratorPass = resultPassed.iterator();
+//				while(iteratorPass.hasNext()){
+//					ITestResult tcResult = iteratorPass.next();
+//					String row = "<tr>" +
+//									"<td style=\"text-align: left; border: 1px solid grey; height: 25px; font-size:18px;\">"+ tcResult.getTestContext().getName() +"</td>" +
+//									"<td style=\"text-align: center; border: 1px solid grey; height: 25px; color: #00CC00; font-size:18px;\">"+ "Pass" +"</td>" +
+//									"<td style=\"text-align: center; border: 1px solid grey; height: 25px; font-size:18px; font-family: \"Times New Roman\", Times, serif;\">"+ "NA" +"</td>" +
+//								"</tr> ";
+//					testDetailRows+=row;
+//				}
+
+				// Get details of failed test cases
+				
+				IResultMap testsFailed= overview.getFailedTests();
+				Set<ITestResult> resultFailed = testsFailed.getAllResults();
+				Iterator<ITestResult> iteratorFail = resultFailed.iterator();
+				while(iteratorFail.hasNext()){
+					ITestResult tcResult = iteratorFail.next();
+					String row = "<tr>" +
+									//"<td style=\"text-align: left; border: 1px solid grey; height: 25px; font-size:15px; font-family: Georgia;\">"+ tcResult.getTestContext().getName() +"</td>" +
+							        "<td style=\"text-align: left; border: 1px solid grey; height: 25px; font-size:15px; font-family: Georgia;\">"+ tcResult.getMethod().getDescription() +"</td>" +
+							        "<td style=\"text-align: center; border: 1px solid grey; height: 25px; color: #CC0000; font-size:15px; font-family: Georgia;\">"+ "Fail" +"</td>" +
+									"<td style=\"text-align: left; border: 1px solid grey; height: 25px; font-size:15px;\"><pre style=\"font-family: Georgia;\">"+ tcResult.getThrowable().toString()+"  . "+tcResult.getTestContext().getAttribute("ERROR_STATE") +"</pre></td>" +
+								"</tr> ";
+					testDetailRows+=row;
+					
+				}
+
+				// Get Details of skipped test cases.
+				IResultMap testsSkipped = overview.getSkippedTests();
+				Set<ITestResult> resultSkipped = testsSkipped.getAllResults();
+				Iterator<ITestResult> iteratorSkip = resultSkipped.iterator();
+				while(iteratorSkip.hasNext()){
+					ITestResult tcResult = iteratorSkip.next();
+					String row = "<tr>" +
+									"<td style=\"text-align: left; border: 1px solid grey; height: 25px; font-size:15px; font-family: Georgia;\">"+ tcResult.getTestContext().getName() +"</td>" +
+									"<td style=\"text-align: center; border: 1px solid grey; height: 25px; color: #CCA300; font-size:15px; font-family: Georgia;\">"+ "Skip" +"</td>" +
+							"<td style=\"text-align: left; border: 1px solid grey; height: 25px; font-size:15px;\"><pre style=\"font-family: Georgia;\">"+ tcResult.getThrowable() +"</pre></td>" +
+								"</tr> ";
+					testDetailRows+=row;
+					
+				}
+
+				totalPassedMethods = overview.getPassedTests().getAllMethods().size();
+				totalFailedMethods = overview.getFailedTests().getAllMethods().size();
+				totalSkippedMethods = overview.getSkippedTests().getAllMethods().size();
+
+				NumberFormat nf = NumberFormat.getInstance();
+				nf.setMaximumFractionDigits(2);
+				nf.setGroupingUsed(true);
+
+				suite_totalPassedMethods += totalPassedMethods;
+				suite_totalFailedMethods += totalFailedMethods;
+				suite_totalSkippedMethods += totalSkippedMethods;
+
+			}
+		}
+
+		String suite_pass = "";
+		String suite_fail = "";
+		String suite_skip = "";
+
+		if (suite_totalPassedMethods > 0) {
+			suite_pass = "<td style=\"text-align: center; border: 1px solid grey; height: 25px; color: #00CC00; font-family: Georgia;\"><b>"
+					+ suite_totalPassedMethods + "</b></td>";
+		} else {
+			suite_pass = "<td style=\"text-align: center; border: 1px solid grey; height: 25px; color: #1C1C1C; font-family: Georgia;\">"
+					+ suite_totalPassedMethods + "</td>";
+		}
+
+		if (suite_totalFailedMethods > 0) {
+			suite_fail = "<td style=\"text-align: center; border: 1px solid grey; height: 25px; color: #CC0000; font-family: Georgia;\"><b>"
+					+ suite_totalFailedMethods + "</b></td>";
+		} else {
+			suite_fail = "<td style=\"text-align: center; border: 1px solid grey; height: 25px; color: #1C1C1C; font-family: Georgia;\">"
+					+ suite_totalFailedMethods + "</td>";
+		}
+
+		if (suite_totalSkippedMethods > 0) {
+			suite_skip = "<td style=\"text-align: center; border: 1px solid grey; height: 25px; color: #CCA300; font-family: Georgia;\"><b>"
+					+ suite_totalSkippedMethods + "</b></td>";
+		} else {
+			suite_skip = "<td style=\"text-align: center; border: 1px solid grey; height: 25px; color: #1C1C1C; font-family: Georgia;\">"
+					+ suite_totalSkippedMethods + "</td>";
+		}
+
+
+		f_out.println("<div align=\"left\"><div style=\"font-size:16px; font-family: Georgia;\">Module : " + module + "</div></div>");
+		f_out.println("<div align=\"left\"><div style=\"font-size:16px; font-family: Georgia;\">Group : " + group + "</div></div>");
+		f_out.println("<div align=\"left\"><div style=\"font-size:16px; font-family: Georgia;\">Execution time : " + executionTime + "</div></div>");
+		f_out.println("<div align=\"left\"><div style=\"font-size:16px; font-family: Georgia;\">Environment : " + environment + "</div></div><br/>");
+
+		// Summary Table
+		f_out.println("<p><div style=\"font-size:20px; font-family: Georgia;\"><b>Overall Execution Summary</b></div></p>");
+		f_out.println(
+				"<table style=\"border-collapse: collapse; width: 70%;\">" +
+					"<thead>" +
+						"<tr>" +
+							"<th style=\"background-color: #93b874; border: 1px solid grey; height: 25px; color: white; font-family: Georgia;\">Test Suite Name</th>" +
+							"<th style=\"background-color: #93b874; border: 1px solid grey; height: 25px; color: white; font-family: Georgia;\"># Passed</th> " +
+							"<th style=\"background-color: #93b874; border: 1px solid grey; height: 25px; color: white; font-family: Georgia;\"># Failed</th>" +
+							"<th style=\"background-color: #93b874; border: 1px solid grey; height: 25px; color: white; font-family: Georgia;\"># Skipped</th>" +
+							"<th style=\"background-color: #93b874; border: 1px solid grey; height: 25px; color: white; font-family: Georgia;\"># Total</th>" +
+						"</tr> " +
+					"</thead> " +
+					"<tbody> " +
+						"<tr>" +
+							"<td style=\"text-align: center; border: 1px solid grey; height: 25px; width:150px; color: #1C1C1C; font-family: Georgia;\"><b>"+ suiteName +"</td>" +
+							suite_pass +
+							suite_fail +
+							suite_skip +
+							"<td style=\"text-align: center; border: 1px solid grey; height: 25px; color: #1C1C1C; font-family: Georgia;\">"+ (suite_totalPassedMethods + suite_totalFailedMethods + suite_totalSkippedMethods) + "</td>" +
+						"</tr> " +
+					"</tbody>"+
+				"</table>"
+		);
+
+		f_out.println("<p><div style=\"font-size:20px; font-family: Georgia;\"><b>Graphical Summary</b></div></p>");
+		f_out.println(("<p><div style=\"font-size:16px;\"><img src='http://chart.googleapis.com/chart?chxs=0,676767,13&chxt=x&chs=500x220&cht=p3&chco=80C65A|DE0043|BFC8CC&chd=t:" + suite_totalPassedMethods+ "," + suite_totalFailedMethods
+				+ "," + suite_totalSkippedMethods + "&chds=a&chdl=Passed+TC|Failed+TC|Skipped+TC&chl=" + suite_totalPassedMethods + "|" + suite_totalFailedMethods + "|" + suite_totalSkippedMethods
+				+ "&chtt=Automation+Test+Case+Summary&chts=676767,13/'></div></p>"));
+
+		// Test case details Table
+        if(suite_totalFailedMethods > 0 || suite_totalSkippedMethods > 0){
+            f_out.println("<p><div style=\"font-size:20px; font-family: Georgia;\"><b>Test Case Details</b></div></p>");
+            f_out.println(
+                    "<table style=\"border-collapse: collapse; width: 100%;\">" +
+                        "<thead>" +
+                            "<tr>" +
+                            "<th style=\"background-color: #93b874; border: 1px solid grey; height: 25px; color: white; font-family: Georgia;\">Test Script Name</th>" +
+                            "<th style=\"background-color: #93b874; border: 1px solid grey; height: 25px; color: white; font-family: Georgia;\">Status</th> " +
+                            "<th style=\"background-color: #93b874; border: 1px solid grey; height: 25px; color: white; font-family: Georgia;\">Failure Reason</th>" +
+                            "</tr> " +
+                        "</thead> " +
+                        "<tbody> " +
+                        testDetailRows +
+                        "</tbody>"+
+                    "</table>"
+            );
+        }
+        f_out.println("</div></div></body></html>");
+		f_out.flush();
+
+	}
+
+	private PrintWriter createWriter(String outdir) throws IOException {
+		new File(outdir).mkdirs();
+		File file=new File(outputDir+"\\"+"customized-test-run-report.html");
+		if(file.exists()) {
+			file.delete();
+		}
+		return new PrintWriter(
+				new BufferedWriter(new FileWriter(new File(outputDir, "customized-test-run-report.html"))));
+	}
+
+	/** Starts HTML Stream */
+	private void startHtmlPage(PrintWriter out) {
+		out.println(
+				"<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.1//EN http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd\">");
+		out.println("<html xmlns=\"http://www.w3.org/1999/xhtml\">");
+		out.println("<head>");
+		out.println("<title>Automation Test Results Summary</title>");
+		out.println("</head>");
+		out.println(
+				"<body><div style=\"margin:0 auto; padding:15px; min-height:450px; min-width: 450px; height:auto;\">"
+						+ "<div style=\"height:auto; padding:20px; box-shadow: 0 10px 6px -6px #777 \">"
+						+ "<h1 style=\"background-color: #93b874; color: white; text-align: center; font-family: Georgia;\">"+mailHeader+"</h1>");
+
+		Calendar currentdate = Calendar.getInstance();
+		String strdate = null;
+		DateFormat formatter = new SimpleDateFormat("dd-MM-yyyy hh:mm a z");
+		TimeZone obj = TimeZone.getTimeZone("IST");
+
+		formatter.setTimeZone(obj);
+		strdate = formatter.format(currentdate.getTime());
+
+		out.println("<br/><div align=\"left\"><div style=\"font-size:20px; font-family: Georgia;\">Report generated on: " + strdate + "</div></div>");
+
+		out.flush();
+	}
+	
+	private void initializeMailHeader(List<ISuite> suites) {
+		for (ISuite suite : suites) {
+			//mailHeader = suite.getParameter("header");
+			mailHeader ="Automation Test Result";
+		}
+	}
+
+}
+
+===============================================================================
+customized-test-run-report.html
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>CLMS Automation Test Results Summary</title>
+</head>
+<body><div style="margin:0 auto; padding:15px; min-height:450px; min-width: 450px; height:auto;"><div style="height:auto; padding:20px; box-shadow: 0 10px 6px -6px #777 "><h1 style="background-color: #93b874; color: white; text-align: center; font-family: Georgia;">Automation Test Result</h1>
+<br/><div align="left"><div style="font-size:20px; font-family: Georgia;">Report generated on: 23-12-2019 06:50 PM IST</div></div>
+<div align="left"><div style="font-size:16px; font-family: Georgia;">Module : rmapp</div></div>
+<div align="left"><div style="font-size:16px; font-family: Georgia;">Group : RMAPP</div></div>
+<div align="left"><div style="font-size:16px; font-family: Georgia;">Execution time : 00:02:14</div></div>
+<div align="left"><div style="font-size:16px; font-family: Georgia;">Environment : STAGE</div></div><br/>
+<p><div style="font-size:20px; font-family: Georgia;"><b>Overall Execution Summary</b></div></p>
+<table style="border-collapse: collapse; width: 70%;"><thead><tr><th style="background-color: #93b874; border: 1px solid grey; height: 25px; color: white; font-family: Georgia;">Test Suite Name</th><th style="background-color: #93b874; border: 1px solid grey; height: 25px; color: white; font-family: Georgia;"># Passed</th> <th style="background-color: #93b874; border: 1px solid grey; height: 25px; color: white; font-family: Georgia;"># Failed</th><th style="background-color: #93b874; border: 1px solid grey; height: 25px; color: white; font-family: Georgia;"># Skipped</th><th style="background-color: #93b874; border: 1px solid grey; height: 25px; color: white; font-family: Georgia;"># Total</th></tr> </thead> <tbody> <tr><td style="text-align: center; border: 1px solid grey; height: 25px; width:150px; color: #1C1C1C; font-family: Georgia;"><b>REGRESSION SUITE</td><td style="text-align: center; border: 1px solid grey; height: 25px; color: #00CC00; font-family: Georgia;"><b>5</b></td><td style="text-align: center; border: 1px solid grey; height: 25px; color: #1C1C1C; font-family: Georgia;">0</td><td style="text-align: center; border: 1px solid grey; height: 25px; color: #1C1C1C; font-family: Georgia;">0</td><td style="text-align: center; border: 1px solid grey; height: 25px; color: #1C1C1C; font-family: Georgia;">5</td></tr> </tbody></table>
+<p><div style="font-size:20px; font-family: Georgia;"><b>Graphical Summary</b></div></p>
+<p><div style="font-size:16px;"><img src='http://chart.googleapis.com/chart?chxs=0,676767,13&chxt=x&chs=500x220&cht=p3&chco=80C65A|DE0043|BFC8CC&chd=t:5,0,0&chds=a&chdl=Passed+TC|Failed+TC|Skipped+TC&chl=5|0|0&chtt=Automation+Test+Case+Summary&chts=676767,13/'></div></p>
+</div></div></body></html>
+
+================================================================================================================
+<build>
+        <plugins>
+            <!-- Compiler plug-in -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.5.1</version>
+                <configuration>
+                    <source>${jdk.level}</source>
+                    <target>${jdk.level}</target>
+                </configuration>
+            </plugin>
+            <!-- Added Surefire Plugin configuration to execute tests -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>2.19.1</version>
+                <configuration>
+                    <testFailureIgnore>true</testFailureIgnore>
+<!--                    <suiteXmlFiles>
+                        <suiteXmlFile>TestNG.xml</suiteXmlFile>
+                    </suiteXmlFiles>-->
+                    <includes>
+                        <include>${packege.to.execute}</include>
+                    </includes>
+                    <excludes>
+                        <exclude></exclude>
+                    </excludes>
+                    <groups>${group.execute}</groups>
+                    <excludedGroups>${group.exclude}</excludedGroups>
+                    <systemPropertyVariables>
+                            <suiteName>REGRESSION SUITE</suiteName>
+                    </systemPropertyVariables>
+                    <properties>
+                        <property>
+                            <name>listener</name>
+                            <value>com.kristal.core.utils.HTMLReporter</value>
+                        </property>
+                    </properties>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>

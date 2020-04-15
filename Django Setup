@@ -1,0 +1,19 @@
+Tutorial:
+https://www.youtube.com/watch?v=jAE94gzgQvI&list=PL4cUxeGkcC9ib4HsrXEYpQnTOTZE1x0uc&index=2
+
+Installation:
+pip install django
+
+Create basic Django Project:
+django-admin startproject basicProjDjango
+
+Then navigate to the project and execute the command:
+python manage.py runserver
+
+Create another folder:
+python manage.py startapp articles
+
+Whenever we add any model we need to add migrations:
+python manage.py makemigrations
+python manage.py migrate
+

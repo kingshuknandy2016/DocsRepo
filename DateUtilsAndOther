@@ -1,0 +1,226 @@
+private String str;
+
+    /**
+     * Method to get public ip using api
+     * @return public ip
+     */
+    public static String getPublicIp() {
+        String ipRes = given().get("https://api.ipify.org/?format=json").then().assertThat().statusCode(200).and().extract().response().asString();
+        return from(ipRes).get("ip");
+    }
+
+    public static String getNodeValueFromResp(Response resp,String nodeName){
+        return  from(resp.then().extract().response().asString()).get(nodeName);
+    }
+
+    public static void clearErrorLogFile(String fileName)  {
+        try{
+            BufferedWriter bw = new BufferedWriter(new FileWriter(fileName));
+            bw.write("");
+            bw.flush();
+            bw.close();
+        }catch(IOException ioe){
+            // You should really do something more appropriate here
+            ioe.printStackTrace();
+        }
+    }
+
+    public static Object getNodeValueFromRespAsObject(Response resp,String nodeName){
+        return  from(resp.then().extract().response().asString()).get(nodeName);
+    }
+
+    public static String readFileContents(String fileName){
+        StringBuffer str=new StringBuffer("");
+        try{
+            FileInputStream fstream = new FileInputStream(fileName);
+            BufferedReader br = new BufferedReader(new InputStreamReader(fstream));
+            String strLine;
+            while ((strLine = br.readLine()) != null)   {
+                str.append(strLine+"\n");
+            }
+
+            fstream.close();
+        } catch (Exception e) {
+            System.err.println("Error: " + e.getMessage());
+        }
+
+        return  str.toString();
+    }
+
+    public static boolean containsRequiredLang(String s1, String s) {
+
+        if (s1.toLowerCase().equals("english")) {
+            for (int i = 0; i < s.length(); ) {
+                int codepoint = s.codePointAt(i);
+                i += Character.charCount(codepoint);
+                if (Character.UnicodeScript.of(codepoint) == Character.UnicodeScript.HAN) {
+                    return true;
+                }
+            }
+
+        } else if (s1.toLowerCase().equals("chinese")) {
+            for (int i = 0; i < s.length(); ) {
+                int codepoint = s.codePointAt(i);
+                i += Character.charCount(codepoint);
+                if (Character.UnicodeScript.of(codepoint) == Character.UnicodeScript.HAN) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    public static void appendUsingFileWriter(String fileName,String text) {
+        File file = new File(fileName);
+        FileWriter fr = null;
+        try {
+            // Below constructor argument decides whether to append or override
+            fr = new FileWriter(file, true);
+            fr.write("\n"+text+"\n");
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                fr.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public static String getCurrentDate(String format){
+        String date = null;
+        DateFormat dateFormat = new SimpleDateFormat(format);
+        date = dateFormat.format(new Date());
+
+        return  date;
+    }
+
+    public static String getLastDayDate(String format,int dateLag){
+        Calendar cal=Calendar.getInstance();
+        cal.add(Calendar.DATE,-dateLag);
+        String dateRequired=new SimpleDateFormat(format).format(cal.getTime());
+        return  dateRequired;
+    }
+
+    public static long getCurrentTimeInMs(){
+        Date now = new Date();
+        long ut3 = now.getTime() / 1000L;
+        return ut3;
+    }
+
+    public static String dateFormatter(String pattern, String format,String dateFromResp) throws ParseException {
+
+        DateFormat formatter = new SimpleDateFormat(pattern);
+        Date date = formatter.parse(dateFromResp);
+        formatter = new SimpleDateFormat(format);
+        String formatedDate = formatter.format(date);
+
+        return  formatedDate;
+    }
+
+    public static Date formatLongDate(long dateInLong){
+         return  new Date(dateInLong*1000);
+    }
+
+    public static Date getCurrentMonthReportGenerationDate(int dayOfReportGeneration){
+        Date date=new Date();
+        Calendar calendar=Calendar.getInstance();
+        calendar.setTime(date);
+
+        int month = calendar.get(Calendar.MONTH);
+        int year = calendar.get(Calendar.YEAR);
+        calendar.set(year,month,dayOfReportGeneration);
+
+        date=calendar.getTime();
+
+        return  getZeroTimeDate(date);
+    }
+
+    public static Date getZeroTimeDate(Date date) {
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(date);
+        calendar.set(Calendar.HOUR_OF_DAY, 0);
+        calendar.set(Calendar.MINUTE, 0);
+        calendar.set(Calendar.SECOND, 0);
+        calendar.set(Calendar.MILLISECOND, 0);
+        date = calendar.getTime();
+        return date;
+    }
+
+    public static Date formatLongDateExcludingMS(long dateInLong){
+        return  new Date(dateInLong);
+    }
+
+    public static String timeDiffernceCalculator(Date endDate,Date startDate){
+        long diffence=endDate.getTime()-startDate.getTime();
+        String str=DurationFormatUtils.formatDuration(diffence, "HH:mm:ss");
+        return str;
+    }
+
+    public static long dateAfterThreeYears(){
+
+        Calendar instance = Calendar.getInstance();
+        instance.setTime(new Date());
+        instance.add(Calendar.YEAR, +3);
+        long millisSinceEpoch = instance.getTimeInMillis();
+        return millisSinceEpoch;
+    }
+
+    public static DateTime getDateInGivenTimeZone(Date date,String timeZone){
+
+        DateTime dt = new DateTime(date);
+        DateTime dtInGivenTimezone = dt.withZone(DateTimeZone.forTimeZone(TimeZone.getTimeZone(timeZone)));
+
+        return dtInGivenTimezone;
+    }
+
+
+
+    public static void main(String[] args) {
+/*        Date date=formatLongDate(1573678891);
+        System.out.println(date);
+
+        Calendar calendar=Calendar.getInstance();
+        calendar.setTime(date);
+
+        int day = calendar.get(Calendar.DAY_OF_MONTH); // 6
+        int Month = calendar.get(Calendar.MONTH)+1; // 17
+        int Year = calendar.get(Calendar.YEAR); //169
+        System.out.println(day);
+        System.out.println(Month);
+        System.out.println(Year);*/
+
+        //System.out.println(getCurrentMonthReportGenerationDate(14));
+        //dateAfterThreeYears();
+        CommonUtils c=new CommonUtils();
+        System.out.println( c.getCeilValue(116.6448,1.0,1.015));
+    }
+    public static int getCeilValue(Double ...a)
+    {
+        Double c=1.0;
+        for (Double i: a){
+            c=c*i;
+        }
+        return Integer.valueOf((int) Math.ceil(c));
+    }
+
+    /**
+     *
+     * @param resp
+     * @param keyForSearching
+     * @param attributeToGet
+     * @param keyForSearchValue
+     * @return
+     */
+    public static String getNodeValueFromRespRespectiveOfOtherNode(Response resp,String attributeToGet,String keyForSearching,int keyForSearchValue){
+        List<HashMap> userList= from(resp.then().extract().response().asString()).get("$");
+        String key1Value = "";
+        for(int i=0; i<userList.size(); i++){
+            if(Integer.valueOf((String) userList.get(i).get(keyForSearching)).equals(keyForSearchValue)){
+                key1Value=String.valueOf(userList.get(i).get(attributeToGet));
+            }
+        }
+        return key1Value;
+    }

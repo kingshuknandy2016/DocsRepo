@@ -1,0 +1,306 @@
+=======================================Basics====================
+print("Hello World")
+
+if 5>2:
+ print("Five is greater than two")
+
+#To add comments in Python Code
+x=5
+y="Hello World"
+
+#Variable Explanation
+x=5        # x is type int
+x="Hello"  # x is type string
+x='Hello'  # same as above statement
+
+# Assignning values to multiple variables:
+a,b,c="orange","banana","cherry"
+print(a)  # output: orange
+print(b)  # output: banana
+print(c)  # output: cherry
+
+# To combine both text and variable
+z="Awsome"
+print("Python is "+z)
+
+#function
+
+def myTestFunction(a,b):
+    sum=a+b
+    print("The sum is :"+str(sum))
+
+myTestFunction(1,2)
+
+#Data Type
+x="Hello"
+print(type(x))    # <class 'str'>
+
+x=20
+print(type(x))    # <class 'int'>
+
+x=20.5
+print(type(x))    # <class 'float'>
+
+x=20j
+print(type(x))    # <class 'complex'>
+
+x=["Apple","Banana","cherry"]
+print(type(x))    # <class 'list'>
+
+x=("Apple","Banana","cherry")
+print(type(x))    # <class 'tuple'>
+
+x={"name":"King","Age":20}
+print(type(x))    # <class 'dict'>
+
+#Python Collection:
+#There are 4 Collection Data Types in Python
+
+#List
+testlist=["apple", "banana", "cherry"]
+
+#Looping
+for x in testlist:
+    print(x)
+
+#If Item exist
+if "apple" in testlist:
+    print("Yes, Apple is in the list")
+
+#List length
+print(len(testlist))
+
+#add item to list
+testlist.append("orange")
+
+#Insert add item in specified position
+testlist.insert(1,"Papaya")
+
+#remove an item
+testlist.remove("Papaya")
+
+testlist.pop()  # removes the last item
+
+#del keyword removes the specified index
+del testlist[0]
+
+#del keyword can also delete Complete list
+del testlist
+
+#The clear() method empties the list:
+testlist=["banana","papaya"]
+testlist.clear()
+
+myOtherList=testlist.copy()
+
+#Python Dictionaries
+testlist={
+    "name":"Ram",
+    "age":30,
+    "dept":"IT"
+}
+
+print(testlist["age"])
+name=testlist.get("name")
+print("name:"+name)
+
+#while Loops
+m=5
+i=0
+while i<m:
+    print("Loop Count :"+str(i))
+    if i== 3:
+        break
+    i+=1
+
+
+# while with else
+a=1
+while a<6:
+    print("Value of loop :"+str(a))
+    a+=1
+else:
+    print("It is equal to 6 so can't print")
+
+
+#For loops
+fruits=["Banana","Papaya","Apple","Grapes"]
+for x in fruits:
+    print("Fruit Name:"+x)
+
+for x in range(6):
+    print("For Loop Count:"+str(x))
+
+for x in range(2,6):
+    print("For Loop Count in Range:"+str(x))
+
+for x in range(2,20,3):
+    print("For Loop Count in Range with Increment order:"+str(x))
+else:
+    print("Finished Prining the Loop")
+
+#Nested Loop
+adj = ["red", "big", "tasty"]
+fruits = ["apple", "banana", "cherry"]
+
+for m in adj:
+    for n in fruits:
+        print(m,n)
+
+i=0
+for i in range(4,20,3):
+    print(i ,end =' ')
+print()
+
+#Functions
+#Example 1
+def test():
+    print("Inside Test Function")
+
+test()
+
+#Example 2
+def test1(fname):
+    print("The Name is :"+fname)
+
+test1("Raj")
+
+#Example 3: Passing default value to a function
+def test2(dept="IT"):
+    print("The Dept is :"+dept)
+
+test2()
+test2("Finanace")
+
+#Example 4: Passing List to a function
+def test3(fruits):
+    for x in fruits:
+        print(x)
+
+a=["banana","apple","grapes","pineapple"]
+test3(a)
+
+
+#Example 5: Function with return type
+def test4(x):
+    return 5*x
+
+print(test4(3))
+
+#Example 6: For Arbitary Arguments
+def test5(*kids):
+    print(kids[2])
+
+test5("a","b","c")
+
+#Python Lambda
+x= lambda  a,b,c:a*b*c
+print(x(2,3,4))
+
+#Interation of An tuple
+tupleDemo=(27,31,34,23,47,11,12,14,32)
+myIterator=iter(tupleDemo)
+
+print(next(myIterator))
+print(next(myIterator))
+print(next(myIterator))
+
+
+#Importing Modules
+import PythonOpps
+
+p1=PythonOpps.Employee("Ram",27,"IT",2)
+print(p1.name)
+print("Salary of "+p1.name+" is "+str(p1.salary()))
+
+import PythonOpps as extend
+
+p1=extend.Employee("Jadu",27,"IT",5)
+print(p1.name)
+print("Salary of "+p1.name+" is "+str(p1.salary()))
+
+#Exception Handling
+try:
+    a=1/0
+except ArithmeticError:
+    print("An exception has occured")
+
+
+=====================================================================================================
+
+#Pattern 1
+for k in range(1,5):
+    for j in range(1,k+1):
+        if j<=k:
+            print("*", end=" ")
+    print()
+    
+==========================================================================================
+
+===========================PythonOpps.py================================================================
+# python classes
+class Employee:
+    name=""
+    age=0
+    dept=""
+    yearsOfExp=0
+
+    def salary(self):
+        return self.yearsOfExp*20000
+
+    def __init__(self,name,age,dept,yearsOfExp):
+        self.name=name
+        self.age=age
+        self.dept=dept
+        self.yearsOfExp=yearsOfExp
+
+p1=Employee("Ram",27,"IT",2)
+print(p1.name)
+print("Salary of "+p1.name+" is "+str(p1.salary()))
+
+#Inheritance
+class Manager(Employee):
+    teamSize=0
+
+    def __init__(self,name,age,dept,yearsOfExp,teamSize):
+        Employee.__init__(self,name,age,dept,yearsOfExp)
+        self.teamSize=teamSize
+
+manager1=Manager("Jadu",34,"Automation",2,3)
+print("The Manager "+manager1.name+ " has "+str(manager1.yearsOfExp)+" years of experiance. And he manages a team of "+str(manager1.teamSize) + " people")
+
+#Inheritance using super keyword:By using the super() function, you do not have to use the name of the parent element,
+# it will automatically inherit the methods and properties from its parent.
+class ManagerOther(Employee):
+    teamSize=0
+
+    def __init__(self,name,age,dept,yearsOfExp,teamSize):
+        super().__init__(name,age,dept,yearsOfExp)
+        self.teamSize=teamSize
+
+manager1=ManagerOther("Ram sharma",37,"Automation",7,5)
+print("The Manager "+manager1.name+ " has "+str(manager1.yearsOfExp)+" years of experiance. And he manages a team of "+str(manager1.teamSize) + " people")
+
+===========================================================================================
+=====================================customIterator.py=================================================
+
+
+class MyNumbers:
+    def __iter__(self):
+        self.a=1
+        return self
+
+
+    def __next__(self):
+        x=self.a
+        self.a +=3
+        return x
+
+
+myTest=MyNumbers()
+custIte=iter(myTest)
+
+print(next(custIte))
+print(next(custIte))
+print(next(custIte))
+print(next(custIte))
