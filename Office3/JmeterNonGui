@@ -47,7 +47,7 @@ public class JMeterFromScratchCustom {
 
     public static void main(String[] argv) throws Exception {
 
-        File jmeterHome = new File("D:\\Kingshuk\\OfferUp\\apache-jmeter-5.2.1");
+        File jmeterHome = new File("D:\\apache-jmeter-5.2.1");
         String slash = "\\";
 
         if (jmeterHome.exists()) {
@@ -70,7 +70,7 @@ public class JMeterFromScratchCustom {
                         "CSV Data Set Config",
                         ",",
                         "",
-                        "D:/Kingshuk/OfferUp/New folder/jmeter-from-code/TestData/TestSpecificData/test.csv",
+                        "D:/jmeter-from-code/TestData/TestSpecificData/test.csv",
                         true,
                         false,
                         true,
