@@ -1,4 +1,4 @@
-Jenkins Can be hosted in two ways:
+# Jenkins Can be hosted in two ways:
 A]By windows Service: That can be done by windows installer file
 B]By war : By Starting Jenkins server as a executable jar
 
