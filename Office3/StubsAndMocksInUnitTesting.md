@@ -214,8 +214,10 @@ Here autoamatically the inject ***business.setSomeDataService(dataServiceMock); 
 ### Return Values
 
 ```java
-import org.junit.Test;
+mport org.junit.Test;
 import java.util.List;
+
+import static org.mockito.Matchers.anyInt;
 import static org.mockito.Mockito.when;
 import static org.mockito.Mockito.mock;
 import static org.junit.Assert.assertEquals;
@@ -243,8 +245,16 @@ public class Test_ListMockTest {
     public void returnWithParameters(){
         when(mock.get(0))
                 .thenReturn("Test");
-        assertEquals(5,mock.get(0));
+        assertEquals("Test",mock.get(0));
         assertEquals(null,mock.get(1));  //Any Other Values other than the default set values will give null
+    }
+
+    @Test
+    public void returnWithGenericParameters(){
+        when(mock.get(anyInt()))
+                .thenReturn("Test");
+        assertEquals("Test",mock.get(0));
+        assertEquals("Test",mock.get(1));
     }
 }
 ```
