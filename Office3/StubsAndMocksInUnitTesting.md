@@ -169,3 +169,44 @@ public class Test_SomeBusinessMockTests {
     
 }
 ```
+A far more simplified approach
+```java
+import com.dummy.services.SomeDataService;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.runners.MockitoJUnitRunner;
+
+import static org.junit.Assert.assertEquals;
+import static org.mockito.Mockito.when;
+
+@RunWith(MockitoJUnitRunner.class)
+public class Test_SomeBusinessMockTests {
+
+    @InjectMocks
+    SomeBusinessImplementation business=new SomeBusinessImplementation();
+
+    @Mock
+    SomeDataService dataServiceMock;
+
+    @Test
+    public void calculateSumUsingDataService_Basics(){
+        when(dataServiceMock.retrieveAllData()).thenReturn(new int[]{1,2,3});
+        int actualResult=business.calculateSumUsingDataService();
+        int expectedResult=6;
+        assertEquals(expectedResult,actualResult);
+    }
+
+    @Test
+    public void calculateSum_Basics_empty(){
+        when(dataServiceMock.retrieveAllData()).thenReturn(new int[]{});
+        int actualResult=business.calculateSumUsingDataService();
+        int expectedResult=0;
+        assertEquals(expectedResult,actualResult);
+    }
+
+}
+```
+
+Here autoamatically the inject***business.setSomeDataService(dataServiceMock);*** will happen
