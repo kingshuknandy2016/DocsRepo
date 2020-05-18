@@ -94,4 +94,48 @@ public class Test_SomeBusinessStubTests {
 
 
 ## Mock
-By Mocks we can programatically create classes ( Implenetation Classes of the Data Service Interfaces)
+By Mocks we can programatically create classes ( Implemetation Classes of the Data Service Interfaces)
+
+```java
+public class Test_SomeBusinessMockTests {
+
+    /**
+     * @description : Basic Unit Testing. Some Value
+     */
+    @Test
+    public void calculateSumUsingDataService_Basics(){
+        SomeBusinessImplementation business=new SomeBusinessImplementation();
+
+        SomeDataService dataServiceMock=mock(SomeDataService.class);   //Mocking the Data service Interface
+        // dataServiceMock retrieveAllData new int[]{1,2,3}
+        when(dataServiceMock.retrieveAllData()).thenReturn(new int[]{1,2,3});
+
+        // business.setSomeDataService(new SomeDataServiceImpl());  //Using the Stub
+        business.setSomeDataService(dataServiceMock);  // Using the Mock object
+
+        int actualResult=business.calculateSumUsingDataService();
+        int expectedResult=6;
+        assertEquals(expectedResult,actualResult);
+    }
+
+    /**
+     * @description : Basic Unit Testing. Empty Array
+     */
+    @Test
+    public void calculateSum_Basics_empty(){
+        SomeBusinessImplementation business=new SomeBusinessImplementation();
+
+        SomeDataService dataServiceMock=mock(SomeDataService.class);   //Mocking the Data service Interface
+        // dataServiceMock retrieveAllData new int[]{}
+        when(dataServiceMock.retrieveAllData()).thenReturn(new int[]{});
+
+        //business.setSomeDataService(new SomeDataServiceEmptyImpl());
+        business.setSomeDataService(dataServiceMock);
+        int actualResult=business.calculateSumUsingDataService();
+        int expectedResult=0;
+        assertEquals(expectedResult,actualResult);
+    }
+
+
+}
+```
