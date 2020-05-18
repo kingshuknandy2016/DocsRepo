@@ -94,4 +94,4 @@ public class Test_SomeBusinessStubTests {
 
 
 ## Mock
-Programatically we are creating the Stubs
+By Mocks we can programatically create classes ( Implenetation Classes of the Data Service Interfaces)
