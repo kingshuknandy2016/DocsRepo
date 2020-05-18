@@ -139,3 +139,33 @@ public class Test_SomeBusinessMockTests {
 
 }
 ```
+If we format the code, in a more formatted way
+```java
+public class Test_SomeBusinessMockTests {
+
+    SomeBusinessImplementation business=new SomeBusinessImplementation();
+    SomeDataService dataServiceMock=mock(SomeDataService.class);
+
+    @Before
+    public void before(){
+        business.setSomeDataService(dataServiceMock);
+    }
+    
+    @Test
+    public void calculateSumUsingDataService_Basics(){
+        when(dataServiceMock.retrieveAllData()).thenReturn(new int[]{1,2,3});
+        int actualResult=business.calculateSumUsingDataService();
+        int expectedResult=6;
+        assertEquals(expectedResult,actualResult);
+    }
+
+    @Test
+    public void calculateSum_Basics_empty(){
+        when(dataServiceMock.retrieveAllData()).thenReturn(new int[]{});
+        int actualResult=business.calculateSumUsingDataService();
+        int expectedResult=0;
+        assertEquals(expectedResult,actualResult);
+    }
+    
+}
+```
