@@ -25,8 +25,8 @@
 
 Usage:
 ```java
-DataUtility dataUtility=new DataUtility();
-        String responseBody=dataUtility.getJsonRequestBody("prodyuctListingByOwner.json").toString();
+  DataUtility dataUtility=new DataUtility();
+  String responseBody=dataUtility.getJsonRequestBody("prodyuctListingByOwner.json").toString();
         
 ```
 
