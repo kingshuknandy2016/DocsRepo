@@ -30,4 +30,21 @@ Usage:
         
 ```
 
+### Java Custom Object To String Conversion 
+
+ Dependency required:
+ ```java
+    <!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind -->
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>2.11.0</version>
+        </dependency>
+ ```
  
+ Method from Custom **Java Object** to **String**
+ ```java
+    public String getStringfromObject(Object object,boolean preetyPrint) throws JsonProcessingException {
+     return new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(object);
+    }
+ ```
