@@ -98,4 +98,6 @@ public class DBHandler {
 ```
 
 ## Access the db file
-Download the [DB Browser for SQLite] [https://sqlitebrowser.org/]
+Download the [DB Browser for SQLite](https://sqlitebrowser.org/)
+Unzip it and open the DB Browser for SQLite.exe
+Then import the DB file
