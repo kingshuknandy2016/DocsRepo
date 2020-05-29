@@ -66,7 +66,7 @@ public class DBHandler {
     System.out.println("LOG: Table Person dropped");
     statement.executeUpdate("create table person (id INT PRIMARY KEY, name VARCHAR (255))");
     System.out.println("LOG: Table Person created");
-//		statement.executeUpdate("insert into person(id, name) values ((1, 'Ram'), (2,'Shyam'))");
+    statement.executeUpdate("insert into person(id, name) values ((1, 'Ram'), (2,'Shyam'))");
     PreparedStatement preapredStatement = conn
         .prepareStatement("insert into person(id, name) values (?,?)");
     preapredStatement.setObject(1, 1);
