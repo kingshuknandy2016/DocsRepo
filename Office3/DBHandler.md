@@ -1,6 +1,6 @@
 # Java Small DB setup
 
-Dependency
+## Dependency
 ```java
         <!-- https://mvnrepository.com/artifact/org.xerial/sqlite-jdbc -->
         <dependency>
@@ -10,7 +10,7 @@ Dependency
         </dependency>
 ```
 
-The Code
+## The Code
 ```java
 package other;
 
@@ -96,3 +96,6 @@ public class DBHandler {
 }
 
 ```
+
+## Access the db file
+Download the [DB Browser for SQLite] [https://sqlitebrowser.org/]
