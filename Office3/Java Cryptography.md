@@ -8,7 +8,7 @@ It forms part of the Java security API, and was first introduced in JDK 1.1 in t
 * Symmetric Cryptography
 * Asymetric Cryptography
 
-### Symmetric Cryptography
+## Symmetric Cryptography
 Assymetric key is implemented by ***AES ALGORITHM***
 ```java
 import javax.crypto.spec.SecretKeySpec;
@@ -81,7 +81,7 @@ public class AES {
 }
 ```
 
-### Asymetric Cryptography
+## Asymetric Cryptography
 Implemented by using ***RSA ALGORITHM***
 
 Generate the private and public keys
