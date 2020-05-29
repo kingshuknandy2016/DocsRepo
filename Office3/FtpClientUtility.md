@@ -69,7 +69,7 @@ class FtpClient {
         // Ensure the user has read & write privileges for the below scenario to work
 
         // 1. Eastablish a connection to the FTP server
-        FtpClient ftpUploader = new FtpClient("192.168.3.92", "prathamesh", "@four123");
+        FtpClient ftpUploader = new FtpClient("192.168.3.92", "username", "password");
         System.out.println("##### FTP Connection eastablished #####");
         // 2. Upload a binary file
         File file = new File(ftpUploader.getClass().getClassLoader().getResource("wallpaper_1.jpg").getFile());
