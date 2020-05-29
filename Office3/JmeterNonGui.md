@@ -98,7 +98,7 @@ public class JMeterFromScratchCustom {
                 HashTree sampler1=(HashTree) generateSampler(
                         "userLogin",
                         "https",
-                        "newtonlab.zinier.com",
+                        "abc.com",
                         "//session/login",
                         "POST",
                         true,
@@ -117,7 +117,7 @@ public class JMeterFromScratchCustom {
                 HashTree sampler2=(HashTree) generateSampler(
                         "getWorkOrderTypeDetails",
                         "https",
-                        "newtonlab.zinier.com",
+                        "abc.com",
                         "//query/read",
                         "POST",
                         true,
@@ -166,7 +166,7 @@ public class JMeterFromScratchCustom {
                 threadGroup.setProperty(TestElement.GUI_CLASS, ThreadGroupGui.class.getName());
 
                 // Test Plan
-                TestPlan testPlan = new TestPlan("TestPlan for Zinier");
+                TestPlan testPlan = new TestPlan("TestPlan for ABC");
                 testPlan.setProperty(TestElement.TEST_CLASS, TestPlan.class.getName());
                 testPlan.setProperty(TestElement.GUI_CLASS, TestPlanGui.class.getName());
                 testPlan.setUserDefinedVariables((Arguments) new ArgumentsPanel().createTestElement());
