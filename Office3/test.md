@@ -3,6 +3,7 @@
 The jenkins pipeline looks like
 
 ```java
-  getWorkflow(){
+@State("The value of ListingReader API catagory 6")
+  public void verifyListingReaderPactCatagory6() {
   }
 ```
