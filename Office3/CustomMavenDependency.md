@@ -9,6 +9,7 @@ Maven as a build managemet tool manages  builds, executions, dependencies.Whenev
 There are two ways to attach a custom jar as a dependency.
 * Adding a system dependency
 * Or by publish the jar to a Local Maven Repository 
+* Installing the jar by using install-plugin
 * Or by publish the jar to a Maven Central Repository
 
 ### Adding a system dependency
@@ -56,6 +57,30 @@ mvn install:install-file -Dfile=<path-to-file> -DgroupId=<myGroup> -DartifactId=
             <artifactId>aspectIntegrationProj</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
+```
+### Installing the jar by using install-plugin
+The idea is to store the jar into a project directory and install it into the m2repo directory (where all mvn dependencies are downloaded to) on build time. To get this working the dependency should be added to the repository as usual, and also add the plugin to the pom configuration:
+```java
+    <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-install-plugin</artifactId>
+        <version>2.4</version>
+        <executions>
+            <execution>
+                <phase>initialize</phase>
+                <goals>
+                    <goal>install-file</goal>
+                </goals>
+                <configuration>
+                    <groupId>myGroupId</groupId>
+                    <artifactId>myArtifactId</artifactId>
+                    <version>myVersion</version>
+                    <packaging>jar</packaging>
+                    <file>${basedir}/lib/xxx.jar</file>
+                </configuration>
+            </execution>
+        </executions>
+    </plugin>
 ```
 
 ### Publish the jar in Maven Central Repository and then Include it as Dependency
