@@ -31,5 +31,6 @@ But there is a drawback, the Assembly plugin and many other packaging plugin  ig
 ### Publish the jar to a Local Maven Repository and then Include it as Dependency
 
 ### Publish the jar in Maven Central Repository and then Include it as Dependency
-Please refer to the (Publish JAR To Central Maven Repository)[http://tutorials.jenkov.com/maven/publish-to-central-maven-repository.html]
+Please refer to the [Publish JAR To Central Maven Repository](http://tutorials.jenkov.com/maven/publish-to-central-maven-repository.html)
+And also [How to manually publish JAR to maven central?](https://stackoverflow.com/questions/28846802/how-to-manually-publish-jar-to-maven-central)
 
