@@ -11,5 +11,20 @@ There are two ways to attach a custom jar as a dependency.
 * Or by publish the jar to a Local Maven Repository 
 * Or by publish the jar to a Maven Central Repository
 
+### Adding a system dependency
+```java
+  <dependencies>
+    <dependency>
+      <groupId>groupId</groupId>
+      <artifactId>artifactId</artifactId>
+      <version>1.0</version>
+      <scope>system</scope>
+      <systemPath>${basedir}/lib/xx.jar</systemPath>
+    </dependency>
+  </dependencies>
+```
 
+System scope was created to add dependencies(jar) that was created from other projects but now are packed into the JDK. 
+
+But there is a drawback, the Assembly plugin and many other packaging plugin  ignores this kind of dependencies and it doesn’t pack them with the others.
 
