@@ -28,3 +28,8 @@ System scope was created to add dependencies(jar) that was created from other pr
 
 But there is a drawback, the Assembly plugin and many other packaging plugin  ignores this kind of dependencies and it doesn’t pack them with the others.
 
+### Publish the jar to a Local Maven Repository and then Include it as Dependency
+
+### Publish the jar in Maven Central Repository and then Include it as Dependency
+Please refer to the (Publish JAR To Central Maven Repository)[http://tutorials.jenkov.com/maven/publish-to-central-maven-repository.html]
+
