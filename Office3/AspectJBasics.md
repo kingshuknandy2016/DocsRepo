@@ -1,12 +1,15 @@
 # AspectJ Understanding
 
-Learn basics of **aspectJ** from the [Java Aspect Oriented Programming Tutorial with AspectJ (AOP)](https://o7planning.org/en/10257/java-aspect-oriented-programming-tutorial-with-aspectj#a27235)
+Learn basics of **aspectJ** from the [Java Aspect Oriented Programming Tutorial with AspectJ (AOP)](https://o7planning.org/en/10257/java-aspect-oriented-programming-tutorial-with-aspectj#a27235)<br/>
+A bit advanced understanding from [Intro to AspectJ](https://www.baeldung.com/aspectj)<br/>
+An aspectJ with Maven Integration project with  different types of weaving refer to [Maven project example with AspectJ](https://github.com/barlog-m/aspectj-maven-example/tree/load-time-weaving)<br/>
+[Implementing a Method Trace Infrastructure With Spring Boot and AspectJ](https://github.com/barlog-m/aspectj-maven-example/tree/master)
 
 ## AspectJ setup
 
 Couple of ways:
 * Install AspectJ development tools into Eclipse
-
+* Install AspectJ Runtime into Your system
 
 ### Install AspectJ development tools into Eclipse
 ***Step 1:*** Go To Install New Software,click add, and then fill the details.<br/>
@@ -24,4 +27,11 @@ Couple of ways:
         Once you go to the lib directory you will be able to see the files <br/>***aspectjrt.jar***,<br/>***aspectjtools.jar***,<br/>***aspectjweaver.jar***
 
 
+## AspectJ weaving
+To indroduce ***advice** into a java class we need to add ***Runtime dependency*** and attach ***AspectJRuntime***
+
+###Types of Weaving
+* Compile-Time Weaving
+* Post-Compile Weaving
+* Load-Time Weaving
 
