@@ -10,11 +10,10 @@ Couple of ways:
 
 #### Install AspectJ development tools into Eclipse
 
-Step 1: Go to the  [AspectJ home page](https://www.eclipse.org/aspectj/) 
-
-Step 2: Download the jar
-
+Step 1: Go to the  [AspectJ home page](https://www.eclipse.org/aspectj/) <br/>
+Step 2: Download the jar<br/>
 Step 3: Run the Jar - ***java -jar aspectj-1.9.5.jar*** or double click on the jar.<br/>
+        The Aspect J installer will come up. Install it.
 
 
 
