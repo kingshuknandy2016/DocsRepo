@@ -36,27 +36,29 @@ These capabilities listed above don't tell how Git actually works, however. In a
 The ways are:
 *	Git Bash
 *	Git SVN
-Git Architecture
  
 
-Adding a file to the Staging Area.
- To stage a file is simply to prepare it finely for a commit. Git, with its index allows you to commit only certain parts of the changes you've done since the last commit.
-Git has three main states that your files can reside in:
-a)	Commited: Committed means that the data is safely stored in your local database. 
-b)	Modified: Modified means that you have changed the file but have not committed it to your database yet.
-c)	Staged: Stagedmeans that you have marked a modified file in its current version to go into your next commit snapshot.
+### Adding a file to the Staging Area.
+ To stage a file is simply to prepare it finely for a commit. Git, with its index allows you to commit only certain parts of the changes you've done since the last commit.<br/>
 
-Commands:
-A.	Git Configuration
-	$ git config - -global user.name “King”
-	$git config - -global user.email “king@gmail.com” 
-	$git config - -list
+***Git has three main states that your files can reside in:***
+*	Commited: Committed means that the data is safely stored in your local database. 
+*	Modified: Modified means that you have changed the file but have not committed it to your database yet.
+*	Staged: Stagedmeans that you have marked a modified file in its current version to go into your next commit snapshot.
 
+## Commands:
+###	Git Configuration
+```git
+	$git config - -global user.name “King”
+	$git config - -global user.email “king@gmail.com” 
+	$git config - -list
+```
 
-B.	Starting a new local repository with git
-	$git init    //Creating a local repository
-	$git status  //To know git status
-
+###	Starting a new local repository with git
+```git
+	$git init    //Creating a local repository
+	$git status  //To know git status
+```
 C.	Staging Files:
 
 	$git add <file-name>
