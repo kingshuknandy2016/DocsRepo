@@ -1,35 +1,41 @@
+# Git Basics
 
-Q] I can use Dropbox, Google Drive, OneDrive, a flash drive… any other drive to store my code and share it with everyone!
-Ans: That's true. But again, how can you know for sure which version of code is the latest? And if your friend wants to merge your code with his version in the same file, would you like to go line by line to see whose code will be merged into which part of a file? We bet you wouldn't.
+### Question: I can use Dropbox, Google Drive, OneDrive, a flash drive… any other drive to store my code and share it with everyone!
+
+That's true. But again, how can you know for sure which version of code is the latest? And if your friend wants to merge your code with his version in the same file, would you like to go line by line to see whose code will be merged into which part of a file? We bet you wouldn't.
 Git easily solves both problems we've described: managing project versions and sharing code among developers. But to make Git our best friend, we should understand how Git works. To do so, we should also start using basic Git commands.
 
-Types of version control
+## version control
 When you work on a development team, you may be touching similar parts of the code throughout a project. As a result, changes made in one part of the source can be incompatible with those made by another developer working at the same time.
-Version control helps solve these kinds of problems and provides:
-	A complete history of every file, which enables you to go back to previous versions to analyze the source of bugs and fix problems in older versions.
-	The ability to work on independent streams of changes, which allows you to merge that work back together and verify that your changes conflict.
-	The ability to trace each change with a message describing the purpose and intent of the change and connect it to project management and bug tracking software.
-There are two types of version control: centralized and distributed.
-Centralized version control
+
+***Version control helps solve these kinds of problems and provides:***
+*	A complete history of every file, which enables you to go back to previous versions to analyze the source of bugs and fix problems in older versions.
+*	The ability to work on independent streams of changes, which allows you to merge that work back together and verify that your changes conflict.
+*	The ability to trace each change with a message describing the purpose and intent of the change and connect it to project management and bug tracking software.
+
+###There are two types of version control: centralized and distributed.
+
+#### Centralized version control
 With centralized version control systems, you have a single “central” copy of your project on a server and commit your changes to this central copy. You pull the files that you need, but you never have a full copy of your project locally. Some of the most common version control systems are centralized, including Subversion (SVN) and Perforce.
-Distributed version control
+
+#### Distributed version control
 With distributed version control systems (DVCS), you don't rely on a central server to store all the versions of a project’s files. Instead, you clone a copy of a repository locally so that you have the full history of the project. Two common distributed version control systems are Git and Mercurial.
 While you don't have to have a central repository for your files, you may want one "central" place to keep your code so that you can share and collaborate on your project with others. That's where Bitbucket comes in. Keep a copy of your code in a repository on Bitbucket so that you and your teammates can use Git or Mercurial locally and to push and pull code.
 
 
 
-What is Git?
-Ans: Git is a distributed version control system (DVCS). "Distributed" means that all developers within a team have a complete version of the project. A version control system is simply software that lets you effectively manage application versions. Thanks to Git, you'll be able to do the following:
+### What is Git?
+Git is a distributed version control system (DVCS). "Distributed" means that all developers within a team have a complete version of the project. A version control system is simply software that lets you effectively manage application versions. Thanks to Git, you'll be able to do the following:
 •	Keep track of all files in a project
 •	Record any changes to project files
 •	Restore previous versions of files
 •	Compare and analyze code
 •	Merge code from different computers and different team members.
 These capabilities listed above don't tell how Git actually works, however. In all its complexity, Git works quite simply: you first need to create a local repository in your project's root directory (folder). Afterwards, Git can track project files and directories and add them to the repository. You may be thinking
-What are the ways for executing?
-Ans: The Ways:
-	Git Bash
-	Git SVN
+### What are the ways for executing?
+The ways are:
+*	Git Bash
+*	Git SVN
 Git Architecture
  
 
