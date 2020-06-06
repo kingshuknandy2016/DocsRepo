@@ -78,8 +78,9 @@ The ways are:
 
 ### can you modify a file if you've already committed it?
 Yes we can do that in two Ways
-#### Undo Commit<br/>
-      ***$git reset –soft HEAD^ ***<br/>
+
+#### Undo Commit
+***$git reset –soft HEAD^***<br/>
       "reset" tells Git to undo the commit. <br/>
       The "--soft" option means that the commit is canceled and moved before HEAD. You can now add another file to the staging area and commit, or you can amend files and commit them.<br/>
 
