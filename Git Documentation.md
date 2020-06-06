@@ -49,9 +49,9 @@ The ways are:
 ## Commands:
 ###	Git Configuration
 ```git
-	$git config - -global user.name “King”
-	$git config - -global user.email “king@gmail.com” 
-	$git config - -list
+	$git config --global user.name “King”
+	$git config --global user.email “king@gmail.com” 
+	$git config --list
 ```
 
 ###	Starting a new local repository with git
@@ -59,21 +59,24 @@ The ways are:
 	$git init    //Creating a local repository
 	$git status  //To know git status
 ```
-C.	Staging Files:
+###	Staging Files:
+```git
+	$git add <file-name>
+	$git add <file-name> <another-file-name> <yet-another-file-name>
+	$git add.    //For commiting All Files in the Staging Area, but it will only add files located in the root directory
+	$git add - - all   //Find all new and updated files everywhere throughout the project and add them to the staging area.
+	$git add – A    // Same as above
+	$git rm - - cached <file-name>  //For Unstage a file
+	$git reset <file-name>        //exact opposite of add
+```
+###	Commiting to a repository
+```git
+	$git commit -m “Initial Commit” //move (commit) files from the staging area (an imaginary basket) to the repository (a lock box).//-m stands for message
+	$git commit -a -m “Initial Commit //Add modified files to the Staging Area and commit them at the same time. //-a stands for add 
+	//Let's say you've modified ten files but committed only nine. How can you add that remaining file to the last commit? And how 
+```
 
-	$git add <file-name>
-	$git add <file-name> <another-file-name> <yet-another-file-name>
-	$git add.    //For commiting All Files in the Staging Area, but it will only add files located in the root directory
-	$git add - - all   //Find all new and updated files everywhere throughout the project and add them to the staging area.
-	$git add – A    // Same as above
-	$git rm - - cached <file-name>  //For Unstage a file
-	$git reset <file-name>        //exact opposite of add
-
-D.	Commiting to a repository
-
-	$git commit -m “Initial Commit” //move (commit) files from the staging area (an imaginary basket) to the repository (a lock box).//-m stands for message
-	$git commit -a -m “Initial Commit //Add modified files to the Staging Area and commit them at the same time. //-a stands for add 
-	//Let's say you've modified ten files but committed only nine. How can you add that remaining file to the last commit? And how can you modify a file if you've already committed it?
+can you modify a file if you've already committed it?
 Two Ways:
 1.	Undo Commit
       $git reset –soft HEAD^ //"reset" tells Git to undo the commit. The "--soft" option means that the commit is canceled and moved before HEAD. You can now add another file to the staging area and commit, or you can amend files and commit them.
