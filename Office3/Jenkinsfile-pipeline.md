@@ -1,6 +1,7 @@
 # Some Pipeline Scripts
 
-```jenkins
+***Scripted Pipeline***
+```java
   node {
     stage('Build') {
       echo "Build"
