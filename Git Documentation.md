@@ -13,7 +13,7 @@ When you work on a development team, you may be touching similar parts of the co
 *	The ability to work on independent streams of changes, which allows you to merge that work back together and verify that your changes conflict.
 *	The ability to trace each change with a message describing the purpose and intent of the change and connect it to project management and bug tracking software.
 
-###There are two types of version control: centralized and distributed.
+### There are two types of version control: centralized and distributed.
 
 #### Centralized version control
 With centralized version control systems, you have a single “central” copy of your project on a server and commit your changes to this central copy. You pull the files that you need, but you never have a full copy of your project locally. Some of the most common version control systems are centralized, including Subversion (SVN) and Perforce.
