@@ -61,4 +61,9 @@ post {
 
 }
 ```
-
+We can also define specific *** agent*** where the build would run
+```java
+  agent {
+          docker { image "maven:3.6.3"}
+      }
+```
