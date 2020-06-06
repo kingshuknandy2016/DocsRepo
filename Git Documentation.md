@@ -76,20 +76,22 @@ The ways are:
 	//Let's say you've modified ten files but committed only nine. How can you add that remaining file to the last commit? And how 
 ```
 
-can you modify a file if you've already committed it?
-Two Ways:
-1.	Undo Commit
-      $git reset –soft HEAD^ //"reset" tells Git to undo the commit. The "--soft" option means that the commit is canceled and moved before HEAD. You can now add another file to the staging area and commit, or you can amend files and commit them.
+### can you modify a file if you've already committed it?
+Yes we can do that in two Ways
+#### Undo Commit<br/>
+      ***$git reset –soft HEAD^ ***<br/>
+      "reset" tells Git to undo the commit. <br/>
+      The "--soft" option means that the commit is canceled and moved before HEAD. You can now add another file to the staging area and commit, or you can amend files and commit them.<br/>
 
-To understand what that "HEAD" thing represents, recall that we work in branches. Currently we're in the master branch, and HEAD points to this master branch. When we switch to a different branch later, HEAD will point to that different branch. HEAD is just a pointer to a branch:
+To understand what that ***"HEAD"*** thing represents, recall that we work in branches. Currently we're in the master branch, and ***HEAD*** points to this ***master branch***. When we switch to a different branch later,***"HEAD"*** will point to that different branch. ***HEAD*** is just a pointer to a branch:
  
-What you see in the image is that each dot represents a separate commit, and the latest commit is at the top of the branch (HEAD). In the command "git reset --soft HEAD^" the last character "^" represents the last commit. We can read "git reset --soft HEAD^" as "Undo the last commit in the current branch and move HEAD back by one commit."
-2.	Instead of resetting the HEAD and undoing the last commit,
-$git commit - -ammend -m <enter your message> //Adding Remaining Files into the Staging Area and then Commit
+What you see in the image is that each dot represents a separate commit, and the latest commit is at the top of the branch (HEAD). In the command  ***git reset --soft HEAD^ *** the last character  ***^*** represents the last commit. We can read  ***git reset --soft HEAD^*** as **Undo the last commit in the current branch and move HEAD back by one commit**.
+####	Instead of resetting the HEAD and undoing the last commit,
+***$git commit - -ammend -m <enter your message>*** //Adding Remaining Files into the Staging Area and then Commit
 
-E.	Pulling and Pushing from and to repositories
+###	Pulling and Pushing from and to repositories
 
-Approach A]
+#### Approach A
 	$git remote add origin <link> //bind this remote repository to your local repository. origin" option is the default name for the server on which your remote repository is located.
 Example: $ git remote add origin https://github.com/YourUsername/some-small-app.git
 
