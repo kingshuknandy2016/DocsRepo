@@ -76,44 +76,58 @@ The ways are:
 	//Let's say you've modified ten files but committed only nine. How can you add that remaining file to the last commit? And how 
 ```
 
-### can you modify a file if you've already committed it?
+### Can you modify a file if you've already committed it?
 Yes we can do that in two Ways
 
 #### Undo Commit
-***$git reset –soft HEAD^***<br/>
-      "reset" tells Git to undo the commit. <br/>
-      The "--soft" option means that the commit is canceled and moved before HEAD. You can now add another file to the staging area and commit, or you can amend files and commit them.<br/>
+```git
+	$git reset –soft HEAD^***<br/>
+```
+"reset" tells Git to undo the commit. <br/>
+The "--soft" option means that the commit is canceled and moved before HEAD. You can now add another file to the staging area and commit, or you can amend files and commit them.<br/>
 
 To understand what that ***"HEAD"*** thing represents, recall that we work in branches. Currently we're in the master branch, and ***HEAD*** points to this ***master branch***. When we switch to a different branch later,***"HEAD"*** will point to that different branch. ***HEAD*** is just a pointer to a branch:
  
 What you see in the image is that each dot represents a separate commit, and the latest commit is at the top of the branch (HEAD). In the command  ***git reset --soft HEAD^ *** the last character  ***^*** represents the last commit. We can read  ***git reset --soft HEAD^*** as **Undo the last commit in the current branch and move HEAD back by one commit**.
+
 ####	Instead of resetting the HEAD and undoing the last commit,
-***$git commit - -ammend -m <enter your message>*** //Adding Remaining Files into the Staging Area and then Commit
+```git
+$git commit - -ammend -m <enter your message>
+```
+Adding Remaining Files into the Staging Area and then Commit
 
 ###	Pulling and Pushing from and to repositories
 
 #### Approach A
-	$git remote add origin <link> //bind this remote repository to your local repository. origin" option is the default name for the server on which your remote repository is located.
-Example: $ git remote add origin https://github.com/YourUsername/some-small-app.git
+```git	
+$git remote add origin <link> 
+```
+Bind this remote repository to your local repository. origin" option is the default name for the server on which your remote repository is located.
+Example: **$ git remote add origin https://github.com/YourUsername/some-small-app.git**
 
-	$git push -u origin master // copying your code to a remote repository. our local repo is connected to (origin) and the branch we're pushing, which is master. If we add -u from next time onwards we must only run git push
+```git
+$git push -u origin master
+```
+Copying your code to a remote repository. Our local repo is connected to (origin) and the branch we're pushing, which is master. If we add -u from next time onwards we must only run git push
 By using the above two commands, everytime we need to enter the usrname and password registered with that remote repository.  The root of this problem is the HTTPS link you used to connect repositories. Git offers a way out of this inconvenience, 
 
-Approach B]
+ #### Approach B
 There's an SSH option that we can use instead of HTTPS. If you set up Git on your computer to work with SSH, then you won't have to enter GitHub credentials every time you push code to GitHub. You'll only need to add a remote origin with this SSH link, like this:
 
+```git
 	$ git remote add origin git@github.com:YourUsername/your-app.git
 
-	$git remote -v      //list all the remote repositories that we have
+	$git remote -v       // list all the remote repositories that we have
 
-	$git clone <clone>   //Can clone an entire project from the repository
-$ git clone git@github.com:YourUsername/your-app.git
-If you like to name, the repository that we have cloned 
-$ git clone git@github.com:YourUsername/your-app.git name-name
+	$git clone <clone>   // Can clone an entire project from the repository
+	$ git clone git@github.com:YourUsername/your-app.git
 
-	$git pull          // Running "git pull" is enough to update your local repository.
+	//If you like to name, the repository that we have cloned 
+	$ git clone git@github.com:YourUsername/your-app.git name-name
 
-F.	Branching
+	$git pull          // Running "git pull" is enough to update your local repository.
+```
+###	Branching
 
 	$git branch       //list all git branch
 Note: Git will not create a master branch until you commit something.
