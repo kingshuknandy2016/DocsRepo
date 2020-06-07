@@ -67,3 +67,42 @@ We can also define specific *** agent*** where the build would run
           docker { image "maven:3.6.3"}
       }
 ```
+After Specifying Agent
+```java
+pipeline {
+    agent {
+        docker { image "maven:3.6.3"}
+    }
+    stages{
+        stage('Build'){
+            steps {
+                sh 'mvn --version'
+                echo "Build"
+            }
+        }
+        stage('Test'){
+            steps {
+                echo "Test"
+            }
+        }
+        stage('Integration Test'){
+            steps{
+                echo "Integration Test"
+            }
+        }
+    } 
+    
+    post {
+        always {
+            echo "I am awsome. I run always"
+        }
+        success {
+            echo " I run when you are successful"
+        }
+        failure {
+            echo " I run when you fail"
+        }
+    }
+}
+```
+
