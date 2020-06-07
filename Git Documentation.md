@@ -81,7 +81,7 @@ Yes we can do that in two Ways
 
 #### Undo Commit
 ```git
-	$git reset –soft HEAD^***<br/>
+	$git reset –soft HEAD^
 ```
 "reset" tells Git to undo the commit. <br/>
 The "--soft" option means that the commit is canceled and moved before HEAD. You can now add another file to the staging area and commit, or you can amend files and commit them.<br/>
@@ -128,20 +128,21 @@ There's an SSH option that we can use instead of HTTPS. If you set up Git on you
 	$git pull          // Running "git pull" is enough to update your local repository.
 ```
 ###	Branching
-
-	$git branch       //list all git branch
-Note: Git will not create a master branch until you commit something.
-	$git branch <branch-name> //Creating A new branch
-After you've created a new branch to develop a feature, you need to switch to the new branch before you get to work on a feature.
-	$git checkout <branch-name>  //For Switching To new branch
-	$git merge <branch-name>
-	$git checkout -b <branch-name>
-
-If I can Clone a repository. Why do I have to pull something?
+```git
+	$git branch       //list all git branch
+                          Note: Git will not create a master branch until you commit something.
+	$git branch <branch-name> //Creating A new branch
+                                 After you've created a new branch to develop a feature, you need to switch to the new branch before you   get to work on a feature.
+	$git checkout <branch-name>  //For Switching To new branch
+	$git merge <branch-name>
+	$git checkout -b <branch-name>
+```
+### If I can Clone a repository. Why do I have to pull something?
 
 Cloning a repository is very different from pulling from a repository. If you clone a remote repository, Git will:
 •	Download the entire project into a specified directory; and
 •	Create a remote repository called origin and point it to the URL you pass.
+
 The last item simply means that you don't need to run "git remote add origin git@github.com:YourUsername/your-app.git" after cloning a repository. The "clone" command will add a remote origin automatically, and you can simply run "git push" from the repository.
 When you run the "pull" command, Git will:
 •	Pull changes in the current branch made by other developers; and
@@ -228,35 +229,4 @@ Example:
 # Don't track content of these folders
 node_modules/
 someOtherfoler/
-
-
-# Compiled source #
-###################
-*.com
-*.class
-*.dll
-*.exe
-*.o
-*.so
-
-*.so
-
-# Packages #
-############
-# it's better to unpack these files and commit the raw source
-# git has its own built in compression methods
-*.7z
-*.dmg
-*.gz
-*.iso
-*.jar
-*.rar
-*.tar
-*.zip
-
-
-
-
-
-
 
