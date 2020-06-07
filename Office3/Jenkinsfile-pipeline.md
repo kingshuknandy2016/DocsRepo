@@ -105,4 +105,53 @@ pipeline {
     }
 }
 ```
+Now we want to use some environment variables.
+We will find those in **pipeline syntax** , in **global variable reference**
+```java
+pipeline {
+    agent any
+    stages{
+        stage('Build'){
+            steps {
+                echo "Build"
+                echo "PATH=$PATH"
+                echo "BUILD_NUMBER=$env.BUILD_NUMBER"
+                echo "JOB_NAME =$env.JOB_NAME"
+                echo "BUILD_TAG =$env.BUILD_TAG"
+            }
+        }
+    }
+}    
+```
+
+And the output:
+```java
+PATH=/usr/local/openjdk-8/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+[Pipeline] echo
+BUILD_NUMBER=3
+[Pipeline] echo
+JOB_NAME =jenkins-devops-microservice-pipelines
+[Pipeline] echo (hide)
+BUILD_TAG =jenkins-jenkins-devops-microservice-pipelines-3
+```
+
+Now by using **Maven** and **Docker** available  on the build Machine
+```java
+pipeline {
+    agent any
+    environment {
+        dockerHome = tool "myDocker"
+        mavenHome = tool "myMaven"
+        PATH ="$dockerHome/bin:$mavenHome/bin:$PATH"
+    }
+    stages{
+        stage('Build'){
+            steps {
+                sh "mvn --version"
+                sh "docker --version"
+            }
+        }
+    }
+}    
+```
 
