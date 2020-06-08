@@ -11,7 +11,7 @@
 * Connect the Mobile Device
 * CMD --> adb devices (You will be able to see the devices)
 
-#### For Android Ways to get the app package and App activity
+### For Android Ways to get the app package and App activity
 ##### Method 1:
 For Mac/Linux:
 ```cmd
@@ -27,11 +27,14 @@ Trace the entire Mobile Logs
    adb logcat
 ```
 
-##### Verify the App package and app name
+### Verify the App package and app name
 ```cmd
 adb shell am start -W -n com.package.name/com.zinier.app.ui.activities.activity -S -a android.intent.action.MAIN -c android.intent.category.LAUNCHER -f 0x10200000
 ```
 If the above command is successful the we have correctly foud the app-package and app-activity
+
+
+
 
 ```json
 {
