@@ -7,8 +7,8 @@
 * ***Appium*** has to be installed. ***Desktop version*** as well as the ***appium node package***.
 * Install Android SDK. And set the following path.
  ```cmd
-   C:\Users\kingshuk.nandy\AppData\Local\Android\Sdk\platform-tools;
-   C:\Users\kingshuk.nandy\AppData\Local\Android\Sdk\tools\bin;
+   C:\Users\test.user\AppData\Local\Android\Sdk\platform-tools;
+   C:\Users\test.user\AppData\Local\Android\Sdk\tools\bin;
  ```
  * Check if ADB commands work or not
 
@@ -24,6 +24,16 @@
 ```
 
 * ***STEP 3:*** Install The Application
+  ** Method 1:<br/>
+  Install it from playstore<br/>
+
+  ** Method 2:<br/>
+  By Command ***adb install appname***<br/>
+
+  ** Method 3:<br/>
+  By Drag and Drop the application into the Emulator<br/>
+ 
+ 
 
 ### For Android Ways to get the app package and App activity
 ##### Method 1:
