@@ -46,32 +46,31 @@ public static void selectYear(String Xpath, String year) {
 ```
 ### TROUBLESHOOTING -  XPATH NOT WORKING(UNABLE TO CLICK)
 
-•	Try for the Tap option[AndroidDriver (driver)]
-driver.tap(fingers, element, duration);
-driver.tap(fingers, x, y, duration);
-Abdul’s Solution:
-1.	Since you are trying to search element by its displayed text, there might be white space making mismatch. Please use normalize-space() function for xpath as shown you in the webEx.
-2.	Since your element's attribute clickable is false please use tap method from AppiumDriver, as shown you in the WebEx.
+* Try for the Tap option ***AndroidDriver (driver)***
+```java
+	driver.tap(fingers, element, duration);
+	driver.tap(fingers, x, y, duration);
+```
+#### Common issues with Tap Option and there solution
+* As trying to search element by its displayed text, there might be **white space** making mismatch. <br/>
+  Please use **normalize-space()** function for xpath.<br/>
+  
+* The specific element's attribute **clickable** is **false** please use **tap** method from AppiumDriver
 
-If Clickable=true;
-If Clickable=False; tap method
+* The specific element is partially getting **overlapped** by checkbox<br/> 
+We can get the location of the element and add some digit to it to get away from overlap and use **tap** method for location from AppiumDriver instance of the class.
 
-3.	Since your element is partially getting overlapped by checkbox, you can get the location of the element and add some digit to it to get away from overlap and use .tap method for location from AppiumDriver instance of the class.
-
-Custom Solution:
-1.	Use try Catch block and if exception is thrown once again perform the same operation inside catch block.
-2.	Try with the Tap Method of Appium Driver
-a.	driver.tap(fingers, element, duration);
-b.	driver.tap(fingers, x, y, duration);
-3.	Try to check  the visibility of an element from the very next page, if its not visible then perform the click operation once again.
-
-TROUBLESHOOTING -  RESET APPLICATION DATA
-=============================================
-Driver.resetApp();
+* Try to check  the visibility of an element from the very next page.<br/> 
+If its **not visible** then perform the click operation once again
 
 
-Custom Template - Sendkeys not working for when application is expecting from numeric Keyboard
-===================================================================================================
+### TROUBLESHOOTING -  RESET APPLICATION DATA
+```java
+	Driver.resetApp();
+```
+
+### Custom Template - Sendkeys not working for when application is expecting from numeric Keyboard
+
 I have looked in to this issue, this is an issue with Appium that when application is expecting from numeric Keyboard it will fail. Since numeric keyboard have different approach of providing value to the application(not key sequence).
 
 Please check open defect on Appium: https://github.com/mozilla/geckodriver/issues/985 
