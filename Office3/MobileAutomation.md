@@ -1,21 +1,29 @@
 # Mobile Automation
 
-### Initial Setup
+## Initial Setup
 
 * Developer option has to be enabled in the device
 * USB Debugging Should be on
-* ***Appium*** has to be installed. Desktop version as well as the appium node package.
-* Adb command has to be installed
+* ***Appium*** has to be installed. ***Desktop version*** as well as the ***appium node package***.
+* Install Android SDK. And set the following path.
+ ```cmd
+   C:\Users\kingshuk.nandy\AppData\Local\Android\Sdk\platform-tools;
+   C:\Users\kingshuk.nandy\AppData\Local\Android\Sdk\tools\bin;
+ ```
+ * Check if ADB commands work or not
 
-### Steps
-* Connect the Mobile Device
-* CMD --> adb devices (You will be able to see the devices)
+## Steps
+* ***STEP 1:*** Connect the Mobile Device
+
+* ***STEP 2:*** CMD --> adb devices (You will be able to see the devices)
 ```cmd
    * daemon not running; starting now at tcp:5037
    * daemon started successfully
    List of devices attached
    16898cd3        device
 ```
+
+* ***STEP 3:*** Install The Application
 
 ### For Android Ways to get the app package and App activity
 ##### Method 1:
