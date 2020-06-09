@@ -17,42 +17,35 @@ These are from iPhone 4S iOS 5.0.1:
 	Clock:        com.apple.mobiletimer						
 ```
 
-TROUBLESHOOTING - HOW TO FIND A WEB APP//NATIVE APP //HYBRID APP
-====================================================================
-Hybrid App    installed with WebView Instrumentation
- 
-Xpath: (//input[@id="PlanContractNumber"])[1]
-Locator: //*[@id="PlanContractNumber"]
+### Datepicker without SendKeys:
+```java
+public static void selectYear(String Xpath, String year) {
+      IOSElement element = (IOSElement) driver.findElementByXPath(Xpath);
+      Integer yearInt = Integer.valueOf(year);
+      String direction;
+      if (Integer.valueOf(element.getAttribute("value").toString()) < yearInt) {
+        direction = "UP";
+      } else {
+        direction = "DOWN";
+      }
+  
+      Point point = element.getCenter();
+      int endx = point.getX();
+      int endy;
+  
+      if (direction == "DOWN") {
+        endy = point.getY() - 80;
+      } else {
+        endy = point.getY() + 80;
+      }
+  
+      while (!(driver.findElementByXPath(Xpath).getAttribute("value").toString().contains(year))) {
+        ((IOSDriver) driver).tap(1, endx, endy, 1);
+      }
+  }
+```
+### TROUBLESHOOTING -  XPATH NOT WORKING(UNABLE TO CLICK)
 
-Hybrid App    installed without WebView Instrumentation(Behaves as native app)
-Xpath: //device/view/group[1]/group[1]/group[1]/group[1]/webview[1]
-Object Locator: //*[@resourceid="android:id/content"]//*[@class="android.widget.LinearLayout"]/webview[1]
-
-
-Datepicker without SendKeys:
-==================================
-
-public static void selectYear(String Xpath, String year){
- IOSElement element = (IOSElement) driver.findElementByXPath(Xpath);
- Integer yearInt = Integer.valueOf(year);
- String direction;
- if(Integer.valueOf(element.getAttribute("value").toString())<yearInt)
- direction = "UP";
- else direction = "DOWN";
-
- Point point = element.getCenter();
- int endx = point.getX();
- int endy;
- 
- if(direction=="DOWN") endy = point.getY()-80;
- else endy = point.getY()+80;
-
- while(!(driver.findElementByXPath(Xpath).getAttribute("value").toString().contains(year)))
- ((IOSDriver)driver).tap(1, endx, endy, 1);
- }
-
-TROUBLESHOOTING -  XPATH NOT WORKING(UNABLE TO CLICK)
-==========================================================
 •	Try for the Tap option[AndroidDriver (driver)]
 driver.tap(fingers, element, duration);
 driver.tap(fingers, x, y, duration);
