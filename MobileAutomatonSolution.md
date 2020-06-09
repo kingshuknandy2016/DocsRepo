@@ -1,19 +1,21 @@
-TROUBLESHOOTING - IOS  ** BUNDLE ID --HOW TO GET THE BUNDLE ID OF IOS INBUILT APPS?
-=========================================================================================
+# Mobile Automation Troubleshooting and Solution
 
-These are from iPhone 4S iOS 5.0.1
-Camera:       com.apple.camera
-AppStore:     com.apple.AppStore
-Contacts:     com.apple.MobileAddressBook
-Mail:         com.apple.mobilemail
-GameCenter:   com.apple.gamecenter
-MobileSafari: com.apple.mobilesafari
-Preferences:  com.apple.Preferences
-iPod:         com.apple.mobileipod
-Photos:       com.apple.mobileslideshow
-Calendar:     com.apple.mobilecal
-Clock:        com.apple.mobiletimer						
+### TROUBLESHOOTING - IOS  ** BUNDLE ID --HOW TO GET THE BUNDLE ID OF IOS INBUILT APPS
 
+These are from iPhone 4S iOS 5.0.1:
+```java
+	Camera:       com.apple.camera
+	AppStore:     com.apple.AppStore
+	Contacts:     com.apple.MobileAddressBook
+	Mail:         com.apple.mobilemail
+	GameCenter:   com.apple.gamecenter
+	MobileSafari: com.apple.mobilesafari
+	Preferences:  com.apple.Preferences
+	iPod:         com.apple.mobileipod
+	Photos:       com.apple.mobileslideshow
+	Calendar:     com.apple.mobilecal
+	Clock:        com.apple.mobiletimer						
+```
 
 TROUBLESHOOTING - HOW TO FIND A WEB APP//NATIVE APP //HYBRID APP
 ====================================================================
