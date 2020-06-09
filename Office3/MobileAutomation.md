@@ -191,7 +191,7 @@ public class BasicWebAppAutomation {
 ### Hybrid Application Automation Simple Examples
 
 
-## Debug Method To Detect Application Context And WebElement
+### Debug Method To Detect Application Context And WebElement
 ```java
     public static void getContextAndPageSource(AppiumDriver driver){
 
@@ -208,3 +208,5 @@ public class BasicWebAppAutomation {
             }
         }
 ```
+
+## Parallel Execution
