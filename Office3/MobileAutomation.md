@@ -117,6 +117,32 @@ The Java-Client Jar is used to get the ***Appium Dependencies***
         </dependency>
 ```
 ### Native Application Automation Simple Examples
+```java
+      public static void main(String[] args) throws MalformedURLException, InterruptedException {
+              DesiredCapabilities caps = new DesiredCapabilities();
+              caps.setCapability(MobileCapabilityType.PLATFORM_NAME, "Android");
+              caps.setCapability(MobileCapabilityType.DEVICE_NAME, "16898cd3");
+              caps.setCapability(AndroidMobileCapabilityType.APP_PACKAGE,"com.test.app");
+              caps.setCapability(AndroidMobileCapabilityType.APP_ACTIVITY,"com.test.app.ui.activities.splash.SplashActivity");
+              caps.setCapability(MobileCapabilityType.NO_RESET,true);
+
+              String url = "http://0.0.0.0:4723/wd/hub";
+              AppiumDriver driver=new AppiumDriver(new URL(url),caps);
+              Thread.sleep(4000);
+              AndroidElement userName=(AndroidElement) driver.findElement(By.id("com.test.app:id/et_email"));
+              userName.clear();
+              userName.sendKeys("test@gmail.com");
+              Thread.sleep(2000);
+              AndroidElement password=(AndroidElement) driver.findElement(By.id("com.test.app:id/et_password"));
+              password.clear();
+              password.sendKeys("Test@123456");
+              Thread.sleep(2000);
+              driver.hideKeyboard();
+              AndroidElement logInBtn=(AndroidElement) driver.findElement(By.id("com.test.app:id/btn_login"));
+              logInBtn.click();
+              Thread.sleep(4000);
+          }
+```
 
 ### Mobile Web Application Automation Simple Examples
 We have to use RemoteWebDriver for Mobile Web Application
