@@ -4,7 +4,10 @@
 
 * Developer option has to be enabled in the device
 * USB Debugging Should be on
-* ***Appium*** has to be installed. ***Desktop version*** as well as the ***appium node package***.
+* ***Appium*** has to be installed. ***Desktop version*** as well as the ***appium node package***.<br/>
+  Always install the appium server by relevant version of [Chrome driver](http://appium.io/docs/en/writing-running-appium/web/chromedriver/#automatic-discovery-of-compatible-chromedriver)
+*npm install appium --chromedriver_version="2.23"
+*appium  --> To start the server
 * Install Android SDK. And set the following path.
  ```cmd
    C:\Users\test.user\AppData\Local\Android\Sdk\platform-tools;
@@ -34,12 +37,27 @@
   By Drag and Drop the application into the Emulator<br/>
  
  
+* ***STEP 4:*** Get the App Package And App Activity in case of Android<br/>
+Details Given Bellow
 
+* ***STEP 5:*** Open the Appium Desktop Client and start a session
+
+* ***STEP 6:*** Set the Desired Capability<br/>
+For Example, In case of Android
+```json
+   {
+     "deviceName": "emulator-5554",
+     "appPackage": "com.android.calculator2",
+     "appActivity": "com.android.calculator2.Calculator",
+     "platformName": "android",
+     "noReset":true
+   }
+```
 ### For Android Ways to get the app package and App activity
 ##### Method 1:
 For Mac/Linux:
 ```cmd
-   adb shell dumpsys window | grep -E 'mCurrentFocus' 
+   adb shell dumpsys window | grep -E 'mCurrentFocus|mFocusedApp' 
 ```
 For Windows:
 ```cmd
@@ -57,11 +75,17 @@ Then we can extract that and see into the Manifest.xml and find the **Launcher A
 ##### Method 4:
 Install any 3rd party applcation ***App Info APK**, and it will show the app package and app activity of all the Applications.
 
+##### Method 5:
+```cmd
+  aapt dump badging AppApkName.apk
+  OR
+  ./ aapt dump badging AppApkName.apk
+```
 ### Verify the App package and app name
 ```cmd
 adb shell am start -W -n com.package.name/com.zinier.app.ui.activities.activity -S -a android.intent.action.MAIN -c android.intent.category.LAUNCHER -f 0x10200000
 ```
-If the above command is successful the we have correctly foud the app-package and app-activity
+If the above command is successful the we have correctly found the app-package and app-activity
 
 
 
