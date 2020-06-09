@@ -577,5 +577,7 @@ public class TestSuite1 {
 ```
 Please find the complete project from the [link](https://github.com/kingshuknandy2016/CompleteMobileAutomation/tree/master/src)
 
+Please refer [Mobile Automation Troubleshooting and Solution](https://github.com/kingshuknandy2016/DocsRepo/blob/master/Office3/MobileAutomationSolution.md)
+
 References:
 https://appiumpro.com/editions
