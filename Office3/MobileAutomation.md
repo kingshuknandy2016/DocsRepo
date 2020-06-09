@@ -226,39 +226,70 @@ Details Steps:
       appium -a 192.168.3.172 -p 4723 --nodeconfig android_nodeconfig.json --chromedriver-executable "chromedriver.exe"
       ```
       Details of **android_nodeconfig.json**
-        ```json
+```json
+{
+    "capabilities": [
+        {
+            "deviceName": "ZY224P7HZB",
+            "browserName": "chrome",
+            "version":"9",
+            "maxInstances": 2,
+            "platformName": "Android"
+        }
+    ],
+    
+"configuration": {
+        "cleanUpCycle":3000,
+        "timeout":30000,
+        "proxy": "org.openqa.grid.selenium.proxy.DefaultRemoteProxy",
+        "maxSession": 2,
+        "register": true,
+        "registerCycle": 5000,
+        "hubPort": 4444,
+        "hubHost": "192.168.3.172"
+    }
+}
 
-            {
-                "capabilities": [
-                    {
-                        "deviceName": "iPad mini 3",
-                        "browserName": "Safari",
-                        "version":"12.1",
-                        "maxInstances": 2,
-                        "platformName": "i0S",
-                        "automationName": "XCUITest",
-                        "xcodeOrgId" : "",
-                        "xcodeSigningId" : "iPhone Developer",
-                    }
-                ],
-
-            "configuration": {
-                    "cleanUpCycle":3000,
-                    "timeout":30000,
-                    "proxy": "org.openqa.grid.selenium.proxy.DefaultRemoteProxy",
-                    "maxSession": 2,
-                    "register": true,
-                    "registerCycle": 5000,
-                    "hubPort": 4444,
-                    "hubHost": "192.168.3.172"
-                }
-            }
-         ```
-        * ***Appium Node 2: iOS Node***
-        ```java
+```
+  * ***Appium Node 2: iOS Node***
+```java
           appium -a 192.168.5.122  -p 4733 --nodeconfig iOS_nodeconfig.json
-        ```
+```
+Details of iOS_nodeconfig.json:
+```json
+  {
+      "capabilities": [
+          {
+              "deviceName": "iPad mini 3",
+              "browserName": "Safari",
+              "version":"12.1",
+              "maxInstances": 2,
+              "platformName": "i0S",
+              "automationName": "XCUITest",
+              "xcodeOrgId" : "",
+              "xcodeSigningId" : "iPhone Developer",
+          }
+      ],
 
+  "configuration": {
+          "cleanUpCycle":3000,
+          "timeout":30000,
+          "proxy": "org.openqa.grid.selenium.proxy.DefaultRemoteProxy",
+          "maxSession": 2,
+          "register": true,
+          "registerCycle": 5000,
+          "hubPort": 4444,
+          "hubHost": "192.168.3.172"
+      }
+  }
+
+```
+*  ***Step 2:Video Browsing***<br/>
+
+
+For Android, we can use Vysor Plugin of Chrome.
+
+For iOS, we can perform driver.startRecording, and then open the address ip:9100 of the iOS node machine.
 
 ## Multiple Apps Automation
 
