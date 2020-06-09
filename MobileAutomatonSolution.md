@@ -71,128 +71,129 @@ If its **not visible** then perform the click operation once again
 
 ### Custom Template - Sendkeys not working for when application is expecting from numeric Keyboard
 
-I have looked in to this issue, this is an issue with Appium that when application is expecting from numeric Keyboard it will fail. Since numeric keyboard have different approach of providing value to the application(not key sequence).
+ Creating a method which can press the key as per key sequence. 
+ This is working good, please see execution video: https://www.screencast.com/t/hNZQIFxDm5 
+ ```java
+ private static void sendNumericKeys(String keySequence) {
+      List<IOSElement> keyBoardList = driver.findElementsByClassName("XCUIElementTypeKey");
+      HashMap<String, IOSElement> keyBoardMap = new HashMap<String, IOSElement>();
+        for (IOSElement ele : keyBoardList) {
+          keyBoardMap.put(ele.getAttribute("label"), ele);
+        }
+      String[] keyArray = keySequence.split("(?!^)");
+      for (String chr : keyArray) {
+        keyBoardMap.get(chr).click();
+      }
 
-Please check open defect on Appium: https://github.com/mozilla/geckodriver/issues/985 
+  }
+```
 
-Usually Appium takes a long time to fix the issue hence it is better to go with work around for now, I have implemented on work around for your issue, i.e. creating a method which can press the key as per key sequence. This is working good, please see execution video: https://www.screencast.com/t/hNZQIFxDm5 
-  private static void sendNumericKeys(String keySequence){
-       List<IOSElement> keyBoardList = driver.findElementsByClassName("XCUIElementTypeKey");
-       HashMap<String,IOSElement> keyBoardMap = new HashMap<String,IOSElement>();
-       for(IOSElement ele : keyBoardList){
-              keyBoardMap.put(ele.getAttribute("label"), ele);
-       }
-       String[] keyArray = keySequence.split("(?!^)");
-       for(String chr : keyArray){
-              keyBoardMap.get(chr).click();
-       }
+### Common Methods:
 
-Common Methods:
-=================
-public static void tabByCoordinates(AppiumDriver driver, WebElement element,int fingers,int duration){
-	driver.tap(fingers, element, duration);
-	}
+```java
+	public static void tabByCoordinates(AppiumDriver driver, WebElement element, int fingers,
+      int duration) {
+    driver.tap(fingers, element, duration);
+  }
 
-public static void tabByElement(AppiumDriver driver, WebElement element,int fingers,int duration){
-		Point point=element.getLocation();
-		driver.tap(fingers, point.x, point.y, duration);
-	}
+  public static void tabByElement(AppiumDriver driver, WebElement element, int fingers,
+      int duration) {
+    Point point = element.getLocation();
+    driver.tap(fingers, point.x, point.y, duration);
+  }
 
-public static void scrollToNativeElement1(AppiumDriver driver, WebElement element){
-		driver.scrollTo(element.getText().toString());	
-	}
- 
- 	public static void clickWebelement(WebElement element) throws InterruptedException{
-		try {
-			element.click();
-		} catch (Exception e) {
-			Thread.sleep(2000);
-			element.click();
-		}
-	}
+  public static void scrollToNativeElement1(AppiumDriver driver, WebElement element) {
+    driver.scrollTo(element.getText().toString());
+  }
 
-	public static void clickWebelementOther(AppiumDriver driver,WebElement elementToBeClicked, WebElement elementNextPage) throws InterruptedException{
-			elementToBeClicked.click();
-			if(!elementNextPage.isDisplayed()){
-				Thread.sleep(2000);
+  public static void clickWebelement(WebElement element) throws InterruptedException {
+    try {
+      element.click();
+    } catch (Exception e) {
+      Thread.sleep(2000);
+      element.click();
+    }
+  }
+
+  public static void clickWebelementOther(AppiumDriver driver, WebElement elementToBeClicked,
+      WebElement elementNextPage) throws InterruptedException {
+    elementToBeClicked.click();
+    if (!elementNextPage.isDisplayed()) {
+      Thread.sleep(2000);
 				/*JavascriptExecutor js= JavascriptExecutor(driver);
 				js.executeScript("Argument[0].setAttribute('visible','true')", elementToBeClicked);*/
-				elementToBeClicked.click();
-			}
-		}
+      elementToBeClicked.click();
+    }
+  }
 
-public static void clickOnElement(AppiumDriver driver,WebElement elementToBeClicked){		
-		if ((boolean)elementToBeClicked.getAttribute("clickable").equalsIgnoreCase("false")) {
-			JavascriptExecutor js=(JavascriptExecutor) driver;
-			js.executeScript("Argument[0].setAttribute('clickable','true')", elementToBeClicked);
-			}
-		elementToBeClicked.click();
-	}
+  public static void clickOnElement(AppiumDriver driver, WebElement elementToBeClicked) {
+    if ((boolean) elementToBeClicked.getAttribute("clickable").equalsIgnoreCase("false")) {
+      JavascriptExecutor js = (JavascriptExecutor) driver;
+      js.executeScript("Argument[0].setAttribute('clickable','true')", elementToBeClicked);
+    }
+    elementToBeClicked.click();
+  }
 
-public static void scrollToNativeElement(AppiumDriver driver, WebElement element){
-		driver.scrollTo(element.getText().toString());
-		//driver.scrollToExact(arg0)	
-	}
+  public static void scrollToNativeElement(AppiumDriver driver, WebElement element) {
+    driver.scrollTo(element.getText().toString());
+    //driver.scrollToExact(arg0)	
+  }
 
-public static void scrollToHalfScreensize(AppiumDriver driver,int startx, int starty, int endx, int endy, int duration){
-		driver.swipe(startx, starty, endx, endy, duration);
-	}
+  public static void scrollToHalfScreensize(AppiumDriver driver, int startx, int starty, int endx,
+      int endy, int duration) {
+    driver.swipe(startx, starty, endx, endy, duration);
+  }
 
-public static void swipeFromBottomToTop(AppiumDriver driver) throws InterruptedException{
-		Dimension size=driver.manage().window().getSize();
-		System.out.println("Size:"+size);
-		
-		  //Find starty point which is at bottom side of screen.
-		  int starty = (int) (size.height * 0.80);
-		  
-		  //Find endy point which is at top side of screen.
-		  int endy = (int) (size.height * 0.20);
-		  
-		  //Find horizontal point where you wants to swipe. It is in middle of screen width.
-		  int startx = size.width / 2;
-		
-		  //Swipe from Bottom to Top.
-		  driver.swipe(startx, starty, startx, endy, 1000);
-		  Thread.sleep(2000);
-		
-	}
+  public static void swipeFromBottomToTop(AppiumDriver driver) throws InterruptedException {
+    Dimension size = driver.manage().window().getSize();
+    System.out.println("Size:" + size);
 
-public static void swipeFromTopToBottom(AppiumDriver driver) throws InterruptedException{
-		Dimension size=driver.manage().window().getSize();
-		System.out.println("Size:"+size);
-		
-		  //Find starty point which is at bottom side of screen.
-		  int starty = (int) (size.height * 0.80);
-		  
-		  //Find endy point which is at top side of screen.
-		  int endy = (int) (size.height * 0.20);
-		  
-		  //Find horizontal point where you wants to swipe. It is in middle of screen width.
-		  int startx = size.width / 2;
-		
-		  //Swipe from Bottom to Top.
-		  driver.swipe(startx, endy, startx, starty, 1000);
-		  Thread.sleep(2000);
-		
-	}
-public static void swipeToNativeElement(AppiumDriver driver, WebElement elementStart,WebElement elementEnd,int duration ){
-		int startx=driver.scrollTo(elementStart.getText()).getLocation().getX();
-		int starty=driver.scrollTo(elementStart.getText()).getLocation().getY();;
-		
-		int endx=driver.scrollTo(elementEnd.getText()).getLocation().getX();
-		int endy=driver.scrollTo(elementEnd.getText()).getLocation().getY();
-		driver.swipe(startx, starty, endx, endy, duration);
-		}}
+    //Find starty point which is at bottom side of screen.
+    int starty = (int) (size.height * 0.80);
 
---------------------------------------------------------------------------------------
-driver.hideKeyboard();
-waitTillSpinnerGone()
+    //Find endy point which is at top side of screen.
+    int endy = (int) (size.height * 0.20);
 
-	public static void clickUsingjavaScript(
-	WebElement element) {
-		JavascriptExecutor js = new WebDriverTestBase().getDriver();
-		js.executeScript("arguments[0].click();", element);
-	}
+    //Find horizontal point where you wants to swipe. It is in middle of screen width.
+    int startx = size.width / 2;
+
+    //Swipe from Bottom to Top.
+    driver.swipe(startx, starty, startx, endy, 1000);
+    Thread.sleep(2000);
+
+  }
+
+  public static void swipeFromTopToBottom(AppiumDriver driver) throws InterruptedException {
+    Dimension size = driver.manage().window().getSize();
+    System.out.println("Size:" + size);
+
+    //Find starty point which is at bottom side of screen.
+    int starty = (int) (size.height * 0.80);
+
+    //Find endy point which is at top side of screen.
+    int endy = (int) (size.height * 0.20);
+
+    //Find horizontal point where you wants to swipe. It is in middle of screen width.
+    int startx = size.width / 2;
+
+    //Swipe from Bottom to Top.
+    driver.swipe(startx, endy, startx, starty, 1000);
+    Thread.sleep(2000);
+
+  }
+
+  public static void swipeToNativeElement(AppiumDriver driver, WebElement elementStart,
+      WebElement elementEnd, int duration) {
+    int startx = driver.scrollTo(elementStart.getText()).getLocation().getX();
+    int starty = driver.scrollTo(elementStart.getText()).getLocation().getY();
+    ;
+
+    int endx = driver.scrollTo(elementEnd.getText()).getLocation().getX();
+    int endy = driver.scrollTo(elementEnd.getText()).getLocation().getY();
+    driver.swipe(startx, starty, endx, endy, duration);
+  }
+}
+```
 ------------------------------------------------------------------------------------------------------------
 public void scrollToElementAndTap(String name) throws InterruptedException {
 		AndroidElement nameOfEmp;
