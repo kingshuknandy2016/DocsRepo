@@ -10,6 +10,12 @@
 ### Steps
 * Connect the Mobile Device
 * CMD --> adb devices (You will be able to see the devices)
+```cmd
+   * daemon not running; starting now at tcp:5037
+   * daemon started successfully
+   List of devices attached
+   16898cd3        device
+```
 
 ### For Android Ways to get the app package and App activity
 ##### Method 1:
@@ -26,6 +32,12 @@ Trace the entire Mobile Logs
 ```cmd
    adb logcat
 ```
+##### Method 3:
+If we have the apk file of the application.<br/>
+Then we can extract that and see into the Manifest.xml and find the **Launcher Activity**
+
+##### Method 4:
+Install any 3rd party applcation ***App Info APK**, and it will show the app package and app activity of all the Applications.
 
 ### Verify the App package and app name
 ```cmd
