@@ -576,3 +576,6 @@ public class TestSuite1 {
 }
 ```
 Please find the complete project from the [link](https://github.com/kingshuknandy2016/CompleteMobileAutomation/tree/master/src)
+
+References:
+https://appiumpro.com/editions
