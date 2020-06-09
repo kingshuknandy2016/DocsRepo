@@ -100,3 +100,19 @@ If the above command is successful the we have correctly found the app-package a
   "platformName": "android"
 }
 ```
+
+## Automation of Mobile Devices
+There are 3 types of application avaliable in android.
+
+***1. Native Application***
+***2. Web Application***
+***3. Hybrid Application***
+
+The Java-Client Jar is used to get the ***Appium Dependencies***
+```java
+       <dependency>
+            <groupId>io.appium</groupId>
+            <artifactId>java-client</artifactId>
+            <version>7.1.0</version>
+        </dependency>
+```
