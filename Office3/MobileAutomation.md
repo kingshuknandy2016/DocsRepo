@@ -299,3 +299,113 @@ The Java Class
         }
 
 ```
+## PageObjectModel
+
+```java
+      package com.pageobject;
+
+      import com.utils.PropertyFileUtils;
+      import io.appium.java_client.AppiumDriver;
+      import io.appium.java_client.android.AndroidDriver;
+      import io.appium.java_client.android.AndroidElement;
+      import io.appium.java_client.remote.AndroidMobileCapabilityType;
+      import io.appium.java_client.remote.MobileCapabilityType;
+      import java.net.MalformedURLException;
+      import java.net.URL;
+      import java.util.HashMap;
+      import org.openqa.selenium.remote.DesiredCapabilities;
+
+      public class CustomMobileDriver {
+
+        private static AppiumDriver<AndroidElement> appiumDriver;
+
+        public AppiumDriver<AndroidElement> getAppiumDriver() {
+          if (appiumDriver != null) {
+            return appiumDriver;
+          } else {
+            return initAppiumDriver();
+          }
+        }
+
+        private AppiumDriver initAppiumDriver() {
+          PropertyFileUtils propertyFileUtils = new PropertyFileUtils(
+              System.getProperty("user.dir") + "\\src\\test\\resources\\application.properties");
+          HashMap<String, Object> propertyMap = propertyFileUtils.readPropertyFile();
+          DesiredCapabilities caps = new DesiredCapabilities();
+
+          if (propertyMap.get("platformName").toString().equalsIgnoreCase("android")) {
+            caps.setCapability(MobileCapabilityType.PLATFORM_NAME, propertyMap.get("platformName"));
+            caps.setCapability(MobileCapabilityType.DEVICE_NAME, propertyMap.get("deviceName"));
+            caps.setCapability(AndroidMobileCapabilityType.APP_PACKAGE, propertyMap.get("appPackage"));
+            caps.setCapability(AndroidMobileCapabilityType.APP_ACTIVITY, propertyMap.get("appActivity"));
+            caps.setCapability(MobileCapabilityType.NO_RESET,
+                Boolean.parseBoolean(propertyMap.get("noReset").toString()));
+          } else {
+
+          }
+
+          String url = propertyMap.get("url").toString();
+          try {
+            appiumDriver = new AppiumDriver(new URL(url), caps);
+          } catch (MalformedURLException e) {
+            e.printStackTrace();
+          }
+          return appiumDriver;
+        }
+
+
+      }
+```
+
+The Page Object is as follows:
+```java
+      import com.pageobject.CustomMobileDriver;
+      import io.appium.java_client.android.AndroidElement;
+      import io.appium.java_client.pagefactory.AndroidFindBy;
+      import io.appium.java_client.pagefactory.AppiumFieldDecorator;
+      import org.openqa.selenium.support.PageFactory;
+
+      public class LoginPage extends CustomMobileDriver {
+
+        @AndroidFindBy(id = "com.test.app:id/et_email")
+        private AndroidElement userName;
+
+        @AndroidFindBy(id = "com.test.app:id/et_password")
+        private AndroidElement password;
+
+        @AndroidFindBy(id = "com.test.app:id/btn_login")
+        private AndroidElement logInBtn;
+
+        public LoginPage(){
+          getAppiumDriver();
+          //waitForPageToLoad();
+          PageFactory.initElements(new AppiumFieldDecorator(getAppiumDriver()),this);
+        }
+
+        public void login(String userNameInp,String passwordInp) throws InterruptedException {
+          userName.clear();
+          userName.sendKeys(userNameInp);
+          password.clear();
+          password.sendKeys(passwordInp);
+          getAppiumDriver().hideKeyboard();
+          logInBtn.click();
+          Thread.sleep(2000);
+        }
+
+      }
+```
+TestSuite Class
+```java
+import com.pageobject.pages.LoginPage;
+
+public class TestSuite1 {
+
+  public static void main(String[] args) throws InterruptedException {
+
+    String username="test";
+    String password="pass";
+    LoginPage loginPage=new LoginPage();
+    loginPage.login(username,password);
+  }
+}
+```
