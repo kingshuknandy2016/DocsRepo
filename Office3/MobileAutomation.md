@@ -189,3 +189,22 @@ public class BasicWebAppAutomation {
 ```
 
 ### Hybrid Application Automation Simple Examples
+
+
+## Debug Method To Detect Application Context And WebElement
+```java
+    public static void getContextAndPageSource(AppiumDriver driver){
+
+            Set<String> contextHandles=driver.getContextHandles();
+            Iterator iterator=contextHandles.iterator();
+            String contextName;
+            while (iterator.hasNext()){
+                contextName=iterator.next().toString();
+                System.out.println("==================Start of :"+contextName+" context=========================");
+                driver.context(contextName);
+                System.out.println(driver.getPageSource());
+                System.out.println("******************End of :  "+contextName+" context*************************");
+
+            }
+        }
+```
