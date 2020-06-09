@@ -209,7 +209,56 @@ public class BasicWebAppAutomation {
         }
 ```
 
-## Mobile Parallel Execution
+## Parallel Execution on different Mobile Platforms
+        In order to facilitate parallel execution across various mobile devices of same or different platforms we will be using appium with Selenium Grid. Selenium Grid is basically a proxy server that speaks the WebDriver protocol, and manages connections to a pool of WebDriver servers. It wasn't designed specifically to work with Appium, but because Appium also speaks the WebDriver protocol (and because we taught Appium how to register with Selenium Grid)
+        
+Details Steps:
+*  ***Step 1:Set up Selenium Server in Hub Mode***<br/>
+      Need to download Selenium-Standalone-Server and start it as hub mode in certain host or port.
+      ```java
+      java -jar selenium-server-standalone-2.53.0.jar -role hub -host 192.168.3.172 -port 4444
+      ```
+*  ***Step 2:Start Appium Servers in Node Mode***<br/>
+      We can register any number of appium servers in node mode.
+
+      * ***Appium Node 1: Android Node***
+      ```java
+      appium -a 192.168.3.172 -p 4723 --nodeconfig android_nodeconfig.json --chromedriver-executable "chromedriver.exe"
+      ```
+      Details of **android_nodeconfig.json**
+        ```json
+
+            {
+                "capabilities": [
+                    {
+                        "deviceName": "iPad mini 3",
+                        "browserName": "Safari",
+                        "version":"12.1",
+                        "maxInstances": 2,
+                        "platformName": "i0S",
+                        "automationName": "XCUITest",
+                        "xcodeOrgId" : "",
+                        "xcodeSigningId" : "iPhone Developer",
+                    }
+                ],
+
+            "configuration": {
+                    "cleanUpCycle":3000,
+                    "timeout":30000,
+                    "proxy": "org.openqa.grid.selenium.proxy.DefaultRemoteProxy",
+                    "maxSession": 2,
+                    "register": true,
+                    "registerCycle": 5000,
+                    "hubPort": 4444,
+                    "hubHost": "192.168.3.172"
+                }
+            }
+         ```
+        * ***Appium Node 2: iOS Node***
+        ```java
+          appium -a 192.168.5.122  -p 4733 --nodeconfig iOS_nodeconfig.json
+        ```
+
 
 ## Multiple Apps Automation
 
