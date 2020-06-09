@@ -91,7 +91,7 @@ If its **not visible** then perform the click operation once again
 ### Common Methods:
 
 ```java
-	public static void tabByCoordinates(AppiumDriver driver, WebElement element, int fingers,
+  public static void tabByCoordinates(AppiumDriver driver, WebElement element, int fingers,
       int duration) {
     driver.tap(fingers, element, duration);
   }
@@ -193,8 +193,7 @@ If its **not visible** then perform the click operation once again
     driver.swipe(startx, starty, endx, endy, duration);
   }
 }
-```
-------------------------------------------------------------------------------------------------------------
+
 public void scrollToElementAndTap(String name) throws InterruptedException {
 		AndroidElement nameOfEmp;
 		try {
@@ -341,3 +340,4 @@ public void scrollToElementAndTap(String name) throws InterruptedException {
 			new getDriver().getTouchScreen().flick(0, (CommonUtilityFunctions.getIntNum("400")));
 		}
 	}
+```
