@@ -23,14 +23,14 @@
    16898cd3        device
 ```
 
-* ***STEP 3:*** Install The Application
-  ** Method 1:<br/>
+* ***STEP 3:*** Install The Application<br/>
+  * Method 1:<br/>
   Install it from playstore<br/>
 
-  ** Method 2:<br/>
+  * Method 2:<br/>
   By Command ***adb install appname***<br/>
 
-  ** Method 3:<br/>
+  * Method 3:<br/>
   By Drag and Drop the application into the Emulator<br/>
  
  
