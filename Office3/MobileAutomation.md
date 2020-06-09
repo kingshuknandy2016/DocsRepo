@@ -5,9 +5,11 @@
 * Developer option has to be enabled in the device
 * USB Debugging Should be on
 * ***Appium*** has to be installed. ***Desktop version*** as well as the ***appium node package***.<br/>
-  Always install the appium server by relevant version of [Chrome driver](http://appium.io/docs/en/writing-running-appium/web/chromedriver/#automatic-discovery-of-compatible-chromedriver)
-*npm install appium --chromedriver_version="2.23"
-*appium  --> To start the server
+  Always install the appium server by relevant version of [Chrome driver](http://appium.io/docs/en/writing-running- appium/web/chromedriver/#automatic-discovery-of-compatible-chromedriver)<br/>
+```cmd
+    npm install appium --chromedriver_version="2.23"
+    appium  // To start the server
+```
 * Install Android SDK. And set the following path.
  ```cmd
    C:\Users\test.user\AppData\Local\Android\Sdk\platform-tools;
