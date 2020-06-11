@@ -640,3 +640,4 @@ Please refer [Mobile Automation Troubleshooting and Solution](https://github.com
 
 References:
 https://appiumpro.com/editions
+http://appium.io/docs/en/about-appium/intro/
