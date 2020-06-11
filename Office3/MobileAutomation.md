@@ -191,24 +191,6 @@ public class BasicWebAppAutomation {
 ### Hybrid Application Automation Simple Examples
 
 
-### Debug Method To Detect Application Context And WebElement
-```java
-    public static void getContextAndPageSource(AppiumDriver driver){
-
-            Set<String> contextHandles=driver.getContextHandles();
-            Iterator iterator=contextHandles.iterator();
-            String contextName;
-            while (iterator.hasNext()){
-                contextName=iterator.next().toString();
-                System.out.println("==================Start of :"+contextName+" context=========================");
-                driver.context(contextName);
-                System.out.println(driver.getPageSource());
-                System.out.println("******************End of :  "+contextName+" context*************************");
-
-            }
-        }
-```
-
 ## Parallel Execution on different Mobile Platforms
 
 In order to facilitate parallel execution across various mobile devices of same or different platforms we will be using appium with Selenium Grid. Selenium Grid is basically a proxy server that speaks the WebDriver protocol, and manages connections to a pool of WebDriver servers. It wasn't designed specifically to work with Appium, but because Appium also speaks the WebDriver protocol (and because we taught Appium how to register with Selenium Grid)
@@ -574,6 +556,83 @@ public class TestSuite1 {
     loginPage.login(username,password);
   }
 }
+```
+
+### Debug Method To Detect Application Context And WebElement
+```java
+   /**
+	 * @description : (DEBUG Method)Get all the Context Present in the APP
+	 * 								And print all the Page Source included within each context
+	 */
+	public static void getContextAndPageSource(){
+
+		Set<String> contextHandles=appiumDriver.getContextHandles();
+		Iterator iterator=contextHandles.iterator();
+		String contextName;
+		while (iterator.hasNext()){
+			contextName=iterator.next().toString();
+			System.out.println("==================Start of :"+contextName+" context=========================");
+			appiumDriver.context(contextName);
+			System.out.println(appiumDriver.getPageSource());
+			System.out.println("******************End of :  "+contextName+" context*************************");
+
+		}
+	}
+
+	/**
+	 * @description : (DEBUG Method) It find the status of the element
+	 * 								whether it is present or not etc
+	 * @param element
+	 */
+	public static void elementStatusFinder(AndroidElement element) {
+		System.out.println("=====================================");
+		System.out.println("Element:" + element.getAttribute("innerHTML"));
+		System.out.println("Displayed:" + element.isDisplayed());
+		System.out.println("Enabled:" + element.isEnabled());
+		System.out.println("Selected:" + element.isSelected());
+		System.out.println("=====================================");
+	}
+```
+
+### Other Common Methods
+```java
+/**
+	 * @description : This will scroll to specific Element if the element is visible
+	 * @param element
+	 */
+	public static void scrollToElement(AndroidElement element){
+		TouchActions action = new TouchActions(appiumDriver);
+		action.scroll(element, 10, 100);
+		action.perform();
+	}
+
+	/**
+	 * @description : Swipe from Bottom to Top 80%Y-axis to 20%Y-Axis
+	 * @throws InterruptedException
+	 */
+	public static void swipeFromBottomToTop() throws InterruptedException {
+		Dimension size = appiumDriver.manage().window().getSize();
+		System.out.println("Size:" + size);
+		int starty = (int) (size.height * 0.80); //starty point which is at bottom side of screen.
+		int endy = (int) (size.height * 0.20);   //endy point which is at top side of screen.
+		int x = size.width / 2; //horizontal point where you wants to swipe
+
+		TouchAction touchAction = new TouchAction(appiumDriver);
+		touchAction
+				.press(PointOption.point(x, starty))
+				.waitAction(WaitOptions.waitOptions(Duration.ofMillis(2000)))
+				.moveTo(PointOption.point(x, endy))
+				.release().perform();
+		Thread.sleep(2000);
+	}
+
+	/**
+	 * @description : Swipe from Top to Bottom 20%Y-axis to 20%Y-Axis to 80%Y axis
+	 * @throws InterruptedException
+	 */
+	public static void swipeFromTopToBottom(){
+
+	}
 ```
 Please find the complete project from the [link](https://github.com/kingshuknandy2016/CompleteMobileAutomation/tree/master/src)
 
