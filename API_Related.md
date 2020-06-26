@@ -16,7 +16,12 @@
 9.	Examples of Rest API with Components?
 10.	What are the Various Methods of RestAPI---> Similarity with DB
 11.	Can we create a database record with Put API
-12.	Various Response Code and there details?
+### Rest API
+https://www.restapitutorial.com/
+
+###	Various Response Code and there details?
+
+Please find the details from https://www.restapitutorial.com/httpstatuscodes.html
 =========================================
 
 13.	Where are API used in actual world? Used cases Diagram
