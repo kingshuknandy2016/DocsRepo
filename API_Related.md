@@ -1,10 +1,16 @@
 # Web-Services
-1.	What are Web-Services?
-2.	How many Types of Web-services are there?
-3.	What are Soap Web services? Details with Example
-4.	What are Rest Web services? Example
-5.	Differences between Rest AND SOAP?
-6.	Why Rest API is preferred over Soap Web services?
+
+### What are Web-Services?
+
+### How many types of Web-Services are there?
+
+### What are SOAP Web-Services?
+
+### What are REST Web-Services?
+
+### Differences between Rest AND SOAP?
+
+###	Why Rest API is preferred over Soap Web services?
 7.	What are the components of Rest and Soap Web Services?[ Endpoint , Resource, Template]
 8.	What are the inputs supported for Rest API?
 9.	Examples of Rest API with Components?
