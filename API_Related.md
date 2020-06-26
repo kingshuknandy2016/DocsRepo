@@ -19,10 +19,9 @@
 ### Rest API
 https://www.restapitutorial.com/
 
-###	Various Response Code and there details?
-
+### Various Response Code and there details?
 Please find the details from https://www.restapitutorial.com/httpstatuscodes.html
-=========================================
+
 
 13.	Where are API used in actual world? Used cases Diagram
 14.	What is API Automations?
