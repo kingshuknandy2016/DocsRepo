@@ -22,10 +22,10 @@
 
 ## Set-Up Maven:
 
-***wget http://repos.fedorapeople.org/repos/dchen/apache-maven/epel-apache-maven.repo -O /etc/yum.repos.d/epel-apache-maven.repo***<br/>
-***sudo sed -i s/\$releasever/6/g /etc/yum.repos.d/epel-apache-maven.repo***<br/>
-***sudo yum install -y apache-maven***<br/>
-***mvn --version***<br/>
+* ***wget http://repos.fedorapeople.org/repos/dchen/apache-maven/epel-apache-maven.repo -O /etc/yum.repos.d/epel-apache-maven.repo***<br/>
+* ***sudo sed -i s/\$releasever/6/g /etc/yum.repos.d/epel-apache-maven.repo***<br/>
+* ***sudo yum install -y apache-maven***<br/>
+* ***mvn --version***<br/>
 
 ## Installing GIT
 
