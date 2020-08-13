@@ -20,3 +20,6 @@ AWS Access Key ID [None]: adddad<br/>
 AWS Secret Access Key [None]: zadadasd<br/>
 Default region name [None]: us-west-2<br/>
 Default output format [None]: json<br/>
+
+## Upload File
+* aws s3 cp D:/logs/09-10-13 s3://test/09-10-13 --recursive
