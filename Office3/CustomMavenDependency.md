@@ -51,7 +51,13 @@ In this case the repository will be stored on a directory called “my-repo” a
 On maven 2.3 and onwards:
 
 ```java
-mvn install:install-file -Dfile=<path-to-file> -DgroupId=<myGroup> -DartifactId=<myArtifactId> -Dversion=<myVersion> -Dpackaging=<myPackaging> -DlocalRepositoryPath=<path>
+mvn install:install-file 
+-Dfile=<path-to-file> 
+-DgroupId=<myGroup> 
+-DartifactId=<myArtifactId> 
+-Dversion=<myVersion> 
+-Dpackaging=<myPackaging> 
+-DlocalRepositoryPath=<path>
 ```
 
 ##### Step 2:Add the dependency to the project as usual.
