@@ -16,7 +16,7 @@
 
 ## [AWS Configure](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-quickstart.html)
 * ***aws configure***<br/>
-AWS Access Key ID [None]: AKIAIOSFODNN7EXAMPLE<br/>
-AWS Secret Access Key [None]: wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY<br/>
+AWS Access Key ID [None]: adddad<br/>
+AWS Secret Access Key [None]: zadadasd<br/>
 Default region name [None]: us-west-2<br/>
 Default output format [None]: json<br/>
