@@ -12,6 +12,16 @@ we'll take a look at how we can leverage the *Runtime* and *ProcessBuilder* clas
       printResults(process);
 ```
 
+```java
+public static void printResults(Process process) throws IOException {
+    BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
+    String line = "";
+    while ((line = reader.readLine()) != null) {
+        System.out.println(line);
+    }
+}
+```
+
 Here,
 
 
