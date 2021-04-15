@@ -9,7 +9,7 @@
 
 [Automation using Puppeteer Basics - Youtube](https://www.youtube.com/watch?v=4q9CNtwdawA) <br/>
 [Puppeteer - New Chrome Browser Automation Tool || JavaScript Based || Easy and Fast(Objects Segregated) - Youtube](https://www.youtube.com/watch?v=GnNsW9FCMZ0) <br/>
-[Puppeteer Blog - Notes](https://www.toptal.com/puppeteer/headless-browser-puppeteer-tutorial)
+[ Puppeteer Blog - Notes](https://www.toptal.com/puppeteer/headless-browser-puppeteer-tutorial)
 
 
 # Dev-Ops
@@ -18,7 +18,7 @@
 [Very good Video Session](https://www.youtube.com/watch?v=wi-MGFhrad0&list=PLhW3qG5bs-L99pQsZ74f-LC-tOEsBp2rK)<br/>
 
 <br/>
-[Play with Docker Classroom](https://training.play-with-docker.com/)
+[ Play with Docker Classroom ](https://training.play-with-docker.com/)
 
 
 ### Kubernetes Links
