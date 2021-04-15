@@ -26,6 +26,7 @@
 [Labs Play with Docker](https://labs.play-with-docker.com/#)
 
 #### CUSTOM DOCS
+[Docker](https://docs.google.com/document/d/1iRlB6eSBC-51XTMyUc0zmaS8N546d6Nt/edit#heading=h.gjdgxs)
 
 #### CODING REFERENCES
 
@@ -47,6 +48,8 @@
 
 
 #### CUSTOM DOCS
+[Kubernetes](https://docs.google.com/document/d/1k3Ze47QijjU4Z7YUmDLU46crTRje1M1g/edit#heading=h.gjdgxs)<br/>
+[Kubernetes Advanced Architecture](https://docs.google.com/document/d/1sDZeujyLGzaK63Sy36GFWBAfTWQ_d9Qy/edit#heading=h.gjdgxs)<br/>
 
 #### CODING REFERENCES
 
