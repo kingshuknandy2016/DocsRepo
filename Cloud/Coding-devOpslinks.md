@@ -38,7 +38,7 @@
 
 #### ARCHITECTURE
 [Redhat Kuberenetes Architecture ](https://www.redhat.com/en/topics/containers/kubernetes-architecture)<br/>
-[Platform9 Kuberenetes Architecture](https://platform9.com/blog/kubernetes-enterprise-chapter-2-kubernetes-architecture-concepts/)
+[Platform9 Kuberenetes Architecture](https://platform9.com/blog/kubernetes-enterprise-chapter-2-kubernetes-architecture-concepts/)<br/>
 [kubernetes.io Kuberenetes Architecture](https://kubernetes.io/docs/concepts/overview/components/)
 
 #### LABS
