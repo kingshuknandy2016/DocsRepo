@@ -11,6 +11,9 @@ You will get basics about **TypeScript** and some coding from [Basic Learing of 
 #### OFFICIAL Documentation
 [Typescript Official Documentation ](https://www.typescriptlang.org/docs/handbook/2/everyday-types.html)
 
+#### CUSTOM DOCS
+[TypeScript](https://docs.google.com/document/d/1YYIRKV9DOZ7m1DPLZQsun3JZHuZTOUXB/edit#heading=h.gjdgxs)
+
 ## Automation using TypeScript and Node JS
 
 #### PUPPETEER
