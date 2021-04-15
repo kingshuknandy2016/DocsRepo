@@ -2,7 +2,7 @@
 ----------------------
 
 ## TypeScript
-[Basic Learing of TypeScript- Videos](https://www.youtube.com/watch?v=Gd76yF1Dkg4&list=PLzvRQMJ9HDiQyjtcrtvDkeQMJIrv5ABbm) <br/>
+You will get basics about Typescript and some coding from [Basic Learing of TypeScript- Videos](https://www.youtube.com/watch?v=Gd76yF1Dkg4&list=PLzvRQMJ9HDiQyjtcrtvDkeQMJIrv5ABbm) <br/>
 [Another Video Tutorial](https://www.youtube.com/playlist?list=PLOntVmB73c8xSKcuCYvn7dHH4nuoFRjyL)<br/>
 [Debugging TypeScript](https://code.visualstudio.com/docs/typescript/typescript-debugging)<br/>
 [Making asynchronous programming easier with async and await](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous/Async_await)<br/>
