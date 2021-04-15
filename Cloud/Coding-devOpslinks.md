@@ -15,9 +15,7 @@
 # Dev-Ops
 --------------------------
 ### Docker Links
-[Very good Video Session](https://www.youtube.com/watch?v=wi-MGFhrad0&list=PLhW3qG5bs-L99pQsZ74f-LC-tOEsBp2rK)<br/>
-
-<br/>
+[Very good Video Session](https://www.youtube.com/watch?v=wi-MGFhrad0&list=PLhW3qG5bs-L99pQsZ74f-LC-tOEsBp2rK)<br/><br/>
 [ Play with Docker Classroom ](https://training.play-with-docker.com/)
 
 
