@@ -16,9 +16,11 @@
 --------------------------
 ## Docker Links
 [Very good Video Session](https://www.youtube.com/watch?v=wi-MGFhrad0&list=PLhW3qG5bs-L99pQsZ74f-LC-tOEsBp2rK)<br/><br/>
+[**Kubernetes Architecture** Deatials platform9](https://platform9.com/blog/kubernetes-enterprise-chapter-2-kubernetes-architecture-concepts/)
 
 #### LABS
-[ Play with Docker Classroom ](https://training.play-with-docker.com/)
+[ Play with Docker Classroom ](https://training.play-with-docker.com/)<br/>
+[Labs Play with Docker](https://labs.play-with-docker.com/#)
 
 #### CUSTOM DOCS
 
