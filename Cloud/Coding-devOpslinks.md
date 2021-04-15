@@ -7,11 +7,13 @@ You will get basics about **TypeScript** and some coding from [Basic Learing of 
 [How to Setup a TypeScript + Node.js Project](https://khalilstemmler.com/blogs/typescript/node-starter-project/)<br/>
 [Another Video Tutorial](https://www.youtube.com/playlist?list=PLOntVmB73c8xSKcuCYvn7dHH4nuoFRjyL)<br/>
 [Debugging TypeScript](https://code.visualstudio.com/docs/typescript/typescript-debugging)<br/>
-[Making asynchronous programming easier with async and await](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous/Async_await)<br/>
+
 
 
 #### OFFICIAL Documentation
 [Typescript Official Documentation ](https://www.typescriptlang.org/docs/handbook/2/everyday-types.html)
+[Making asynchronous programming easier with async and await](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous/Async_await)<br/>
+[Promises](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)
 
 #### CUSTOM DOCS
 [TypeScript](https://docs.google.com/document/d/1YYIRKV9DOZ7m1DPLZQsun3JZHuZTOUXB/edit#heading=h.gjdgxs)<br/>
