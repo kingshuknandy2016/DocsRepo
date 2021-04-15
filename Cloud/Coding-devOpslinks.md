@@ -17,7 +17,7 @@ You will get basics about **TypeScript** and some coding from [Basic Learing of 
 [Promises](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)<br/>
 
 #### CUSTOM DOCS
-[JavaScript And NodeJS](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)<br/>
+[JavaScript And NodeJS](https://docs.google.com/document/d/1kvszIUuYWpJDuC0mqtVlZoztL4ypxmq3/edit)<br/>
 [TypeScript](https://docs.google.com/document/d/1YYIRKV9DOZ7m1DPLZQsun3JZHuZTOUXB/edit#heading=h.gjdgxs)<br/>
 [TypeScriptBasics Custom Docs](https://github.com/kingshuknandy2016/nodeJs/tree/master/TypeScriptBasics)
 
