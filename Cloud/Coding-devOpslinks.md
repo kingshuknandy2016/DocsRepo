@@ -10,10 +10,12 @@
 
 ## Automation using TypeScript and Node JS
 
+#### PUPPETEER
 [Automation using Puppeteer Basics - Youtube](https://www.youtube.com/watch?v=4q9CNtwdawA) <br/>
 [Puppeteer - New Chrome Browser Automation Tool || JavaScript Based || Easy and Fast(Objects Segregated) - Youtube](https://www.youtube.com/watch?v=GnNsW9FCMZ0) <br/>
 [ Puppeteer Blog - Notes](https://www.toptal.com/puppeteer/headless-browser-puppeteer-tutorial)
-
+[Puppeteerv8.0.0](https://pptr.dev/)<br/>
+[puppeteer GitHub Docs](https://github.com/puppeteer/puppeteer)
 
 # DEV-OPS
 --------------------------
