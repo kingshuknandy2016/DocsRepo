@@ -12,7 +12,7 @@
 [ Puppeteer Blog - Notes](https://www.toptal.com/puppeteer/headless-browser-puppeteer-tutorial)
 
 
-# Dev-Ops
+# DEV-OPS
 --------------------------
 ## Docker Links
 [Very good Video Session](https://www.youtube.com/watch?v=wi-MGFhrad0&list=PLhW3qG5bs-L99pQsZ74f-LC-tOEsBp2rK)<br/><br/>
@@ -20,6 +20,9 @@
 #### LABS
 [ Play with Docker Classroom ](https://training.play-with-docker.com/)
 
+#### CUSTOM DOCS
+
+#### CODING REFERENCES
 
 ## Kubernetes Links
 [Interactive tutorial to playaround with k8s: ](https://kubernetes.io/docs/tutorials/kubernetes-basics/) <br/>
@@ -31,5 +34,9 @@
 #### LABS
 [Live Kubernetes Practice Labs Online with Katacoda](https://www.katacoda.com/courses/kubernetes)<br/>
 [Play with Kubernetes Classroom](https://training.play-with-kubernetes.com/kubernetes-workshop/)<br/>
+
+#### CUSTOM DOCS
+
+#### CODING REFERENCES
 
 
