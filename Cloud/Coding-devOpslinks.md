@@ -1,7 +1,7 @@
 # Coding
 ----------------------
 
-## TypeScript
+## TypeScript and NodeJS
 You will get basics about **TypeScript** and some coding from [Basic Learing of TypeScript- Videos](https://www.youtube.com/watch?v=Gd76yF1Dkg4&list=PLzvRQMJ9HDiQyjtcrtvDkeQMJIrv5ABbm) <br/>
 [How To Set Up a Node Project With Typescript](https://www.digitalocean.com/community/tutorials/setting-up-a-node-project-with-typescript)<br/>
 [How to Setup a TypeScript + Node.js Project](https://khalilstemmler.com/blogs/typescript/node-starter-project/)<br/>
@@ -9,11 +9,13 @@ You will get basics about **TypeScript** and some coding from [Basic Learing of 
 [Debugging TypeScript](https://code.visualstudio.com/docs/typescript/typescript-debugging)<br/>
 [Making asynchronous programming easier with async and await](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous/Async_await)<br/>
 
+
 #### OFFICIAL Documentation
 [Typescript Official Documentation ](https://www.typescriptlang.org/docs/handbook/2/everyday-types.html)
 
 #### CUSTOM DOCS
-[TypeScript](https://docs.google.com/document/d/1YYIRKV9DOZ7m1DPLZQsun3JZHuZTOUXB/edit#heading=h.gjdgxs)
+[TypeScript](https://docs.google.com/document/d/1YYIRKV9DOZ7m1DPLZQsun3JZHuZTOUXB/edit#heading=h.gjdgxs)<br/>
+[TypeScriptBasics Custom Docs](https://github.com/kingshuknandy2016/nodeJs/tree/master/TypeScriptBasics)
 
 ## Automation using TypeScript and Node JS
 
