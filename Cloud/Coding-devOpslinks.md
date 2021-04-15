@@ -1,7 +1,16 @@
 # Coding
+----------------------
+
 ### TypeScript
 [Basic Learing of TypeScript- Videos](https://www.youtube.com/watch?v=Gd76yF1Dkg4&list=PLzvRQMJ9HDiQyjtcrtvDkeQMJIrv5ABbm) <br/>
 [Another Video Tutorial](https://www.youtube.com/playlist?list=PLOntVmB73c8xSKcuCYvn7dHH4nuoFRjyL)
+
+### Automation using TypeScript and Node JS
+
+[Automation using Puppeteer Basics - Youtube](https://www.youtube.com/watch?v=4q9CNtwdawA) <br/>
+[Puppeteer - New Chrome Browser Automation Tool || JavaScript Based || Easy and Fast(Objects Segregated) - Youtube](https://www.youtube.com/watch?v=GnNsW9FCMZ0)
+[Puppeteer Blog - Notes](https://www.toptal.com/puppeteer/headless-browser-puppeteer-tutorial)
+
 
 # Dev-Ops
 --------------------------
