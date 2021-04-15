@@ -1,6 +1,7 @@
 # Coding
 ----------------------
 
+
 ## TypeScript and NodeJS
 You will get basics about **TypeScript** and some coding from [Basic Learing of TypeScript- Videos](https://www.youtube.com/watch?v=Gd76yF1Dkg4&list=PLzvRQMJ9HDiQyjtcrtvDkeQMJIrv5ABbm) <br/>
 [How To Set Up a Node Project With Typescript](https://www.digitalocean.com/community/tutorials/setting-up-a-node-project-with-typescript)<br/>
@@ -16,6 +17,7 @@ You will get basics about **TypeScript** and some coding from [Basic Learing of 
 [Promises](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)<br/>
 
 #### CUSTOM DOCS
+[JavaScript And NodeJS](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)<br/>
 [TypeScript](https://docs.google.com/document/d/1YYIRKV9DOZ7m1DPLZQsun3JZHuZTOUXB/edit#heading=h.gjdgxs)<br/>
 [TypeScriptBasics Custom Docs](https://github.com/kingshuknandy2016/nodeJs/tree/master/TypeScriptBasics)
 
