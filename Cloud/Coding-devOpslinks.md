@@ -20,6 +20,6 @@
 ### Kubernetes Links
 [Interactive tutorial to playaround with k8s: ](https://kubernetes.io/docs/tutorials/kubernetes-basics/) <br/>
 [K8S free course from the official team](https://www.udacity.com/course/scalable-microservices-with-kubernetes--ud615) <br/>
-(Readiness vs Liveness Probe)[https://cloud.google.com/blog/products/gcp/kubernetes-best-practices-setting-up-health-checks-with-readiness-and-liveness-probes
-]<br/>
+[ Readiness vs Liveness Probe ]( https://cloud.google.com/blog/products/gcp/kubernetes-best-practices-setting-up-health-checks-with-readiness-and-liveness-probes
+)<br/>
 [Full Videos with Tests](https://cutt.ly/2vpE0M1)
