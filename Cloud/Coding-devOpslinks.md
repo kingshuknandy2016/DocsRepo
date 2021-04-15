@@ -4,7 +4,7 @@
 ## TypeScript
 You will get basics about **TypeScript** and some coding from [Basic Learing of TypeScript- Videos](https://www.youtube.com/watch?v=Gd76yF1Dkg4&list=PLzvRQMJ9HDiQyjtcrtvDkeQMJIrv5ABbm) <br/>
 [How To Set Up a Node Project With Typescript](https://www.digitalocean.com/community/tutorials/setting-up-a-node-project-with-typescript)<br/>
-[How to Setup a TypeScript + Node.js Project](https://khalilstemmler.com/blogs/typescript/node-starter-project/)
+[How to Setup a TypeScript + Node.js Project](https://khalilstemmler.com/blogs/typescript/node-starter-project/)<br/>
 [Another Video Tutorial](https://www.youtube.com/playlist?list=PLOntVmB73c8xSKcuCYvn7dHH4nuoFRjyL)<br/>
 [Debugging TypeScript](https://code.visualstudio.com/docs/typescript/typescript-debugging)<br/>
 [Making asynchronous programming easier with async and await](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous/Async_await)<br/>
