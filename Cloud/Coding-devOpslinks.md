@@ -37,11 +37,14 @@
 [Full Videos with Tests](https://cutt.ly/2vpE0M1)<br>
 
 #### ARCHITECTURE
-[Redhat Kuberenetes Architecture ](https://www.redhat.com/en/topics/containers/kubernetes-architecture)
+[Redhat Kuberenetes Architecture ](https://www.redhat.com/en/topics/containers/kubernetes-architecture)<br/>
+[Platform9 Kuberenetes Architecture](https://platform9.com/blog/kubernetes-enterprise-chapter-2-kubernetes-architecture-concepts/)
+[kubernetes.io Kuberenetes Architecture](https://kubernetes.io/docs/concepts/overview/components/)
 
 #### LABS
 [Live Kubernetes Practice Labs Online with Katacoda](https://www.katacoda.com/courses/kubernetes)<br/>
 [Play with Kubernetes Classroom](https://training.play-with-kubernetes.com/kubernetes-workshop/)<br/>
+
 
 #### CUSTOM DOCS
 
