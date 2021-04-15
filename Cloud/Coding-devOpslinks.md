@@ -1,6 +1,6 @@
 # Coding
 ### TypeScript
-[Basic Learing of TypeScript- Videos](https://www.youtube.com/watch?v=Gd76yF1Dkg4&list=PLzvRQMJ9HDiQyjtcrtvDkeQMJIrv5ABbm)
+[Basic Learing of TypeScript- Videos](https://www.youtube.com/watch?v=Gd76yF1Dkg4&list=PLzvRQMJ9HDiQyjtcrtvDkeQMJIrv5ABbm) <br/>
 [Another Video Tutorial](https://www.youtube.com/playlist?list=PLOntVmB73c8xSKcuCYvn7dHH4nuoFRjyL)
 
 # Dev-Ops
