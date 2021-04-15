@@ -34,7 +34,10 @@
 [K8S free course from the official team](https://www.udacity.com/course/scalable-microservices-with-kubernetes--ud615) <br/>
 [ Readiness vs Liveness Probe ]( https://cloud.google.com/blog/products/gcp/kubernetes-best-practices-setting-up-health-checks-with-readiness-and-liveness-probes
 )<br/>
-[Full Videos with Tests](https://cutt.ly/2vpE0M1)<br><br/>
+[Full Videos with Tests](https://cutt.ly/2vpE0M1)<br>
+
+#### ARCHITECTURE
+[Redhat Kuberenetes Architecture ](https://www.redhat.com/en/topics/containers/kubernetes-architecture)
 
 #### LABS
 [Live Kubernetes Practice Labs Online with Katacoda](https://www.katacoda.com/courses/kubernetes)<br/>
