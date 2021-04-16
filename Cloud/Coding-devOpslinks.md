@@ -50,6 +50,7 @@ You will get basics about **TypeScript** and some coding from [Basic Learing of 
 * [Function Overview](https://github.com/kingshuknandy2016/nodeJs/blob/master/TypeScriptBasics/function.md)
 * [Function Returning Promise](https://github.com/kingshuknandy2016/nodeJs/blob/master/TypeScriptBasics/functionReturningPromise.md)
 * [Passing a interface type of object in a function](https://github.com/kingshuknandy2016/nodeJs/blob/master/TypeScriptBasics/fewConcepts.md)
+* [Types vs. interfaces in TypeScript](https://github.com/kingshuknandy2016/nodeJs/blob/master/TypeScriptBasics/TypesVSinterfaces.md)
 
 ## Automation using TypeScript and Node JS
 
