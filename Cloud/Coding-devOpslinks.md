@@ -4,6 +4,15 @@
 
 * [Introduction to Oops](https://docs.google.com/document/d/1VpSK4mcyvz3bYjLJ8jINChCjCRiAWfox/edit)
 * [SingleTon Class in JAVA](https://docs.google.com/document/d/1kJVcAJlg_ugneIQ1g0oyrjLLB_7B9GMI_8OuyhR-iIg/edit)
+* [Anotations](https://docs.google.com/document/d/15_wcXwFAZEoAf_LIwnwl0dDHzK-xyfS3pNnES87gILg/edit)
+* [Clonning and Singleton Class](https://docs.google.com/document/d/1xBsbr4ZciG2y4g66MsbN8nEKh2R8geoib8SuVRSOKrw/edit)
+* []()
+* []()
+* []()
+* []()
+* []()
+* []()
+* []()
 
 ## TYPESCRIPT & NODEJS
 You will get basics about **TypeScript** and some coding from [Basic Learing of TypeScript- Videos](https://www.youtube.com/watch?v=Gd76yF1Dkg4&list=PLzvRQMJ9HDiQyjtcrtvDkeQMJIrv5ABbm) <br/>
