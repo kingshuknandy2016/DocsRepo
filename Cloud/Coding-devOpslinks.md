@@ -38,6 +38,9 @@ You will get basics about **TypeScript** and some coding from [Basic Learing of 
 * [Making asynchronous programming easier with async and await](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous/Async_await)<br/>
 * [Promises](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)<br/>
 
+#### ONLINE CODING PLAYGROUND
+[https://www.typescriptlang.org/play](https://www.typescriptlang.org/play)
+
 #### CUSTOM DOCS
 [JavaScript And NodeJS](https://docs.google.com/document/d/1kvszIUuYWpJDuC0mqtVlZoztL4ypxmq3/edit)<br/>
 [TypeScript](https://docs.google.com/document/d/1YYIRKV9DOZ7m1DPLZQsun3JZHuZTOUXB/edit#heading=h.gjdgxs)<br/>
