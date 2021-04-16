@@ -1,6 +1,9 @@
 # Coding
 ----------------------
+## JAVA
 
+* [Introduction to Oops](https://docs.google.com/document/d/1VpSK4mcyvz3bYjLJ8jINChCjCRiAWfox/edit)
+* [SingleTon Class in JAVA](https://docs.google.com/document/d/1kJVcAJlg_ugneIQ1g0oyrjLLB_7B9GMI_8OuyhR-iIg/edit)
 
 ## TypeScript and NodeJS
 You will get basics about **TypeScript** and some coding from [Basic Learing of TypeScript- Videos](https://www.youtube.com/watch?v=Gd76yF1Dkg4&list=PLzvRQMJ9HDiQyjtcrtvDkeQMJIrv5ABbm) <br/>
