@@ -34,13 +34,19 @@ You will get basics about **TypeScript** and some coding from [Basic Learing of 
 
 #### OFFICIAL Documentation
 [Typescript Official Documentation ](https://www.typescriptlang.org/docs/handbook/2/everyday-types.html)<br/>
-[Making asynchronous programming easier with async and await](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous/Async_await)<br/>
-[Promises](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)<br/>
+
+* [Making asynchronous programming easier with async and await](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous/Async_await)<br/>
+* [Promises](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)<br/>
 
 #### CUSTOM DOCS
 [JavaScript And NodeJS](https://docs.google.com/document/d/1kvszIUuYWpJDuC0mqtVlZoztL4ypxmq3/edit)<br/>
 [TypeScript](https://docs.google.com/document/d/1YYIRKV9DOZ7m1DPLZQsun3JZHuZTOUXB/edit#heading=h.gjdgxs)<br/>
 [TypeScriptBasics Custom Docs](https://github.com/kingshuknandy2016/nodeJs/tree/master/TypeScriptBasics)
+
+***Few Important Concepts***
+* [Function Overview](https://github.com/kingshuknandy2016/nodeJs/blob/master/TypeScriptBasics/function.md)
+* [Function Returning Promise](https://github.com/kingshuknandy2016/nodeJs/blob/master/TypeScriptBasics/functionReturningPromise.md)
+* [Passing a interface type of object in a function](https://github.com/kingshuknandy2016/nodeJs/blob/master/TypeScriptBasics/fewConcepts.md)
 
 ## Automation using TypeScript and Node JS
 
