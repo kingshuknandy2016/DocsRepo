@@ -18,6 +18,7 @@
 * [Reflection API](https://docs.google.com/document/d/1Gx3I1Edn5gFFTiYqe79gNZr_uDv6Y7Rn4wqpJaDZZc4/edit)
 * [Patterns and Programs](https://docs.google.com/document/d/1_nXuGyZE3muz-Ki21RpYW9yIRLZAAs4Elr_3sDfEKHA/edit)
 * [Working with POI and Collection Questions](https://docs.google.com/document/d/15I0AUiE5ZOEkOncJ9z0BjcTm4WiY3Vi4C12gATps5Jw/edit)
+* [LambdaExpression](https://github.com/kingshuknandy2016/DocsRepo/blob/master/JAVA/LambdaExpression.md)
 
 
 ## TYPESCRIPT & NODEJS
