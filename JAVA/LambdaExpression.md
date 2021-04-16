@@ -8,7 +8,7 @@ public class LamdaDemo {
 }
 
 interface A {
-	void show();
+    void show();
 }
 
 class XYZ implements A{
@@ -23,16 +23,16 @@ class XYZ implements A{
 
 ```java
 A obj=new A(){  //Anonymous Inner Class
-			@Override
-			public void show() {
-				System.out.println("Show");
-			}		
-		};
+		@Override
+		public void show() {
+			System.out.println("Show");
+		}		
+	};
 ```
 ```java
-A obj=()->{
-				System.out.println("Show");
-			};
+	A obj=()->{
+		System.out.println("Show");
+	};
 ```
 
 ```java
