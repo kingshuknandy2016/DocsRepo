@@ -12,6 +12,7 @@
 * [Design Pattern](https://docs.google.com/document/d/152kOeFSl0rhDRoxjY2GDYLjWTc4Q2c0i/edit)
 * [Java 8 Features](https://docs.google.com/document/d/1QwEnP6jBcV9IpDBkAQFtmhfCONhUQbXfw48nUSY8f9M/edit)
 * [Multithreading](https://docs.google.com/document/d/118nNNECTcXi5IYU42Kx_ze4Cs0DKFf_liXAd-gR4EuQ/edit)
+* [Multi-threading Ways Demo and Synchronization.md](https://github.com/kingshuknandy2016/DocsRepo/blob/master/JAVA/Multi-threading%20Ways%20Demo%20and%20Synchronization.md)
 * [Object Creation And Modifiers](https://docs.google.com/document/d/1Yr-uQj7M_-2ZBruuWhHc2jATRRq0Ql7rUH-x7la0BLI/edit)
 * [Inner Classes](https://docs.google.com/document/d/1FjMu_QGipxKTRDitipgoUNhBg8QanDE9PbBNKC5sycg/edit)
 * [OOPS and Concepts](https://docs.google.com/document/d/1cfGlZeJu0PKtP92Fp38_n8xPlusDI1G7q_gFduG0Ejc/edit)
