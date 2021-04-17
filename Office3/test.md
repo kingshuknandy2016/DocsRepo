@@ -7,4 +7,4 @@ The jenkins pipeline looks like
   public void verifyListingReaderPactCatagory6() {
   }
 ```
-![alt text](http://url/to/img.png)
+![image](https://user-images.githubusercontent.com/36564770/115127080-4cd69c80-9ff1-11eb-8e91-522c876bf62b.png)
