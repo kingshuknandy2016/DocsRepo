@@ -112,12 +112,9 @@ You will get basics about **TypeScript** and some coding from [Basic Learing of 
 * [Native Application Automation Simple Example](https://github.com/kingshuknandy2016/DocsRepo/blob/master/Office3/MobileAutomation.md#native-application-automation-simple-examples)
 * [Mobile Web Application Automation Simple Examples](https://github.com/kingshuknandy2016/DocsRepo/blob/master/Office3/MobileAutomation.md#mobile-web-application-automation-simple-examples)
 * [Hybrid Application Automation Simple Examples](https://github.com/kingshuknandy2016/DocsRepo/blob/master/Office3/MobileAutomation.md#hybrid-application-automation-simple-examples) 
-* []() 
-* []() 
-* []() 
-* []() 
-* []() 
-* []() 
-* []() 
-* []() 
+* [Parallel Execution on different Mobile Platforms](https://github.com/kingshuknandy2016/DocsRepo/blob/master/Office3/MobileAutomation.md#parallel-execution-on-different-mobile-platforms) 
+* [Multiple Apps Automation](https://github.com/kingshuknandy2016/DocsRepo/blob/master/Office3/MobileAutomation.md#multiple-apps-automation) 
+* [PageObjectModel](https://github.com/kingshuknandy2016/DocsRepo/blob/master/Office3/MobileAutomation.md#pageobjectmodel) 
+* [Debug Method To Detect Application Context And WebElement](https://github.com/kingshuknandy2016/DocsRepo/blob/master/Office3/MobileAutomation.md#debug-method-to-detect-application-context-and-webelement) 
+
 # Custom Docs
