@@ -195,7 +195,7 @@ public class BasicWebAppAutomation {
 
 In order to facilitate parallel execution across various mobile devices of same or different platforms we will be using appium with Selenium Grid. Selenium Grid is basically a proxy server that speaks the WebDriver protocol, and manages connections to a pool of WebDriver servers. It wasn't designed specifically to work with Appium, but because Appium also speaks the WebDriver protocol (and because we taught Appium how to register with Selenium Grid)
         
-image1.png![image](https://user-images.githubusercontent.com/36564770/115127212-688e7280-9ff2-11eb-9bab-2a8035b1ceeb.png)
+Architectural Diagram![image](https://user-images.githubusercontent.com/36564770/115127212-688e7280-9ff2-11eb-9bab-2a8035b1ceeb.png)
 
 
 Details Steps:
