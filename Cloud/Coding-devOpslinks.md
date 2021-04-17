@@ -51,6 +51,13 @@ You will get basics about **TypeScript** and some coding from [Basic Learing of 
 * [Function Returning Promise](https://github.com/kingshuknandy2016/nodeJs/blob/master/TypeScriptBasics/functionReturningPromise.md)
 * [Passing a interface type of object in a function](https://github.com/kingshuknandy2016/nodeJs/blob/master/TypeScriptBasics/fewConcepts.md)
 * [Types vs. interfaces in TypeScript and Classes](https://github.com/kingshuknandy2016/nodeJs/blob/master/TypeScriptBasics/TypesVSinterfaces.md)
+* [Functions](https://github.com/kingshuknandy2016/nodeJs/blob/master/TypeScriptBasics/Functions-Details.md#functions)
+* [Object Types](https://github.com/kingshuknandy2016/nodeJs/blob/master/TypeScriptBasics/Functions-Details.md#object-types)
+* [Union Types](https://github.com/kingshuknandy2016/nodeJs/blob/master/TypeScriptBasics/Functions-Details.md#union-types)
+* [Type Aliases](https://github.com/kingshuknandy2016/nodeJs/blob/master/TypeScriptBasics/Functions-Details.md#type-aliases)
+* [Interface](https://github.com/kingshuknandy2016/nodeJs/blob/master/TypeScriptBasics/Functions-Details.md#interface)
+* [Difference between TypeAliases and Interface](https://github.com/kingshuknandy2016/nodeJs/blob/master/TypeScriptBasics/Functions-Details.md#difference-between-typealiases-and-interface)
+
 
 ## Automation using TypeScript and Node JS
 
