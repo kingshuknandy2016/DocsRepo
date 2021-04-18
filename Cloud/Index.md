@@ -122,6 +122,7 @@ You will get basics about **TypeScript** and some coding from [Basic Learing of 
 2. [Its Setup](https://drive.google.com/drive/folders/1NPfl0s1eVoL-7S-jkN-Cb067-Gd7Ppuj)
 3. [IOS Automation Setup](https://docs.google.com/document/d/1pv7dlSSngIpW5Qf43kkk74BanGmrWDKB/edit)
 
+# API Automation
 #### Trainning Materials
 
 * [Detail Training Plan](https://docs.google.com/spreadsheets/d/1vLvwkdWNMnQS1Zz-n3pekQnzqTle123z/edit#gid=2088511249)
