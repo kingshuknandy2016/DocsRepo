@@ -150,4 +150,4 @@ You will get basics about **TypeScript** and some coding from [Basic Learing of 
 
 #### Tracks Yet To be Completed
 
-* [Basic DevOps Track Description]()
+* [Basic DevOps Track Description](https://docs.google.com/spreadsheets/d/17HrOYWdBIq5iLe1C8TP4jfsZxu5_bLvs/edit#gid=2059201613)
