@@ -127,3 +127,27 @@ You will get basics about **TypeScript** and some coding from [Basic Learing of 
 * [Detail Training Plan](https://docs.google.com/spreadsheets/d/1vLvwkdWNMnQS1Zz-n3pekQnzqTle123z/edit#gid=2088511249)
 * [Overview Plan](https://docs.google.com/spreadsheets/d/1Cbme0lyofILokfYvXJI_W-ZeLNRDw6dS/edit#gid=1394004682)
 * [REST API TESTING](https://docs.google.com/document/d/1qeFylmCZ_OpTwPZJ0czSTV0FJxjjaNoF/edit)
+
+## Google Cloud Platform(GCP)
+
+#### Tekton
+* [GKE and Tekton - Next Generation CI_CD with Tekton](https://docs.google.com/document/d/1ZV0hLlJK_RkJdAEyJXFzuGoNx9C8LAPX/edit#heading=h.gjdgxs)
+
+## Amazon Web Services(AWS)
+
+## Azure
+
+# R And D Materials
+
+* Prepare a basic implementation of extend Report
+* Prepare a basic Implemetation of customized Report
+
+
+#### Blogs(Yet to be Completed)
+
+* [Simple Application deployment on Kubernetes by using Terraform](https://docs.google.com/document/d/1J55ZBlibA7-q4Ep9-xr6a9x1A4xW9yxJ/edit)
+
+
+#### Tracks Yet To be Completed
+
+* [Basic DevOps Track Description]()
