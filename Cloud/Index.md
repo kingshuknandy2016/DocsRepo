@@ -117,4 +117,7 @@ You will get basics about **TypeScript** and some coding from [Basic Learing of 
 * [PageObjectModel](https://github.com/kingshuknandy2016/DocsRepo/blob/master/Office3/MobileAutomation.md#pageobjectmodel) 
 * [Debug Method To Detect Application Context And WebElement](https://github.com/kingshuknandy2016/DocsRepo/blob/master/Office3/MobileAutomation.md#debug-method-to-detect-application-context-and-webelement) 
 
-# Custom Docs
+#### Practical Setup
+1. [Parallel Execution of various Mobile Platforms](https://docs.google.com/document/d/18MWXuC3a3vk7DxcJCN-ZqNzEH1FSy0mD/edit#heading=h.gjdgxs)
+2. [Its Setup](https://drive.google.com/drive/folders/1NPfl0s1eVoL-7S-jkN-Cb067-Gd7Ppuj)
+3. [IOS Automation Setup](https://docs.google.com/document/d/1pv7dlSSngIpW5Qf43kkk74BanGmrWDKB/edit)
