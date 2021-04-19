@@ -22,6 +22,8 @@
 * [LambdaExpression](https://github.com/kingshuknandy2016/DocsRepo/blob/master/JAVA/LambdaExpression.md)
 * [ObjectClonning](https://github.com/kingshuknandy2016/DocsRepo/blob/master/JAVA/ObjectClonning.md)
 
+## Javascript
+* [Very Good Link -JavaScript Info](https://javascript.info/)
 
 ## TYPESCRIPT & NODEJS
 You will get basics about **TypeScript** and some coding from [Basic Learing of TypeScript- Videos](https://www.youtube.com/watch?v=Gd76yF1Dkg4&list=PLzvRQMJ9HDiQyjtcrtvDkeQMJIrv5ABbm) <br/>
