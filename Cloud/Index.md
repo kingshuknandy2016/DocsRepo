@@ -70,6 +70,13 @@ You will get basics about **TypeScript** and some coding from [Basic Learing of 
 [Puppeteerv8.0.0](https://pptr.dev/)<br/>
 [puppeteer GitHub Docs](https://github.com/puppeteer/puppeteer)
 
+# FRAMEWORKS
+
+## Dropwizard Framework - Java Based - Rest RESTful web services Development 
+
+ [Dropwizard](https://docs.google.com/document/d/1VCS0xwJbsMjHMStbj6NmrYIW9zyI5Zpu/edit#heading=h.gjdgxs)
+
+
 # DEV-OPS
 --------------------------
 ## Docker Links
