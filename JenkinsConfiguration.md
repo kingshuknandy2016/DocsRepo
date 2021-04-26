@@ -74,7 +74,7 @@ Name: Default
 C:\Program Files\Git\bin
 ```
 
-#### Complete Project Setup
+#### Parameterized Job Setup Complete Configuration
 1. Select Maven Project
 2. Select Git Project and give the Git URL
 3. Select, This project is parameterized
