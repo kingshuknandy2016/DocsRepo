@@ -115,6 +115,28 @@ You will get basics about **TypeScript** and some coding from [Basic Learing of 
 
 #### CODING REFERENCES
 
+## Jenkins
+
+* [Spin Up Jenkins from Docker Compose File](https://docs.google.com/document/d/1rANKSPXiC9tWEdnw9wsoTbOje6b_NrGV/edit#heading=h.gjdgxs)
+* [Setting up of Docker and Maven in Jenkins](https://docs.google.com/document/d/1rANKSPXiC9tWEdnw9wsoTbOje6b_NrGV/edit#heading=h.gjdgxs)
+* [Basic Pipeline and its Development](https://docs.google.com/document/d/1rANKSPXiC9tWEdnw9wsoTbOje6b_NrGV/edit#heading=h.gjdgxs)
+
+* [Dynamic Jenkins Mail Subject](https://docs.google.com/document/d/10iWHwGu0_LVQLoKsHJ3oSWS7-fjO6a0F/edit)
+
+## Google Cloud Platform(GCP)
+
+* [Google Cloud Functions](https://docs.google.com/document/d/1gOmQuF8Kb9mPtrVOB8R8-JEy1HVhzZU9/edit#heading=h.gjdgxs)
+* [GCP Testing](https://docs.google.com/document/d/1vbrJGtCi7worHx6VmJTeRx_RcvoU_IBd/edit#heading=h.gjdgxs)
+
+#### Tekton
+* [GKE and Tekton - Next Generation CI_CD with Tekton](https://docs.google.com/document/d/1ZV0hLlJK_RkJdAEyJXFzuGoNx9C8LAPX/edit#heading=h.gjdgxs)
+
+## Amazon Web Services(AWS)
+
+## Azure
+
+
+
 # [Mobile Automation](https://github.com/kingshuknandy2016/DocsRepo/blob/master/Office3/MobileAutomation.md)
 
 * [Initial Setup](https://github.com/kingshuknandy2016/DocsRepo/blob/master/Office3/MobileAutomation.md#initial-setup) <br/>
@@ -142,17 +164,6 @@ You will get basics about **TypeScript** and some coding from [Basic Learing of 
 
 * [Contract Testing And Various](https://docs.google.com/document/d/1XrVNYiJctdpvzMw8Cq-_Rw2sbaMF_ftg/edit#heading=h.gjdgxs)
 
-## Google Cloud Platform(GCP)
-
-* [Google Cloud Functions](https://docs.google.com/document/d/1gOmQuF8Kb9mPtrVOB8R8-JEy1HVhzZU9/edit#heading=h.gjdgxs)
-* [GCP Testing](https://docs.google.com/document/d/1vbrJGtCi7worHx6VmJTeRx_RcvoU_IBd/edit#heading=h.gjdgxs)
-
-#### Tekton
-* [GKE and Tekton - Next Generation CI_CD with Tekton](https://docs.google.com/document/d/1ZV0hLlJK_RkJdAEyJXFzuGoNx9C8LAPX/edit#heading=h.gjdgxs)
-
-## Amazon Web Services(AWS)
-
-## Azure
 
 # R And D Materials
 
