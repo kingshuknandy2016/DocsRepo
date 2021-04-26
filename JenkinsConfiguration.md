@@ -5,6 +5,7 @@
 * By windows Service: That can be done by windows installer file
 * By war : By Starting Jenkins server as a executable jar
 
+#### Starting Jenkins server as a executable jar
 Start the Jenkins Server by War file Commands:
 cd C:\Program Files (x86)\Jenkins
 java -jar Jenkins.war
@@ -108,7 +109,7 @@ Publish TestNG XML Report:**/**/testng-results.xml
 Issues:
 Go to Manage Jenkins > Script Console > enter value > System.setProperty("hudson.model.DirectoryBrowserSupport.CSP", "default-src * 'unsafe-inline' 'unsafe-eval';script-src 'self' 'unsafe-inline' 'unsafe-eval'"); > Click Run 2 times... it will work
 
-Katalon Integration:
+### Katalon Integration:
 ===========================
 Link:
 https://dzone.com/articles/how-to-setup-the-integration-with-jenkins-and-other
@@ -120,11 +121,11 @@ cd C:\Users\king\Downloads\Katalon_Studio_Windows_64-6.2.0
 katalon -noSplash  -runMode=console -projectPath="C:\Users\king\.jenkins\workspace\Proj1\abc_name.prj" -retry=0 -testSuitePath="Test Suites/%TestSuite_name%" -executionProfile="%Execution_Profile%" -browserType="%Browser%" -reportFolder="Reports\Details" -reportFileName="report" -apiKey=******************
 echo Success
 
-IN Stall Test Result Analyzer to View the Junit Report:
+#### Test Results Viewing - Install Test Result Analyzer to View the Junit Report:
 https://wiki.jenkins.io/display/JENKINS/Test+Results+Analyzer+Plugin
 
 
-Built Triggers Poll SCM:
+### Built Triggers Poll SCM:
 ==========================
 Chron syntax: * * * * *
 1st * :Minute(0-59)
@@ -142,15 +143,16 @@ Examples:
 0 0 * * *     Every Day at Midnight
 0 2-4 * * *   2 AM ,3 AM , 4 AM Every Day
 
-Code Quality and Code Coverage Metrix Report:
+### Code Quality and Code Coverage Metrix Report: Plugins
 ==============================================
-Plugins : CheckStyle,PMD,FindBugs
-https://wiki.jenkins.io/display/JENKINS/Checkstyle+Plugin
-https://wiki.jenkins.io/display/JENKINS/PMD+Plugin
-https://wiki.jenkins.io/display/JENKINS/FindBugs+Plugin
+***Plugins***  : CheckStyle,PMD,FindBugs
 
-Jenkins Pipeline:
+* https://wiki.jenkins.io/display/JENKINS/Checkstyle+Plugin
+* https://wiki.jenkins.io/display/JENKINS/PMD+Plugin
+* https://wiki.jenkins.io/display/JENKINS/FindBugs+Plugin
+
+### Jenkins Pipeline:
 ===================
-1] Declarative
-2] Scripted Pipeline
+1. Declarative
+2. Scripted Pipeline
 
