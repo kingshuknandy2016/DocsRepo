@@ -124,6 +124,7 @@ You will get basics about **TypeScript** and some coding from [Basic Learing of 
 #### Used Case
 * [Pipeline Script - Currency Exchange Microservice Deployment](https://github.com/kingshuknandy2016/DocsRepo/blob/master/Office3/Jenkinsfile-pipeline.md#some-pipeline-scripts)
 * [Dynamic Jenkins Mail Subject](https://docs.google.com/document/d/10iWHwGu0_LVQLoKsHJ3oSWS7-fjO6a0F/edit)
+* [Pipeline - Use of Generic Trigger Plugin,git repo fetch,api call from shellscript,jq tool,send email,automation job execution in Windows node, execution of stages in different nodes](https://github.com/kingshuknandy2016/DocsCase/blob/main/JenkinsAdvanced.md)
 
 ## Google Cloud Platform(GCP)
 
