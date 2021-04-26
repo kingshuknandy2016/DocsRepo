@@ -149,7 +149,11 @@ You will get basics about **TypeScript** and some coding from [Basic Learing of 
 
 ## Amazon Web Services(AWS)
 
+* [Testing In AWS](https://docs.google.com/document/d/13qfoPWFRAFKD_sCpHKdb5y8HNJxK5lxX/edit)
+
 ## Azure
+
+* [Azure Pipeline Basic Docs](https://docs.google.com/document/d/1dJQtnMFtIk1_3wdo0xNRusklJLaGgBqI/edit#heading=h.gjdgxs)
 
 
 
