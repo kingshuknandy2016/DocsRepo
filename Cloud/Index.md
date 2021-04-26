@@ -117,6 +117,15 @@ You will get basics about **TypeScript** and some coding from [Basic Learing of 
 
 ## Jenkins
 
+* [Basic Jenkins Hosting - Jenkins Can be hosted in two ways](https://github.com/kingshuknandy2016/DocsRepo/blob/master/JenkinsConfiguration.md#basic-jenkins-hosting---jenkins-can-be-hosted-in-two-ways)
+* [Starting Jenkins server as a executable jar and Configuration](https://github.com/kingshuknandy2016/DocsRepo/blob/master/JenkinsConfiguration.md#starting-jenkins-server-as-a-executable-jar-and-configuration)
+* [Basic Java Project Pull from Git and Setup Jenkins for CICD](https://github.com/kingshuknandy2016/DocsRepo/blob/master/JenkinsConfiguration.md#basic-java-project-pull-from-git-and-setup-jenkins-for-cicd)
+* [Parameterized Job Setup Complete Configuration](https://github.com/kingshuknandy2016/DocsRepo/blob/master/JenkinsConfiguration.md#parameterized-job-setup-complete-configuration)
+* [Katalon with Jenkins Integration](https://github.com/kingshuknandy2016/DocsRepo/blob/master/JenkinsConfiguration.md#katalon-integration)
+* [Built Triggers Poll SCM](https://github.com/kingshuknandy2016/DocsRepo/blob/master/JenkinsConfiguration.md#built-triggers-poll-scm)
+* [Code Quality and Code Coverage Metrix Report: Plugins](https://github.com/kingshuknandy2016/DocsRepo/blob/master/JenkinsConfiguration.md#code-quality-and-code-coverage-metrix-report-plugins)
+* [est Results Viewing - Install Test Result Analyzer to View the Junit Report](https://github.com/kingshuknandy2016/DocsRepo/blob/master/JenkinsConfiguration.md#test-results-viewing---install-test-result-analyzer-to-view-the-junit-report)
+* [Jenkins Pipeline](https://github.com/kingshuknandy2016/DocsRepo/blob/master/JenkinsConfiguration.md#jenkins-pipeline)
 * [Spin Up Jenkins from Docker Compose File](https://docs.google.com/document/d/1rANKSPXiC9tWEdnw9wsoTbOje6b_NrGV/edit#heading=h.gjdgxs)
 * [Setting up of Docker and Maven in Jenkins](https://docs.google.com/document/d/1rANKSPXiC9tWEdnw9wsoTbOje6b_NrGV/edit#heading=h.gjdgxs)
 * [Basic Pipeline and its Development](https://docs.google.com/document/d/1rANKSPXiC9tWEdnw9wsoTbOje6b_NrGV/edit#heading=h.gjdgxs)
