@@ -1,6 +1,9 @@
-# Jenkins Can be hosted in two ways:
-A]By windows Service: That can be done by windows installer file
-B]By war : By Starting Jenkins server as a executable jar
+# Jenkins Basics
+
+### Basic Jenkins Hosting - Jenkins Can be hosted in two ways 
+
+* By windows Service: That can be done by windows installer file
+* By war : By Starting Jenkins server as a executable jar
 
 Start the Jenkins Server by War file Commands:
 cd C:\Program Files (x86)\Jenkins
