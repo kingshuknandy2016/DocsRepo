@@ -124,7 +124,7 @@ You will get basics about **TypeScript** and some coding from [Basic Learing of 
 * [Katalon with Jenkins Integration](https://github.com/kingshuknandy2016/DocsRepo/blob/master/JenkinsConfiguration.md#katalon-integration)
 * [Built Triggers Poll SCM](https://github.com/kingshuknandy2016/DocsRepo/blob/master/JenkinsConfiguration.md#built-triggers-poll-scm)
 * [Code Quality and Code Coverage Metrix Report: Plugins](https://github.com/kingshuknandy2016/DocsRepo/blob/master/JenkinsConfiguration.md#code-quality-and-code-coverage-metrix-report-plugins)
-* [est Results Viewing - Install Test Result Analyzer to View the Junit Report](https://github.com/kingshuknandy2016/DocsRepo/blob/master/JenkinsConfiguration.md#test-results-viewing---install-test-result-analyzer-to-view-the-junit-report)
+* [Test Results Viewing - Install Test Result Analyzer to View the Junit Report](https://github.com/kingshuknandy2016/DocsRepo/blob/master/JenkinsConfiguration.md#test-results-viewing---install-test-result-analyzer-to-view-the-junit-report)
 * [Jenkins Pipeline](https://github.com/kingshuknandy2016/DocsRepo/blob/master/JenkinsConfiguration.md#jenkins-pipeline)
 * [Spin Up Jenkins from Docker Compose File](https://docs.google.com/document/d/1rANKSPXiC9tWEdnw9wsoTbOje6b_NrGV/edit#heading=h.gjdgxs)
 * [Setting up of Docker and Maven in Jenkins](https://docs.google.com/document/d/1rANKSPXiC9tWEdnw9wsoTbOje6b_NrGV/edit#heading=h.gjdgxs)
