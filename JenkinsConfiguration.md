@@ -110,9 +110,7 @@ Issues:
 Go to Manage Jenkins > Script Console > enter value > System.setProperty("hudson.model.DirectoryBrowserSupport.CSP", "default-src * 'unsafe-inline' 'unsafe-eval';script-src 'self' 'unsafe-inline' 'unsafe-eval'"); > Click Run 2 times... it will work
 
 ### Katalon Integration:
-===========================
-Link:
-https://dzone.com/articles/how-to-setup-the-integration-with-jenkins-and-other
+[Article Link](https://dzone.com/articles/how-to-setup-the-integration-with-jenkins-and-other)
 
 Windows Batch Command:
 ```cmd
@@ -151,7 +149,6 @@ Examples:
 ```
 
 ### Code Quality and Code Coverage Metrix Report: Plugins
-==============================================
 ***Plugins***  : CheckStyle,PMD,FindBugs
 
 * https://wiki.jenkins.io/display/JENKINS/Checkstyle+Plugin
@@ -159,7 +156,6 @@ Examples:
 * https://wiki.jenkins.io/display/JENKINS/FindBugs+Plugin
 
 ### Jenkins Pipeline:
-===================
 1. Declarative
 2. Scripted Pipeline
 
