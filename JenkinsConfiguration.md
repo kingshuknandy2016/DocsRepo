@@ -14,11 +14,12 @@ java -jar Jenkins.war
 
 b. Server Machine Configuration:
 Initial Configuration of Windows system:
+```
 	1. JDK has to be installed: jdk-8u172-windows-x64.exeset Path
 	2.  Maven has to be installed.[Donload Zip Place it in C:\Pograme Files\]set path
 	3.  Git Has to be installed.
 	4.  TortiseGit has to be installed. To pull the code
-
+```
 c. set User Variable:
 ```cmd
 HOME   C:\Pogram Files\Jenkins\
