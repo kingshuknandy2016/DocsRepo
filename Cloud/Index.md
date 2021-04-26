@@ -121,6 +121,8 @@ You will get basics about **TypeScript** and some coding from [Basic Learing of 
 * [Setting up of Docker and Maven in Jenkins](https://docs.google.com/document/d/1rANKSPXiC9tWEdnw9wsoTbOje6b_NrGV/edit#heading=h.gjdgxs)
 * [Basic Pipeline and its Development](https://docs.google.com/document/d/1rANKSPXiC9tWEdnw9wsoTbOje6b_NrGV/edit#heading=h.gjdgxs)
 
+#### Used Case
+* [Pipeline Script - Currency Exchange Microservice Deployment](https://github.com/kingshuknandy2016/DocsRepo/blob/master/Office3/Jenkinsfile-pipeline.md#some-pipeline-scripts)
 * [Dynamic Jenkins Mail Subject](https://docs.google.com/document/d/10iWHwGu0_LVQLoKsHJ3oSWS7-fjO6a0F/edit)
 
 ## Google Cloud Platform(GCP)
