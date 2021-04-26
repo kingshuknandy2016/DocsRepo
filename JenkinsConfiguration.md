@@ -1,11 +1,11 @@
 # Jenkins Basics
 
-### Basic Jenkins Hosting - Jenkins Can be hosted in two ways 
+## Basic Jenkins Hosting - Jenkins Can be hosted in two ways 
 
 * By windows Service: That can be done by windows installer file
 * By war : By Starting Jenkins server as a executable jar
 
-#### Starting Jenkins server as a executable jar and Configuration
+### Starting Jenkins server as a executable jar and Configuration
 a. Start the Jenkins Server by War file Commands
 ```cmd
 cd C:\Program Files (x86)\Jenkins
@@ -37,16 +37,17 @@ C:\Program Files\Java\jdk1.8.0_181\bin
 C:\Program Files\apache-maven-3.6.0\bin
 C:\Program Files\Git\cmd
 ```
-#### Basic Java Project Pull from Git and Setup Jenkins for CICD:
+### Basic Java Project Pull from Git and Setup Jenkins for CICD:
 
 * Install Eclipse.
 * Do git clone of the Repository
 * Import the Project
 * Install Testng in eclipse
 
-**** Plugins required: ****
+* Plugins required:
 Maven Integration plugin Plugin for Maven feature.
 HTML Publisher plugin for Report show
+```
 Git Plugins:   
 a.Git Client Plugin
 b.Git Plugin
@@ -54,19 +55,24 @@ c.Git Server Plugin
 d.GitHub API Plugin
 e.GitHub Branch Source Plugin
 f.GitHub Plugin
+````
       
-Global Tool Configuration::
+* Global Tool Configuration
 Maven:
+```
 Maven
 C:\Program Files\apache-maven-3.6.0
-
+```
 JDK:
+```
 JAVA_HOME
 C:\Program Files\Java\jdk1.8.0_181\
-
+```
 Git
+```
 Name: Default
 C:\Program Files\Git\bin
+```
 
 #### Complete Project Setup
 1. Select Maven Project
