@@ -22,6 +22,10 @@
 * [LambdaExpression](https://github.com/kingshuknandy2016/DocsRepo/blob/master/JAVA/LambdaExpression.md)
 * [ObjectClonning](https://github.com/kingshuknandy2016/DocsRepo/blob/master/JAVA/ObjectClonning.md)
 
+## Python
+
+[Learn advanced- GeeksOfGeeks](https://www.geeksforgeeks.org/python-programming-language/?ref=ghm)
+
 ## Javascript
 * [Very Good Link -JavaScript Info](https://javascript.info/)
 
