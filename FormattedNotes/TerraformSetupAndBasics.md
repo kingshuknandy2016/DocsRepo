@@ -58,9 +58,9 @@ provider "aws" {
     secret_key = "${var.AWS_SECRET_KEY}"
     region = "${var.AWS_REGION}"
 }
-
+```
 This is how the  ***vars.tf***
-```json
+```terraform
 variable "AWS_ACCESS_KEY" {}
 variable "AWS_SECRET_KEY" {}
 variable "AWS_REGION" {
