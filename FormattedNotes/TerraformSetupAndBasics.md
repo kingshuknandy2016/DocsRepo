@@ -13,7 +13,7 @@
   
   * Basic AWS Spinning instance:   **demo.tf**
 
-  ```json
+  ```terraform
     provider "aws" {
       access_key = "*********"
       secret_key = "**********"
@@ -45,14 +45,14 @@ ssh-keygen -t rsa -C "your_email@example.com"
 
 
 This is how the ***instance.tf***
-```json
+```terraform
 resource "aws_instance" "basic_ec2" {
     ami           = "${lookup(var.AMIS, var.AWS_REGION)}"
     instance_type = "t2.micro"
 }
 ```
 This is how the ***provider.tf***
-```json
+```terraform
 provider "aws" {
     access_key = "${var.AWS_ACCESS_KEY}"
     secret_key = "${var.AWS_SECRET_KEY}"
@@ -79,7 +79,7 @@ variable "AMIS" {
 
 This is how the ***terraform.tfvars***
 
-```json
+```terraform
 AWS_ACCESS_KEY = "*******"
 AWS_SECRET_KEY = "********"
 AWS_REGION = "us-east-2"
@@ -93,7 +93,7 @@ Q] What are Provisioner?
 Provisioners are used to execute scripts on a local or remote machine as part of resource creation or destruction.
 Provisioners can be used to bootstrap a resource, cleanup before destroy, run configuration management, etc.
 
-```json
+```terraform
 resource "aws_key_pair" "my_key" {                // First we need to send AWS keypair to Amazon
   key_name = "myKey"
   public_key = "${file("${var.PATH_TO_PUBLIC_KEY}")}"
@@ -127,7 +127,7 @@ resource "aws_instance" "basic_ec2" {
 ```
 
 ***vars.tf***
-```json
+```terraform
 variable "AWS_ACCESS_KEY" {}
 variable "AWS_SECRET_KEY" {}
 variable "AWS_REGION" {
